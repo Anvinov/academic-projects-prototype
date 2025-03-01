@@ -26,21 +26,151 @@ public class GUIMenuWithoutLog extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPHead = new javax.swing.JPanel();
+        lbTitleProyect = new java.awt.Label();
+        jPOpcLogin = new javax.swing.JPanel();
+        jBtnNewUser = new javax.swing.JButton();
+        jBtnLoginU = new javax.swing.JButton();
+        lbNewUser = new javax.swing.JLabel();
+        lbLogin = new javax.swing.JLabel();
+        jPSearchBar = new javax.swing.JPanel();
+        jCBSelecFilter = new javax.swing.JComboBox<>();
+        jTFSearchProyect = new javax.swing.JTextField();
+        jBTNSearch = new javax.swing.JButton();
+        jSeparator = new javax.swing.JSeparator();
+        jPContent = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema GPACA");
+        setBackground(new java.awt.Color(236, 230, 240));
+
+        jPHead.setBackground(new java.awt.Color(236, 230, 240));
+        jPHead.setForeground(new java.awt.Color(0, 0, 0));
+        jPHead.setLayout(new javax.swing.BoxLayout(jPHead, javax.swing.BoxLayout.LINE_AXIS));
+
+        lbTitleProyect.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        lbTitleProyect.setText("Sistema gestor de proyectos academicos");
+        jPHead.add(lbTitleProyect);
+
+        jPOpcLogin.setBackground(new java.awt.Color(236, 230, 240));
+        jPOpcLogin.setForeground(new java.awt.Color(0, 0, 0));
+        jPOpcLogin.setLayout(new java.awt.GridLayout(2, 2, 10, 0));
+
+        jBtnNewUser.setBackground(new java.awt.Color(236, 230, 240));
+        jBtnNewUser.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jBtnNewUser.setForeground(new java.awt.Color(0, 0, 0));
+        jBtnNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/NewUser.png"))); // NOI18N
+        jBtnNewUser.setToolTipText("");
+        jBtnNewUser.setBorder(null);
+        jBtnNewUser.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBtnNewUser.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnNewUser.setOpaque(true);
+        jBtnNewUser.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jBtnNewUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnNewUserActionPerformed(evt);
+            }
+        });
+        jPOpcLogin.add(jBtnNewUser);
+
+        jBtnLoginU.setBackground(new java.awt.Color(236, 230, 240));
+        jBtnLoginU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/LoginUser2.png"))); // NOI18N
+        jBtnLoginU.setBorder(null);
+        jBtnLoginU.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBtnLoginU.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnLoginU.setIconTextGap(5);
+        jBtnLoginU.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jBtnLoginU.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnLoginU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnLoginUActionPerformed(evt);
+            }
+        });
+        jPOpcLogin.add(jBtnLoginU);
+
+        lbNewUser.setBackground(new java.awt.Color(101, 85, 153));
+        lbNewUser.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbNewUser.setForeground(new java.awt.Color(255, 255, 255));
+        lbNewUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbNewUser.setText("¿ Nuevo usuario ?");
+        lbNewUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbNewUser.setOpaque(true);
+        jPOpcLogin.add(lbNewUser);
+
+        lbLogin.setBackground(new java.awt.Color(101, 85, 153));
+        lbLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbLogin.setForeground(new java.awt.Color(255, 255, 255));
+        lbLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbLogin.setText("Iniciar Sesion");
+        lbLogin.setOpaque(true);
+        jPOpcLogin.add(lbLogin);
+
+        jPHead.add(jPOpcLogin);
+
+        jPSearchBar.setBackground(new java.awt.Color(236, 230, 240));
+        jPSearchBar.setForeground(new java.awt.Color(0, 0, 0));
+        jPSearchBar.setLayout(new javax.swing.BoxLayout(jPSearchBar, javax.swing.BoxLayout.LINE_AXIS));
+
+        jCBSelecFilter.setBackground(new java.awt.Color(236, 230, 240));
+        jCBSelecFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtro 1", "Filtro 2", "Filtro3" }));
+        jPSearchBar.add(jCBSelecFilter);
+
+        jTFSearchProyect.setBackground(new java.awt.Color(236, 230, 240));
+        jTFSearchProyect.setText("Ingrese un proyecto a buscar...");
+        jPSearchBar.add(jTFSearchProyect);
+
+        jBTNSearch.setBackground(new java.awt.Color(236, 230, 240));
+        jBTNSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/search.png"))); // NOI18N
+        jPSearchBar.add(jBTNSearch);
+
+        jSeparator.setBackground(new java.awt.Color(236, 230, 240));
+        jSeparator.setForeground(new java.awt.Color(204, 204, 204));
+
+        jPContent.setBackground(new java.awt.Color(236, 230, 240));
+        jPContent.setForeground(new java.awt.Color(0, 0, 0));
+        jPContent.setLayout(new java.awt.GridLayout());
+
+        jLabel1.setBackground(new java.awt.Color(236, 230, 240));
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("AQUI VA EL CONTENIDO ");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPContent.add(jLabel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPHead, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+            .addComponent(jPSearchBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jSeparator, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jPContent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPHead, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(jPSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPContent, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBtnNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNewUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnNewUserActionPerformed
+
+    private void jBtnLoginUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLoginUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnLoginUActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +208,19 @@ public class GUIMenuWithoutLog extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBTNSearch;
+    private javax.swing.JButton jBtnLoginU;
+    private javax.swing.JButton jBtnNewUser;
+    private javax.swing.JComboBox<String> jCBSelecFilter;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPContent;
+    private javax.swing.JPanel jPHead;
+    private javax.swing.JPanel jPOpcLogin;
+    private javax.swing.JPanel jPSearchBar;
+    private javax.swing.JSeparator jSeparator;
+    private javax.swing.JTextField jTFSearchProyect;
+    private javax.swing.JLabel lbLogin;
+    private javax.swing.JLabel lbNewUser;
+    private java.awt.Label lbTitleProyect;
     // End of variables declaration//GEN-END:variables
 }
