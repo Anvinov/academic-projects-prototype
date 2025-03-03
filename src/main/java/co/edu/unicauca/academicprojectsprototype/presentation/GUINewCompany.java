@@ -25,22 +25,265 @@ public class GUINewCompany extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        jPHead = new javax.swing.JPanel();
+        lbTitleProyect = new java.awt.Label();
+        jPTittleNewUser = new javax.swing.JPanel();
+        jLTittleNewCompany = new javax.swing.JLabel();
+        jPContent = new javax.swing.JPanel();
+        jLNitCompany = new javax.swing.JLabel();
+        jFieldNitCompany = new javax.swing.JTextField();
+        jLNameCompany = new javax.swing.JLabel();
+        jFieldNameCompany = new javax.swing.JTextField();
+        jLTelCompany = new javax.swing.JLabel();
+        jFieldTelCompany = new javax.swing.JTextField();
+        jLWebCompany = new javax.swing.JLabel();
+        jTFieldWebCompany = new javax.swing.JTextField();
+        jLSectorCompany = new javax.swing.JLabel();
+        jCBSectorCompany = new javax.swing.JComboBox<>();
+        jLEmailCompany = new javax.swing.JLabel();
+        jFieldEmailCompany = new javax.swing.JTextField();
+        jLPasswordCompany = new javax.swing.JLabel();
+        jFieldPassWordCompany = new javax.swing.JPasswordField();
+        jBtnSaveCompany = new javax.swing.JButton();
+        jPButtom = new javax.swing.JPanel();
+        jBtnBackSelectUser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPHead.setBackground(new java.awt.Color(236, 230, 240));
+        jPHead.setForeground(new java.awt.Color(0, 0, 0));
+        jPHead.setLayout(new javax.swing.BoxLayout(jPHead, javax.swing.BoxLayout.LINE_AXIS));
+
+        lbTitleProyect.setAlignment(java.awt.Label.CENTER);
+        lbTitleProyect.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        lbTitleProyect.setText("Sistema gestor de proyectos academicos");
+        jPHead.add(lbTitleProyect);
+
+        jPTittleNewUser.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLTittleNewCompany.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLTittleNewCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jLTittleNewCompany.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTittleNewCompany.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/NewUser.png"))); // NOI18N
+        jLTittleNewCompany.setText("Nueva Empresa");
+        jLTittleNewCompany.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jPTittleNewUser.add(jLTittleNewCompany);
+
+        jPContent.setBackground(new java.awt.Color(236, 230, 240));
+        jPContent.setForeground(new java.awt.Color(0, 0, 0));
+        java.awt.GridBagLayout jPContentLayout = new java.awt.GridBagLayout();
+        new java.awt.GridBagLayout().columnWidths = new int[] {300};
+        new java.awt.GridBagLayout().rowHeights = new int[] {20};
+        jPContent.setLayout(jPContentLayout);
+
+        jLNitCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jLNitCompany.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLNitCompany.setText("*NIT:");
+        jLNitCompany.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jLNitCompany.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jLNitCompany, gridBagConstraints);
+
+        jFieldNitCompany.setBackground(new java.awt.Color(255, 255, 255));
+        jFieldNitCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jFieldNitCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jFieldNitCompany.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jFieldNitCompany.setText("1000...");
+        jFieldNitCompany.setToolTipText("");
+        jFieldNitCompany.setAutoscrolls(false);
+        jFieldNitCompany.setMaximumSize(new java.awt.Dimension(500, 100));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jFieldNitCompany, gridBagConstraints);
+
+        jLNameCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLNameCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jLNameCompany.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLNameCompany.setText("*Nombre Empresa");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jLNameCompany, gridBagConstraints);
+
+        jFieldNameCompany.setBackground(new java.awt.Color(255, 255, 255));
+        jFieldNameCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jFieldNameCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jFieldNameCompany.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jFieldNameCompany.setText("Empresas Lopez");
+        jFieldNameCompany.setMaximumSize(new java.awt.Dimension(500, 100));
+        jFieldNameCompany.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFieldNameCompanyActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jFieldNameCompany, gridBagConstraints);
+
+        jLTelCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLTelCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jLTelCompany.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLTelCompany.setText("Telefono de contacto:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jLTelCompany, gridBagConstraints);
+
+        jFieldTelCompany.setBackground(new java.awt.Color(255, 255, 255));
+        jFieldTelCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jFieldTelCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jFieldTelCompany.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jFieldTelCompany.setText("31232323");
+        jFieldTelCompany.setMaximumSize(new java.awt.Dimension(500, 100));
+        jFieldTelCompany.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFieldTelCompanyActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jFieldTelCompany, gridBagConstraints);
+
+        jLWebCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLWebCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jLWebCompany.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLWebCompany.setText("Pagina web:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jLWebCompany, gridBagConstraints);
+
+        jTFieldWebCompany.setBackground(new java.awt.Color(255, 255, 255));
+        jTFieldWebCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jTFieldWebCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jTFieldWebCompany.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTFieldWebCompany.setText("www.lopez.com");
+        jTFieldWebCompany.setMaximumSize(new java.awt.Dimension(500, 100));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jTFieldWebCompany, gridBagConstraints);
+
+        jLSectorCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLSectorCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jLSectorCompany.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLSectorCompany.setText("Sector industrial:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jLSectorCompany, gridBagConstraints);
+
+        jCBSectorCompany.setBackground(new java.awt.Color(255, 255, 255));
+        jCBSectorCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jCBSectorCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jCBSectorCompany.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBSectorCompany.setMaximumSize(new java.awt.Dimension(300, 100));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jCBSectorCompany, gridBagConstraints);
+
+        jLEmailCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLEmailCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jLEmailCompany.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLEmailCompany.setText("Email:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jLEmailCompany, gridBagConstraints);
+
+        jFieldEmailCompany.setBackground(new java.awt.Color(255, 255, 255));
+        jFieldEmailCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jFieldEmailCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jFieldEmailCompany.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jFieldEmailCompany.setText("lopez@gmail.com");
+        jFieldEmailCompany.setMaximumSize(new java.awt.Dimension(500, 100));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jFieldEmailCompany, gridBagConstraints);
+
+        jLPasswordCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLPasswordCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jLPasswordCompany.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLPasswordCompany.setText("Clave:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jLPasswordCompany, gridBagConstraints);
+
+        jFieldPassWordCompany.setBackground(new java.awt.Color(255, 255, 255));
+        jFieldPassWordCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jFieldPassWordCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jFieldPassWordCompany.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jFieldPassWordCompany.setText("jPasswordField1");
+        jFieldPassWordCompany.setMaximumSize(new java.awt.Dimension(500, 100));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jFieldPassWordCompany, gridBagConstraints);
+
+        jBtnSaveCompany.setBackground(new java.awt.Color(0, 0, 0));
+        jBtnSaveCompany.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jBtnSaveCompany.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnSaveCompany.setText("GUARDAR");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPContent.add(jBtnSaveCompany, gridBagConstraints);
+
+        jPButtom.setBackground(new java.awt.Color(236, 230, 240));
+        jPButtom.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jBtnBackSelectUser.setBackground(new java.awt.Color(236, 230, 240));
+        jBtnBackSelectUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/back.png"))); // NOI18N
+        jBtnBackSelectUser.setBorderPainted(false);
+        jPButtom.add(jBtnBackSelectUser);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPTittleNewUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPHead, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 933, Short.MAX_VALUE)
+            .addComponent(jPButtom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPHead, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPTittleNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPContent, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jFieldNameCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFieldNameCompanyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFieldNameCompanyActionPerformed
+
+    private void jFieldTelCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFieldTelCompanyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFieldTelCompanyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +321,27 @@ public class GUINewCompany extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnBackSelectUser;
+    private javax.swing.JButton jBtnSaveCompany;
+    private javax.swing.JComboBox<String> jCBSectorCompany;
+    private javax.swing.JTextField jFieldEmailCompany;
+    private javax.swing.JTextField jFieldNameCompany;
+    private javax.swing.JTextField jFieldNitCompany;
+    private javax.swing.JPasswordField jFieldPassWordCompany;
+    private javax.swing.JTextField jFieldTelCompany;
+    private javax.swing.JLabel jLEmailCompany;
+    private javax.swing.JLabel jLNameCompany;
+    private javax.swing.JLabel jLNitCompany;
+    private javax.swing.JLabel jLPasswordCompany;
+    private javax.swing.JLabel jLSectorCompany;
+    private javax.swing.JLabel jLTelCompany;
+    private javax.swing.JLabel jLTittleNewCompany;
+    private javax.swing.JLabel jLWebCompany;
+    private javax.swing.JPanel jPButtom;
+    private javax.swing.JPanel jPContent;
+    private javax.swing.JPanel jPHead;
+    private javax.swing.JPanel jPTittleNewUser;
+    private javax.swing.JTextField jTFieldWebCompany;
+    private java.awt.Label lbTitleProyect;
     // End of variables declaration//GEN-END:variables
 }
