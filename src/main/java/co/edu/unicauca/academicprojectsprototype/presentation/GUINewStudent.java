@@ -78,6 +78,7 @@ public class GUINewStudent extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLNameStudent, gridBagConstraints);
 
         jFieldNameStudent.setBackground(new java.awt.Color(255, 255, 255));
@@ -94,6 +95,7 @@ public class GUINewStudent extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jFieldNameStudent, gridBagConstraints);
 
         jLCodeStudent.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -103,6 +105,7 @@ public class GUINewStudent extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLCodeStudent, gridBagConstraints);
 
         jFieldCodeStudent.setBackground(new java.awt.Color(255, 255, 255));
@@ -119,6 +122,7 @@ public class GUINewStudent extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jFieldCodeStudent, gridBagConstraints);
 
         jLTelStudent.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -128,6 +132,7 @@ public class GUINewStudent extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLTelStudent, gridBagConstraints);
 
         jTFieldTelStudent.setBackground(new java.awt.Color(255, 255, 255));
@@ -139,6 +144,7 @@ public class GUINewStudent extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jTFieldTelStudent, gridBagConstraints);
 
         jLEmailStudent.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -148,6 +154,7 @@ public class GUINewStudent extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLEmailStudent, gridBagConstraints);
 
         jFieldEmailStudent.setBackground(new java.awt.Color(255, 255, 255));
@@ -159,6 +166,7 @@ public class GUINewStudent extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jFieldEmailStudent, gridBagConstraints);
 
         jLPasswordStudent.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -168,6 +176,7 @@ public class GUINewStudent extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLPasswordStudent, gridBagConstraints);
 
         jFieldPassWordStudent.setBackground(new java.awt.Color(255, 255, 255));
@@ -179,6 +188,7 @@ public class GUINewStudent extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jFieldPassWordStudent, gridBagConstraints);
 
         jBtnSaveStudent.setBackground(new java.awt.Color(0, 0, 0));

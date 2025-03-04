@@ -78,6 +78,7 @@ public class GUINewCoordinator extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLNameCoordi, gridBagConstraints);
 
         jFieldNameCoordi.setBackground(new java.awt.Color(255, 255, 255));
@@ -94,6 +95,7 @@ public class GUINewCoordinator extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jFieldNameCoordi, gridBagConstraints);
 
         jLCodeCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -103,6 +105,7 @@ public class GUINewCoordinator extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLCodeCoordi, gridBagConstraints);
 
         jFieldCodeCoordi.setBackground(new java.awt.Color(255, 255, 255));
@@ -119,6 +122,7 @@ public class GUINewCoordinator extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jFieldCodeCoordi, gridBagConstraints);
 
         jLTelCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -128,6 +132,7 @@ public class GUINewCoordinator extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLTelCoordi, gridBagConstraints);
 
         jTFieldTelCoordi.setBackground(new java.awt.Color(255, 255, 255));
@@ -139,6 +144,7 @@ public class GUINewCoordinator extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jTFieldTelCoordi, gridBagConstraints);
 
         jLEmailCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -148,6 +154,7 @@ public class GUINewCoordinator extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLEmailCoordi, gridBagConstraints);
 
         jFieldEmailCoordi.setBackground(new java.awt.Color(255, 255, 255));
@@ -159,6 +166,7 @@ public class GUINewCoordinator extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jFieldEmailCoordi, gridBagConstraints);
 
         jLPasswordCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -168,6 +176,7 @@ public class GUINewCoordinator extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLPasswordCoordi, gridBagConstraints);
 
         jFieldPassWordCoordi.setBackground(new java.awt.Color(255, 255, 255));
@@ -179,6 +188,7 @@ public class GUINewCoordinator extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jFieldPassWordCoordi, gridBagConstraints);
 
         jBtnSaveCoordi.setBackground(new java.awt.Color(0, 0, 0));
@@ -195,6 +205,7 @@ public class GUINewCoordinator extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLAcademidProgCoordi, gridBagConstraints);
 
         jCBAcademicPrograCoordi.setBackground(new java.awt.Color(255, 255, 255));
@@ -204,6 +215,7 @@ public class GUINewCoordinator extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jCBAcademicPrograCoordi, gridBagConstraints);
 
         jPTittleNewUser.setBackground(new java.awt.Color(255, 255, 255));
@@ -232,7 +244,7 @@ public class GUINewCoordinator extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPTittleNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPContent, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPContent, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

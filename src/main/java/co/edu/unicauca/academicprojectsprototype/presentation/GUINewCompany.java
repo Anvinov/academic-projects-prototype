@@ -73,10 +73,7 @@ public class GUINewCompany extends javax.swing.JFrame {
 
         jPContent.setBackground(new java.awt.Color(236, 230, 240));
         jPContent.setForeground(new java.awt.Color(0, 0, 0));
-        java.awt.GridBagLayout jPContentLayout = new java.awt.GridBagLayout();
-        new java.awt.GridBagLayout().columnWidths = new int[] {300};
-        new java.awt.GridBagLayout().rowHeights = new int[] {20};
-        jPContent.setLayout(jPContentLayout);
+        jPContent.setLayout(new java.awt.GridBagLayout());
 
         jLNitCompany.setForeground(new java.awt.Color(0, 0, 0));
         jLNitCompany.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -87,6 +84,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLNitCompany, gridBagConstraints);
 
         jFieldNitCompany.setBackground(new java.awt.Color(255, 255, 255));
@@ -101,6 +99,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jFieldNitCompany, gridBagConstraints);
 
         jLNameCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -110,6 +109,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLNameCompany, gridBagConstraints);
 
         jFieldNameCompany.setBackground(new java.awt.Color(255, 255, 255));
@@ -126,6 +126,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jFieldNameCompany, gridBagConstraints);
 
         jLTelCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -135,6 +136,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLTelCompany, gridBagConstraints);
 
         jFieldTelCompany.setBackground(new java.awt.Color(255, 255, 255));
@@ -151,6 +153,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jFieldTelCompany, gridBagConstraints);
 
         jLWebCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -160,6 +163,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLWebCompany, gridBagConstraints);
 
         jTFieldWebCompany.setBackground(new java.awt.Color(255, 255, 255));
@@ -171,6 +175,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jTFieldWebCompany, gridBagConstraints);
 
         jLSectorCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -180,6 +185,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLSectorCompany, gridBagConstraints);
 
         jCBSectorCompany.setBackground(new java.awt.Color(255, 255, 255));
@@ -190,6 +196,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jCBSectorCompany, gridBagConstraints);
 
         jLEmailCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -199,6 +206,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLEmailCompany, gridBagConstraints);
 
         jFieldEmailCompany.setBackground(new java.awt.Color(255, 255, 255));
@@ -210,6 +218,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 11;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jFieldEmailCompany, gridBagConstraints);
 
         jLPasswordCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -219,6 +228,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLPasswordCompany, gridBagConstraints);
 
         jFieldPassWordCompany.setBackground(new java.awt.Color(255, 255, 255));
@@ -230,6 +240,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jFieldPassWordCompany, gridBagConstraints);
 
         jBtnSaveCompany.setBackground(new java.awt.Color(0, 0, 0));
@@ -268,7 +279,7 @@ public class GUINewCompany extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPTittleNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPContent, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPContent, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

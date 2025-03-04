@@ -25,18 +25,166 @@ public class GUILogIn extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        jPHead = new javax.swing.JPanel();
+        iconLoginUser = new javax.swing.JLabel();
+        jLTitittleLogin = new javax.swing.JLabel();
+        jPContent = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLUser = new javax.swing.JLabel();
+        jFieldUserName = new javax.swing.JTextField();
+        jLPassWord = new javax.swing.JLabel();
+        jPasswordUser = new javax.swing.JPasswordField();
+        jBtnPassUser = new javax.swing.JButton();
+        jBtnPasswordForget = new javax.swing.JButton();
+        jBtnNewUser = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jBtnBackHomeWithLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPHead.setBackground(new java.awt.Color(236, 230, 240));
+        jPHead.setLayout(new java.awt.GridBagLayout());
+
+        iconLoginUser.setBackground(new java.awt.Color(101, 85, 153));
+        iconLoginUser.setForeground(new java.awt.Color(101, 85, 153));
+        iconLoginUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/LoginUser3.png"))); // NOI18N
+        iconLoginUser.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 20);
+        jPHead.add(iconLoginUser, gridBagConstraints);
+
+        jLTitittleLogin.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jLTitittleLogin.setForeground(new java.awt.Color(0, 0, 0));
+        jLTitittleLogin.setText("Inicio de Sesion - Sistema proyectos");
+        jLTitittleLogin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLTitittleLogin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        jPHead.add(jLTitittleLogin, gridBagConstraints);
+
+        jPContent.setBackground(new java.awt.Color(236, 230, 240));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        java.awt.GridBagLayout jPanel1Layout = new java.awt.GridBagLayout();
+        jPanel1Layout.columnWidths = new int[] {250};
+        jPanel1.setLayout(jPanel1Layout);
+
+        jLUser.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLUser.setForeground(new java.awt.Color(0, 0, 0));
+        jLUser.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLUser.setText("Nombre de usuario:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(15, 10, 10, 10);
+        jPanel1.add(jLUser, gridBagConstraints);
+
+        jFieldUserName.setBackground(new java.awt.Color(255, 255, 255));
+        jFieldUserName.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jFieldUserName.setForeground(new java.awt.Color(0, 0, 0));
+        jFieldUserName.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jFieldUserName.setText("Nombre de usuario...");
+        jFieldUserName.setMaximumSize(new java.awt.Dimension(100, 100));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        jPanel1.add(jFieldUserName, gridBagConstraints);
+
+        jLPassWord.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLPassWord.setForeground(new java.awt.Color(0, 0, 0));
+        jLPassWord.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLPassWord.setText("Clave:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 10);
+        jPanel1.add(jLPassWord, gridBagConstraints);
+
+        jPasswordUser.setBackground(new java.awt.Color(255, 255, 255));
+        jPasswordUser.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jPasswordUser.setForeground(new java.awt.Color(0, 0, 0));
+        jPasswordUser.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jPasswordUser.setText("jPasswordField1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 10);
+        jPanel1.add(jPasswordUser, gridBagConstraints);
+
+        jBtnPassUser.setBackground(new java.awt.Color(0, 0, 0));
+        jBtnPassUser.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jBtnPassUser.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnPassUser.setText("INGRESAR");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel1.add(jBtnPassUser, gridBagConstraints);
+
+        jBtnPasswordForget.setBackground(new java.awt.Color(255, 255, 255));
+        jBtnPasswordForget.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jBtnPasswordForget.setForeground(new java.awt.Color(0, 0, 0));
+        jBtnPasswordForget.setText("¿Olvidaste la contraseña?");
+        jBtnPasswordForget.setBorderPainted(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        jPanel1.add(jBtnPasswordForget, gridBagConstraints);
+
+        jBtnNewUser.setBackground(new java.awt.Color(236, 230, 240));
+        jBtnNewUser.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jBtnNewUser.setForeground(new java.awt.Color(0, 0, 0));
+        jBtnNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/LoginUser2.png"))); // NOI18N
+        jBtnNewUser.setText("¿No tienes cuenta?");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel1.add(jBtnNewUser, gridBagConstraints);
+
+        jPContent.add(jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(236, 230, 240));
+        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        jBtnBackHomeWithLogin.setBackground(new java.awt.Color(236, 230, 240));
+        jBtnBackHomeWithLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/back.png"))); // NOI18N
+        jBtnBackHomeWithLogin.setBorderPainted(false);
+        jPanel2.add(jBtnBackHomeWithLogin);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPHead, javax.swing.GroupLayout.DEFAULT_SIZE, 828, Short.MAX_VALUE)
+            .addComponent(jPContent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPHead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPContent, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -78,5 +226,19 @@ public class GUILogIn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel iconLoginUser;
+    private javax.swing.JButton jBtnBackHomeWithLogin;
+    private javax.swing.JButton jBtnNewUser;
+    private javax.swing.JButton jBtnPassUser;
+    private javax.swing.JButton jBtnPasswordForget;
+    private javax.swing.JTextField jFieldUserName;
+    private javax.swing.JLabel jLPassWord;
+    private javax.swing.JLabel jLTitittleLogin;
+    private javax.swing.JLabel jLUser;
+    private javax.swing.JPanel jPContent;
+    private javax.swing.JPanel jPHead;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordUser;
     // End of variables declaration//GEN-END:variables
 }

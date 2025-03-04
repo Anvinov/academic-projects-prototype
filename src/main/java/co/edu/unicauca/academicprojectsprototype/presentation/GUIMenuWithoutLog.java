@@ -25,6 +25,7 @@ public class GUIMenuWithoutLog extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPHead = new javax.swing.JPanel();
         lbTitleProyect = new java.awt.Label();
@@ -35,8 +36,8 @@ public class GUIMenuWithoutLog extends javax.swing.JFrame {
         lbLogin = new javax.swing.JLabel();
         jPSearchBar = new javax.swing.JPanel();
         jCBSelecFilter = new javax.swing.JComboBox<>();
-        jTFSearchProyect = new javax.swing.JTextField();
-        jBTNSearch = new javax.swing.JButton();
+        jFieldSearchProyect = new javax.swing.JTextField();
+        jBtnSearch = new javax.swing.JButton();
         jSeparator = new javax.swing.JSeparator();
         jPContent = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -110,26 +111,36 @@ public class GUIMenuWithoutLog extends javax.swing.JFrame {
 
         jPSearchBar.setBackground(new java.awt.Color(236, 230, 240));
         jPSearchBar.setForeground(new java.awt.Color(0, 0, 0));
-        jPSearchBar.setLayout(new javax.swing.BoxLayout(jPSearchBar, javax.swing.BoxLayout.LINE_AXIS));
+        jPSearchBar.setLayout(new java.awt.GridBagLayout());
 
         jCBSelecFilter.setBackground(new java.awt.Color(236, 230, 240));
         jCBSelecFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtro 1", "Filtro 2", "Filtro3" }));
-        jPSearchBar.add(jCBSelecFilter);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        jPSearchBar.add(jCBSelecFilter, gridBagConstraints);
 
-        jTFSearchProyect.setBackground(new java.awt.Color(236, 230, 240));
-        jTFSearchProyect.setText("Ingrese un proyecto a buscar...");
-        jPSearchBar.add(jTFSearchProyect);
+        jFieldSearchProyect.setBackground(new java.awt.Color(236, 230, 240));
+        jFieldSearchProyect.setText("Ingrese un proyecto a buscar...");
+        jFieldSearchProyect.setMaximumSize(new java.awt.Dimension(200, 2147483647));
+        jFieldSearchProyect.setMinimumSize(new java.awt.Dimension(100, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 300;
+        jPSearchBar.add(jFieldSearchProyect, gridBagConstraints);
 
-        jBTNSearch.setBackground(new java.awt.Color(236, 230, 240));
-        jBTNSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/search.png"))); // NOI18N
-        jPSearchBar.add(jBTNSearch);
+        jBtnSearch.setBackground(new java.awt.Color(236, 230, 240));
+        jBtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/search.png"))); // NOI18N
+        jBtnSearch.setBorderPainted(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        jPSearchBar.add(jBtnSearch, gridBagConstraints);
 
         jSeparator.setBackground(new java.awt.Color(236, 230, 240));
         jSeparator.setForeground(new java.awt.Color(204, 204, 204));
 
         jPContent.setBackground(new java.awt.Color(236, 230, 240));
         jPContent.setForeground(new java.awt.Color(0, 0, 0));
-        jPContent.setLayout(new java.awt.GridLayout(1, 0));
+        jPContent.setLayout(new java.awt.BorderLayout());
 
         jLabel1.setBackground(new java.awt.Color(236, 230, 240));
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -137,7 +148,7 @@ public class GUIMenuWithoutLog extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("AQUI VA EL CONTENIDO ");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPContent.add(jLabel1);
+        jPContent.add(jLabel1, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,8 +168,8 @@ public class GUIMenuWithoutLog extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPContent, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPContent, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -209,17 +220,17 @@ public class GUIMenuWithoutLog extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBTNSearch;
     private javax.swing.JButton jBtnLoginU;
     private javax.swing.JButton jBtnNewUser;
+    private javax.swing.JButton jBtnSearch;
     private javax.swing.JComboBox<String> jCBSelecFilter;
+    private javax.swing.JTextField jFieldSearchProyect;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPContent;
     private javax.swing.JPanel jPHead;
     private javax.swing.JPanel jPOpcLogin;
     private javax.swing.JPanel jPSearchBar;
     private javax.swing.JSeparator jSeparator;
-    private javax.swing.JTextField jTFSearchProyect;
     private javax.swing.JLabel lbLogin;
     private javax.swing.JLabel lbNewUser;
     private java.awt.Label lbTitleProyect;
