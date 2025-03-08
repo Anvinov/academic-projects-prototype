@@ -4,19 +4,35 @@
  */
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Sector;
+import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.validateCompany;
+import co.edu.unicauca.academicprojectsprototype.infra.Messages;
+
 /**
  *
  * @author anvig
  */
 public class GUINewCompany extends javax.swing.JFrame {
-
+    private ICompanyService companyService;
+    
     /**
      * Creates new form GUINewCompany
      */
-    public GUINewCompany() {
+    public GUINewCompany(ICompanyService service) {
+        this.companyService = service;
         initComponents();
+        fillSectors();
     }
 
+    
+    private void fillSectors(){
+        jCBSectorCompany.removeAllItems();
+        for(Sector sector: Sector.values()){
+            jCBSectorCompany.addItem(sector.toString());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +55,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         jLTelCompany = new javax.swing.JLabel();
         jFieldTelCompany = new javax.swing.JTextField();
         jLWebCompany = new javax.swing.JLabel();
-        jTFieldWebCompany = new javax.swing.JTextField();
+        jFieldWebCompany = new javax.swing.JTextField();
         jLSectorCompany = new javax.swing.JLabel();
         jCBSectorCompany = new javax.swing.JComboBox<>();
         jLEmailCompany = new javax.swing.JLabel();
@@ -47,6 +63,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         jLPasswordCompany = new javax.swing.JLabel();
         jFieldPassWordCompany = new javax.swing.JPasswordField();
         jBtnSaveCompany = new javax.swing.JButton();
+        jCheckSeePass = new javax.swing.JCheckBox();
         jPButtom = new javax.swing.JPanel();
         jBtnBackSelectUser = new javax.swing.JButton();
 
@@ -66,7 +83,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         jLTittleNewCompany.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLTittleNewCompany.setForeground(new java.awt.Color(0, 0, 0));
         jLTittleNewCompany.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLTittleNewCompany.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/NewUser.png"))); // NOI18N
+        jLTittleNewCompany.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/NewUser.png"))); // NOI18N
         jLTittleNewCompany.setText("Nueva Empresa");
         jLTittleNewCompany.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jPTittleNewUser.add(jLTittleNewCompany);
@@ -91,7 +108,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         jFieldNitCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jFieldNitCompany.setForeground(new java.awt.Color(0, 0, 0));
         jFieldNitCompany.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jFieldNitCompany.setText("1000...");
+        jFieldNitCompany.setText("123456789");
         jFieldNitCompany.setToolTipText("");
         jFieldNitCompany.setAutoscrolls(false);
         jFieldNitCompany.setMaximumSize(new java.awt.Dimension(500, 100));
@@ -166,17 +183,17 @@ public class GUINewCompany extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLWebCompany, gridBagConstraints);
 
-        jTFieldWebCompany.setBackground(new java.awt.Color(255, 255, 255));
-        jTFieldWebCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTFieldWebCompany.setForeground(new java.awt.Color(0, 0, 0));
-        jTFieldWebCompany.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTFieldWebCompany.setText("www.lopez.com");
-        jTFieldWebCompany.setMaximumSize(new java.awt.Dimension(500, 100));
+        jFieldWebCompany.setBackground(new java.awt.Color(255, 255, 255));
+        jFieldWebCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jFieldWebCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jFieldWebCompany.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jFieldWebCompany.setText("www.lopez.com");
+        jFieldWebCompany.setMaximumSize(new java.awt.Dimension(500, 100));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        jPContent.add(jTFieldWebCompany, gridBagConstraints);
+        jPContent.add(jFieldWebCompany, gridBagConstraints);
 
         jLSectorCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLSectorCompany.setForeground(new java.awt.Color(0, 0, 0));
@@ -235,7 +252,7 @@ public class GUINewCompany extends javax.swing.JFrame {
         jFieldPassWordCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jFieldPassWordCompany.setForeground(new java.awt.Color(0, 0, 0));
         jFieldPassWordCompany.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jFieldPassWordCompany.setText("jPasswordField1");
+        jFieldPassWordCompany.setText("Clave123.");
         jFieldPassWordCompany.setMaximumSize(new java.awt.Dimension(500, 100));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 13;
@@ -247,17 +264,39 @@ public class GUINewCompany extends javax.swing.JFrame {
         jBtnSaveCompany.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jBtnSaveCompany.setForeground(new java.awt.Color(255, 255, 255));
         jBtnSaveCompany.setText("GUARDAR");
+        jBtnSaveCompany.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnSaveCompanyActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 14;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPContent.add(jBtnSaveCompany, gridBagConstraints);
 
+        jCheckSeePass.setText("Mostrar clave");
+        jCheckSeePass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckSeePassActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPContent.add(jCheckSeePass, gridBagConstraints);
+
         jPButtom.setBackground(new java.awt.Color(236, 230, 240));
         jPButtom.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jBtnBackSelectUser.setBackground(new java.awt.Color(236, 230, 240));
-        jBtnBackSelectUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/back.png"))); // NOI18N
+        jBtnBackSelectUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back.png"))); // NOI18N
         jBtnBackSelectUser.setBorderPainted(false);
+        jBtnBackSelectUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnBackSelectUserActionPerformed(evt);
+            }
+        });
         jPButtom.add(jBtnBackSelectUser);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -296,50 +335,82 @@ public class GUINewCompany extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jFieldTelCompanyActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUINewCompany.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUINewCompany.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUINewCompany.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUINewCompany.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void jBtnSaveCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSaveCompanyActionPerformed
+        // TODO add your handling code here:
+        validateCompany validar = new validateCompany();
+        
+        String nit = jFieldNitCompany.getText();
+        if (nit.equals("")){
+            Messages.showMessageDialog("Debe agregar el Nit", "Atención");
+            jFieldNitCompany.requestFocus();
+            return;
         }
-        //</editor-fold>
+      
+        
+        String nombre = jFieldNameCompany.getText();
+        if (nombre.equals("")){
+            Messages.showMessageDialog("Debe agregar el Nombre", "Atención");
+            jFieldNameCompany.requestFocus();
+            return;
+        }
+        
+        String telefono = jFieldTelCompany.getText();
+        String pagina = jFieldWebCompany.getText();
+        Sector sector = Sector.values()[jCBSectorCompany.getSelectedIndex()];
+        
+        String email = jFieldEmailCompany.getText().trim();
+        if (email.equals("")){
+            Messages.showMessageDialog("Debe agregar el Email", "Atención");
+            jFieldEmailCompany.requestFocus();
+            return;
+        }
+        
+        String pass = jFieldPassWordCompany.getText().trim();
+        if (pass.equals("")){
+            Messages.showMessageDialog("Debe agregar la Contraseña", "Atención");
+            jFieldPassWordCompany.requestFocus();
+            return;
+        }
+        if(!validar.validarClave(pass)){
+            validar.mostrarEjemploClave();
+        }
+        if(validar.validarRegistroEmpresa(nit, email, telefono, pass)){
+        companyService.saveCompany(new Company(nit, nombre, telefono, pagina, sector, email, pass));
+        Messages.showMessageDialog("Compañia registrada exitosamente", "Atencion");
+        GUIHomeCompany hCompany = new GUIHomeCompany();
+        hCompany.setVisible(true);
+        this.dispose();
+        }
+    }//GEN-LAST:event_jBtnSaveCompanyActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUINewCompany().setVisible(true);
-            }
-        });
+    private void jBtnBackSelectUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackSelectUserActionPerformed
+        // TODO add your handling code here:
+        GUISelectRegistUser selecU = new GUISelectRegistUser(companyService);
+        selecU.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBtnBackSelectUserActionPerformed
+
+    private void jCheckSeePassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSeePassActionPerformed
+        if (jCheckSeePass.isSelected()) {
+        jFieldPassWordCompany.setEchoChar((char) 0); // Mostrar la contraseña
+    } else {
+        jFieldPassWordCompany.setEchoChar('●'); // Ocultar la contraseña con puntos
     }
+    }//GEN-LAST:event_jCheckSeePassActionPerformed
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnBackSelectUser;
     private javax.swing.JButton jBtnSaveCompany;
     private javax.swing.JComboBox<String> jCBSectorCompany;
+    private javax.swing.JCheckBox jCheckSeePass;
     private javax.swing.JTextField jFieldEmailCompany;
     private javax.swing.JTextField jFieldNameCompany;
     private javax.swing.JTextField jFieldNitCompany;
     private javax.swing.JPasswordField jFieldPassWordCompany;
     private javax.swing.JTextField jFieldTelCompany;
+    private javax.swing.JTextField jFieldWebCompany;
     private javax.swing.JLabel jLEmailCompany;
     private javax.swing.JLabel jLNameCompany;
     private javax.swing.JLabel jLNitCompany;
@@ -352,7 +423,6 @@ public class GUINewCompany extends javax.swing.JFrame {
     private javax.swing.JPanel jPContent;
     private javax.swing.JPanel jPHead;
     private javax.swing.JPanel jPTittleNewUser;
-    private javax.swing.JTextField jTFieldWebCompany;
     private java.awt.Label lbTitleProyect;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,6 +10,6 @@ import java.util.List;
 public interface ICompanyRepository {
     
     boolean save(Company newCompany);
-
+    void initializeDatabase();
     List<Company> listAll();
 }

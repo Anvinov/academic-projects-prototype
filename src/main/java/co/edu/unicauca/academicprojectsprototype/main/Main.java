@@ -6,9 +6,11 @@ package co.edu.unicauca.academicprojectsprototype.main;
 
 import co.edu.unicauca.academicprojectsprototype.access.Factory;
 import co.edu.unicauca.academicprojectsprototype.access.ICompanyRepository;
+import co.edu.unicauca.academicprojectsprototype.access.IStudentRepository;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
-import co.edu.unicauca.academicprojectsprototype.presentation.GUIMenuCoordinator;
+import co.edu.unicauca.academicprojectsprototype.presentation.GUIHomeCoordinator;
+import co.edu.unicauca.academicprojectsprototype.presentation.GUIHomeWithoutLog;
 import javax.swing.JFrame;
 
 public class Main {
@@ -20,12 +22,12 @@ public class Main {
         
         // Hacia futuro el tipo de repositorio lo podemos leer de un archivo plano
         // setup.properties, asi no tendriamos que recompilar la aplicación
-        ICompanyRepository repository = Factory.getInstance().getRepository("ARRAYS");// Podria ir ARRAYS/SQLITE
+        ICompanyRepository repository = Factory.getInstance().getRepository("SQLITE");// Podria ir ARRAYS/SQLITE
         ICompanyService service = new CompanyService(repository);
-        
-        //GUIMenu instance = new GUIMenu(service);
-        //instance.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        //instance.setVisible(true);
+
+        GUIHomeWithoutLog instance = new GUIHomeWithoutLog(service);
+        instance.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        instance.setVisible(true);
     }
     
 }

@@ -4,16 +4,26 @@
  */
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
+import co.edu.unicauca.academicprojectsprototype.access.Factory;
+import co.edu.unicauca.academicprojectsprototype.access.ICompanyRepository;
+import co.edu.unicauca.academicprojectsprototype.access.IStudentRepository;
+import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
+
+
 /**
  *
  * @author anvig
  */
 public class GUISelectRegistUser extends javax.swing.JFrame {
-
+    private ICompanyService companyService;
     /**
      * Creates new form GUIMenuWithoutLog
      */
-    public GUISelectRegistUser() {
+    public GUISelectRegistUser(ICompanyService service) {
+        this.companyService = service;
         initComponents();
     }
 
@@ -68,7 +78,7 @@ public class GUISelectRegistUser extends javax.swing.JFrame {
         jLTittleNewUser.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLTittleNewUser.setForeground(new java.awt.Color(0, 0, 0));
         jLTittleNewUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLTittleNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/NewUser.png"))); // NOI18N
+        jLTittleNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/NewUser.png"))); // NOI18N
         jLTittleNewUser.setText("NUEVO USUARIO");
         jLTittleNewUser.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jPTittleNewUser.add(jLTittleNewUser);
@@ -99,6 +109,11 @@ public class GUISelectRegistUser extends javax.swing.JFrame {
         jBtnNewCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jBtnNewCompany.setForeground(new java.awt.Color(255, 255, 255));
         jBtnNewCompany.setText("REGISTRAR EMPRESA");
+        jBtnNewCompany.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnNewCompanyActionPerformed(evt);
+            }
+        });
         jPCardNewCompany.add(jBtnNewCompany);
 
         jPContent.add(jPCardNewCompany);
@@ -124,6 +139,11 @@ public class GUISelectRegistUser extends javax.swing.JFrame {
         jBtnNewUStudent.setBackground(new java.awt.Color(101, 85, 153));
         jBtnNewUStudent.setForeground(new java.awt.Color(255, 255, 255));
         jBtnNewUStudent.setText("REGISTRAR ESTUDIANTE");
+        jBtnNewUStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnNewUStudentActionPerformed(evt);
+            }
+        });
         jPCardNewStudent.add(jBtnNewUStudent);
 
         jPContent.add(jPCardNewStudent);
@@ -165,8 +185,13 @@ public class GUISelectRegistUser extends javax.swing.JFrame {
         jPButtom.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jBtnBackHomeWithLog.setBackground(new java.awt.Color(236, 230, 240));
-        jBtnBackHomeWithLog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/back.png"))); // NOI18N
+        jBtnBackHomeWithLog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back.png"))); // NOI18N
         jBtnBackHomeWithLog.setBorderPainted(false);
+        jBtnBackHomeWithLog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnBackHomeWithLogActionPerformed(evt);
+            }
+        });
         jPButtom.add(jBtnBackHomeWithLog);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,41 +219,31 @@ public class GUISelectRegistUser extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUISelectRegistUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUISelectRegistUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUISelectRegistUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUISelectRegistUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void jBtnBackHomeWithLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackHomeWithLogActionPerformed
+        // TODO add your handling code here:
+        GUIHomeWithoutLog HomeWL = new GUIHomeWithoutLog(companyService);
+        HomeWL.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBtnBackHomeWithLogActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUISelectRegistUser().setVisible(true);
-            }
-        });
-    }
+    private void jBtnNewCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNewCompanyActionPerformed
+        // TODO add your handling code here:
+        GUINewCompany newCompany = new GUINewCompany(companyService);
+        newCompany.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBtnNewCompanyActionPerformed
+
+    private void jBtnNewUStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNewUStudentActionPerformed
+        // TODO add your handling code here:
+        IStudentRepository repository = Factory.getInstance().getRepository2("SQLITE");// Podria ir ARRAYS/SQLITE
+        IStudentService service = new StudentService(repository);
+        GUINewStudent newStudent = new GUINewStudent(service);
+        newStudent.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jBtnNewUStudentActionPerformed
+
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel imgNewCompany;

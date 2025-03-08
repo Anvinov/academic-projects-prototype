@@ -25,7 +25,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPHead" alignment="0" pref="828" max="32767" attributes="0"/>
           <Component id="jPContent" alignment="1" max="32767" attributes="0"/>
-          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPButtom" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -35,7 +35,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPContent" min="-2" pref="253" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <Component id="jPButtom" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -60,7 +60,7 @@
               <Color blue="99" green="55" red="65" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/co/edu/unicauca/academicprojectsprototype/presentation/Icons/LoginUser3.png"/>
+              <Image iconType="3" name="/imagenes/LoginUser3.png"/>
             </Property>
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
@@ -906,7 +906,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="jPButtom">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f0" green="e6" red="ec" type="rgb"/>
@@ -923,7 +923,7 @@
               <Color blue="f0" green="e6" red="ec" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/co/edu/unicauca/academicprojectsprototype/presentation/Icons/back.png"/>
+              <Image iconType="3" name="/imagenes/back.png"/>
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
