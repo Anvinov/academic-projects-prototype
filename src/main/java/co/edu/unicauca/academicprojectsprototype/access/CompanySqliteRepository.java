@@ -3,6 +3,7 @@ package co.edu.unicauca.academicprojectsprototype.access;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Sector;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -27,8 +28,8 @@ public class CompanySqliteRepository implements ICompanyRepository {
             }
             
             this.connect();
-
-            String sql = "INSERT INTO COMPANIES (NIT, NAME, PHONE, PAGE_WEB, SECTOR, EMAIL, PASSWORD ) "
+            this.initializeDatabase();
+            String sql = "INSERT INTO COMPANY (NIT, NAME, PHONE, PAGEWEB, SECTOR, EMAIL, PASSWORD ) "
                     + "VALUES ( ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -56,7 +57,7 @@ public class CompanySqliteRepository implements ICompanyRepository {
         try {
             this.connect();
             
-            String sql = "SELECT NIT, NAME, PHONE, PAGE_WEB, SECTOR, EMAIL, PASSWORD FROM COMPANIES";
+            String sql = "SELECT NIT, NAME, PHONE, PAGEWEB, SECTOR, EMAIL, PASSWORD FROM COMPANY";
 
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
@@ -66,7 +67,7 @@ public class CompanySqliteRepository implements ICompanyRepository {
                 newCompany.setNit(rs.getString("NIT"));
                 newCompany.setName(rs.getString("NAME"));
                 newCompany.setPhone(rs.getString("PHONE"));
-                newCompany.setPageWeb(rs.getString("PAGE_WEB"));
+                newCompany.setPageWeb(rs.getString("PAGEWEB"));
                 newCompany.setSector(Sector.valueOf(rs.getString("SECTOR").toUpperCase()));
                 newCompany.setEmail(rs.getString("EMAIL"));
                 newCompany.setPassword(rs.getString("PASSWORD"));
@@ -82,15 +83,21 @@ public class CompanySqliteRepository implements ICompanyRepository {
         return companies;
     }
     
+    private static final String DB_PATH = "database/database.db";
+    
     public void connect() {
         // SQLite connection string
         //String url = "jdbc:sqlite:.\\\\miDatabase.db";
-        String url = "jdbc:sqlite:C:\\Users\\anvig\\OneDrive\\Documentos\\NetBeansProjects\\Principios SOLID\\miDatabase.db";
-
+        //String url = "jdbc:sqlite:C:\\Users\\anvig\\OneDrive\\Documentos\\NetBeansProjects\\Principios SOLID\\miDatabase.db";
+        String url = "jdbc:sqlite:C:\\Users\\lopez\\OneDrive\\Escritorio\\Cosas\\Uni\\2025 -1\\L. Software II\\Proyecto\\AcademicProjects\\DataBase\\MyDataBase.db";
+   
+        //String absolutePath = new File(DB_PATH).getAbsolutePath();
+        //String url = "jdbc:sqlite:" + absolutePath;
         try {
             conn = DriverManager.getConnection(url);
-
+            //System.out.println("Conexión exitosa a la base de datos en: " + absolutePath);
         } catch (SQLException ex) {
+            System.out.println("Error al conectar a la base de datos: " + ex.getMessage());
             Logger.getLogger(CompanyService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -104,6 +111,27 @@ public class CompanySqliteRepository implements ICompanyRepository {
             System.out.println(ex.getMessage());
         }
 
+    }
+    @Override
+    public void initializeDatabase () {
+    String sql = "CREATE TABLE IF NOT EXISTS company (" +
+                    "nit TEXT PRIMARY KEY, " +
+                    "name TEXT NOT NULL, " +
+                    "phone TEXT, " +
+                    "pageWeb TEXT, " +
+                    "sector TEXT, " +
+                    "email TEXT, " +
+                    "password TEXT" +
+                    ")";
+    try 
+    {
+        Statement statement = conn.createStatement();
+        statement.execute(sql);
+        System. out.println ("Database initialized successfully.");
+    }
+        catch (SQLException e) {
+        e.printStackTrace () ;
+        }
     }
 
 }

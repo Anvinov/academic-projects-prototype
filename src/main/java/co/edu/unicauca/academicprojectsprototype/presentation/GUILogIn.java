@@ -39,7 +39,7 @@ public class GUILogIn extends javax.swing.JFrame {
         jBtnPassUser = new javax.swing.JButton();
         jBtnPasswordForget = new javax.swing.JButton();
         jBtnNewUser = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jPButtom = new javax.swing.JPanel();
         jBtnBackHomeWithLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,7 +49,7 @@ public class GUILogIn extends javax.swing.JFrame {
 
         iconLoginUser.setBackground(new java.awt.Color(101, 85, 153));
         iconLoginUser.setForeground(new java.awt.Color(101, 85, 153));
-        iconLoginUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/LoginUser3.png"))); // NOI18N
+        iconLoginUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LoginUser3.png"))); // NOI18N
         iconLoginUser.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -160,13 +160,13 @@ public class GUILogIn extends javax.swing.JFrame {
 
         jPContent.add(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(236, 230, 240));
-        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        jPButtom.setBackground(new java.awt.Color(236, 230, 240));
+        jPButtom.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jBtnBackHomeWithLogin.setBackground(new java.awt.Color(236, 230, 240));
-        jBtnBackHomeWithLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/back.png"))); // NOI18N
+        jBtnBackHomeWithLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back.png"))); // NOI18N
         jBtnBackHomeWithLogin.setBorderPainted(false);
-        jPanel2.add(jBtnBackHomeWithLogin);
+        jPButtom.add(jBtnBackHomeWithLogin);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -174,7 +174,7 @@ public class GUILogIn extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPHead, javax.swing.GroupLayout.DEFAULT_SIZE, 828, Short.MAX_VALUE)
             .addComponent(jPContent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +183,7 @@ public class GUILogIn extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPContent, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -235,10 +235,10 @@ public class GUILogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLPassWord;
     private javax.swing.JLabel jLTitittleLogin;
     private javax.swing.JLabel jLUser;
+    private javax.swing.JPanel jPButtom;
     private javax.swing.JPanel jPContent;
     private javax.swing.JPanel jPHead;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordUser;
     // End of variables declaration//GEN-END:variables
 }
