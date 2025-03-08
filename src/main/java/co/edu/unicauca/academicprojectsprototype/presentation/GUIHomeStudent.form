@@ -43,7 +43,7 @@
               <Component id="jSeparator" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPSideMenu" alignment="0" pref="364" max="32767" attributes="0"/>
+                  <Component id="jPSideMenu" alignment="0" pref="347" max="32767" attributes="0"/>
                   <Component id="jPContent2" alignment="0" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -189,7 +189,7 @@
               <Color blue="f0" green="e6" red="ec" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/co/edu/unicauca/academicprojectsprototype/presentation/Icons/search.png"/>
+              <Image iconType="3" name="/imagenes/search.png"/>
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>

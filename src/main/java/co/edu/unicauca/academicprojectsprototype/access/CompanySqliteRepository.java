@@ -3,7 +3,6 @@ package co.edu.unicauca.academicprojectsprototype.access;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Sector;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
-import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

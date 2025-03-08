@@ -1,3 +1,4 @@
+co\edu\unicauca\academicprojectsprototype\presentation\GUINewStudent$5.class
 co\edu\unicauca\academicprojectsprototype\access\ProjectSqliteRepository.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUINewCompany$4.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUISelectRegistUser$1.class
@@ -23,6 +24,7 @@ co\edu\unicauca\academicprojectsprototype\access\AdmintArrayRepository.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeCoordinator$1.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUINewCompany$2.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUINewCompany$1.class
+co\edu\unicauca\academicprojectsprototype\domain\services\IStudentService.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUISignUp$1.class
 co\edu\unicauca\academicprojectsprototype\access\StudentSqliteRepository.class
 co\edu\unicauca\academicprojectsprototype\domain\entities\Admin.class
@@ -32,6 +34,7 @@ co\edu\unicauca\academicprojectsprototype\access\CoordinatorSqliteRepository.cla
 co\edu\unicauca\academicprojectsprototype\access\AdminSqliteRepository.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithoutLog$3.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeAdmin.class
+co\edu\unicauca\academicprojectsprototype\domain\services\validateStudent.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUISelectRegistUser.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithoutLog.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeStudent$1.class
@@ -44,6 +47,7 @@ co\edu\unicauca\academicprojectsprototype\presentation\GUINewCoordinator$2.class
 co\edu\unicauca\academicprojectsprototype\access\CompanyArrayRepository.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIStudentProjectsRequests$1.class
 co\edu\unicauca\academicprojectsprototype\domain\services\ProjectService.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUISelectRegistUser$3.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUINewStudent$1.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUINewCompany$3.class
 co\edu\unicauca\academicprojectsprototype\domain\entities\Company.class
@@ -58,6 +62,7 @@ co\edu\unicauca\academicprojectsprototype\domain\entities\Project.class
 co\edu\unicauca\academicprojectsprototype\domain\services\validateCompany.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUICoordinatorProjectsRequests.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUICompanyUpdateProject$1.class
+co\edu\unicauca\academicprojectsprototype\access\IStudentRepository.class
 co\edu\unicauca\academicprojectsprototype\access\ProjectArrayRepository.class
 co\edu\unicauca\academicprojectsprototype\domain\entities\Sector.class
 co\edu\unicauca\academicprojectsprototype\domain\services\CompanyService.class

@@ -9,7 +9,6 @@ import co.edu.unicauca.academicprojectsprototype.domain.entities.Sector;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.validateCompany;
 import co.edu.unicauca.academicprojectsprototype.infra.Messages;
-import javax.swing.JFrame;
 
 /**
  *

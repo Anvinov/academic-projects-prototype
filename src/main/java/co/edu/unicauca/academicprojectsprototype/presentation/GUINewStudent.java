@@ -4,16 +4,24 @@
  */
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
+import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.validateStudent;
+import co.edu.unicauca.academicprojectsprototype.infra.Messages;
+
 /**
  *
  * @author anvig
  */
 public class GUINewStudent extends javax.swing.JFrame {
-
+    private IStudentService studentService;
     /**
      * Creates new form NewStudent
      */
-    public GUINewStudent() {
+    public GUINewStudent(IStudentService service) {
+        this.studentService = service;
         initComponents();
     }
 
@@ -37,12 +45,13 @@ public class GUINewStudent extends javax.swing.JFrame {
         jLCodeStudent = new javax.swing.JLabel();
         jFieldCodeStudent = new javax.swing.JTextField();
         jLTelStudent = new javax.swing.JLabel();
-        jTFieldTelStudent = new javax.swing.JTextField();
+        jFieldTelStudent = new javax.swing.JTextField();
         jLEmailStudent = new javax.swing.JLabel();
         jFieldEmailStudent = new javax.swing.JTextField();
         jLPasswordStudent = new javax.swing.JLabel();
         jFieldPassWordStudent = new javax.swing.JPasswordField();
         jBtnSaveStudent = new javax.swing.JButton();
+        jCheckSeePass = new javax.swing.JCheckBox();
         jPButtom = new javax.swing.JPanel();
         jBtnBackSelectUser = new javax.swing.JButton();
 
@@ -135,17 +144,17 @@ public class GUINewStudent extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPContent.add(jLTelStudent, gridBagConstraints);
 
-        jTFieldTelStudent.setBackground(new java.awt.Color(255, 255, 255));
-        jTFieldTelStudent.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTFieldTelStudent.setForeground(new java.awt.Color(0, 0, 0));
-        jTFieldTelStudent.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTFieldTelStudent.setText("317123");
-        jTFieldTelStudent.setMaximumSize(new java.awt.Dimension(500, 100));
+        jFieldTelStudent.setBackground(new java.awt.Color(255, 255, 255));
+        jFieldTelStudent.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jFieldTelStudent.setForeground(new java.awt.Color(0, 0, 0));
+        jFieldTelStudent.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jFieldTelStudent.setText("317123");
+        jFieldTelStudent.setMaximumSize(new java.awt.Dimension(500, 100));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        jPContent.add(jTFieldTelStudent, gridBagConstraints);
+        jPContent.add(jFieldTelStudent, gridBagConstraints);
 
         jLEmailStudent.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLEmailStudent.setForeground(new java.awt.Color(0, 0, 0));
@@ -195,10 +204,27 @@ public class GUINewStudent extends javax.swing.JFrame {
         jBtnSaveStudent.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jBtnSaveStudent.setForeground(new java.awt.Color(255, 255, 255));
         jBtnSaveStudent.setText("GUARDAR");
+        jBtnSaveStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnSaveStudentActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 10;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         jPContent.add(jBtnSaveStudent, gridBagConstraints);
+
+        jCheckSeePass.setText("Mostrar clave");
+        jCheckSeePass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckSeePassActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        jPContent.add(jCheckSeePass, gridBagConstraints);
 
         jPButtom.setBackground(new java.awt.Color(236, 230, 240));
         jPButtom.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
@@ -248,51 +274,76 @@ public class GUINewStudent extends javax.swing.JFrame {
 
     private void jBtnBackSelectUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackSelectUserActionPerformed
         // TODO add your handling code here:
+        GUISelectRegistUser selecU = new GUISelectRegistUser(null);
+        selecU.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jBtnBackSelectUserActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUINewStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUINewStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUINewStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUINewStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUINewStudent().setVisible(true);
-            }
-        });
+    private void jCheckSeePassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSeePassActionPerformed
+        // TODO add your handling code here:
+        if (jCheckSeePass.isSelected()) {
+        jFieldPassWordStudent.setEchoChar((char) 0); // Mostrar la contraseña
+    } else {
+        jFieldPassWordStudent.setEchoChar('●'); // Ocultar la contraseña con puntos
     }
+    }//GEN-LAST:event_jCheckSeePassActionPerformed
+
+    private void jBtnSaveStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSaveStudentActionPerformed
+        // TODO add your handling code here:
+        validateStudent validar = new validateStudent();
+        
+        String name = jFieldNameStudent.getText();
+        if (name.equals("")){
+            Messages.showMessageDialog("Debe agregar el nombre", "Atención");
+            jFieldNameStudent.requestFocus();
+            return;
+        }
+      
+        String code = jFieldCodeStudent.getText();
+        if (code.equals("")){
+            Messages.showMessageDialog("Debe agregar el codigo", "Atención");
+            jFieldCodeStudent.requestFocus();
+            return;
+        }
+        
+        String telefono = jFieldTelStudent.getText();
+        
+        String email = jFieldEmailStudent.getText().trim();
+        if (email.equals("")){
+            Messages.showMessageDialog("Debe agregar el Email", "Atención");
+            jFieldEmailStudent.requestFocus();
+            return;
+        }
+        
+        String pass = jFieldPassWordStudent.getText().trim();
+        if (pass.equals("")){
+            Messages.showMessageDialog("Debe agregar la Contraseña", "Atención");
+            jFieldPassWordStudent.requestFocus();
+            return;
+        }
+        if(!validar.validarClave(pass)){
+            validar.mostrarEjemploClave();
+        }
+        if(validar.validarRegistroEstudiante(email, telefono, pass)){
+        studentService.save(new Student(name, code, telefono, email, pass));
+        Messages.showMessageDialog("Estudiante registrado exitosamente", "Atencion");
+        GUIHomeStudent hStudent = new GUIHomeStudent();
+        hStudent.setVisible(true);
+        this.dispose();
+        }
+    }//GEN-LAST:event_jBtnSaveStudentActionPerformed
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnBackSelectUser;
     private javax.swing.JButton jBtnSaveStudent;
+    private javax.swing.JCheckBox jCheckSeePass;
     private javax.swing.JTextField jFieldCodeStudent;
     private javax.swing.JTextField jFieldEmailStudent;
     private javax.swing.JTextField jFieldNameStudent;
     private javax.swing.JPasswordField jFieldPassWordStudent;
+    private javax.swing.JTextField jFieldTelStudent;
     private javax.swing.JLabel jLCodeStudent;
     private javax.swing.JLabel jLEmailStudent;
     private javax.swing.JLabel jLNameStudent;
@@ -303,7 +354,6 @@ public class GUINewStudent extends javax.swing.JFrame {
     private javax.swing.JPanel jPContent;
     private javax.swing.JPanel jPHead;
     private javax.swing.JPanel jPTittleNewUser;
-    private javax.swing.JTextField jTFieldTelStudent;
     private java.awt.Label lbTitleProyect;
     // End of variables declaration//GEN-END:variables
 }

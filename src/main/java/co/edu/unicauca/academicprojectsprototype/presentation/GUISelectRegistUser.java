@@ -4,7 +4,13 @@
  */
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
+import co.edu.unicauca.academicprojectsprototype.access.Factory;
+import co.edu.unicauca.academicprojectsprototype.access.ICompanyRepository;
+import co.edu.unicauca.academicprojectsprototype.access.IStudentRepository;
+import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
 
 
 /**
@@ -133,6 +139,11 @@ public class GUISelectRegistUser extends javax.swing.JFrame {
         jBtnNewUStudent.setBackground(new java.awt.Color(101, 85, 153));
         jBtnNewUStudent.setForeground(new java.awt.Color(255, 255, 255));
         jBtnNewUStudent.setText("REGISTRAR ESTUDIANTE");
+        jBtnNewUStudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnNewUStudentActionPerformed(evt);
+            }
+        });
         jPCardNewStudent.add(jBtnNewUStudent);
 
         jPContent.add(jPCardNewStudent);
@@ -221,6 +232,16 @@ public class GUISelectRegistUser extends javax.swing.JFrame {
         newCompany.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnNewCompanyActionPerformed
+
+    private void jBtnNewUStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNewUStudentActionPerformed
+        // TODO add your handling code here:
+        IStudentRepository repository = Factory.getInstance().getRepository2("SQLITE");// Podria ir ARRAYS/SQLITE
+        IStudentService service = new StudentService(repository);
+        GUINewStudent newStudent = new GUINewStudent(service);
+        newStudent.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jBtnNewUStudentActionPerformed
 
    
 

@@ -6,6 +6,7 @@ package co.edu.unicauca.academicprojectsprototype.main;
 
 import co.edu.unicauca.academicprojectsprototype.access.Factory;
 import co.edu.unicauca.academicprojectsprototype.access.ICompanyRepository;
+import co.edu.unicauca.academicprojectsprototype.access.IStudentRepository;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
 import co.edu.unicauca.academicprojectsprototype.presentation.GUIHomeCoordinator;

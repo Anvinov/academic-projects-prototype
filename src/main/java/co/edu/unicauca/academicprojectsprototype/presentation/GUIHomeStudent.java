@@ -106,7 +106,7 @@ public class GUIHomeStudent extends javax.swing.JFrame {
         jPSearchBar.add(jFieldSearchProyect, gridBagConstraints);
 
         jBtnSearch.setBackground(new java.awt.Color(236, 230, 240));
-        jBtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/search.png"))); // NOI18N
+        jBtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search.png"))); // NOI18N
         jBtnSearch.setBorderPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
@@ -211,7 +211,7 @@ public class GUIHomeStudent extends javax.swing.JFrame {
                 .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPSideMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                    .addComponent(jPSideMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
                     .addComponent(jPContent2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
