@@ -62,7 +62,7 @@ public class GUINewStudent extends javax.swing.JFrame {
         jLTittleNewStudent.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jLTittleNewStudent.setForeground(new java.awt.Color(0, 0, 0));
         jLTittleNewStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLTittleNewStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/NewUser.png"))); // NOI18N
+        jLTittleNewStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/NewUser.png"))); // NOI18N
         jLTittleNewStudent.setText("Nuevo estudiante");
         jLTittleNewStudent.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jPTittleNewUser.add(jLTittleNewStudent);
@@ -204,8 +204,13 @@ public class GUINewStudent extends javax.swing.JFrame {
         jPButtom.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jBtnBackSelectUser.setBackground(new java.awt.Color(236, 230, 240));
-        jBtnBackSelectUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/back.png"))); // NOI18N
+        jBtnBackSelectUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back.png"))); // NOI18N
         jBtnBackSelectUser.setBorderPainted(false);
+        jBtnBackSelectUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnBackSelectUserActionPerformed(evt);
+            }
+        });
         jPButtom.add(jBtnBackSelectUser);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -240,6 +245,10 @@ public class GUINewStudent extends javax.swing.JFrame {
     private void jFieldCodeStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFieldCodeStudentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFieldCodeStudentActionPerformed
+
+    private void jBtnBackSelectUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackSelectUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnBackSelectUserActionPerformed
 
     /**
      * @param args the command line arguments

@@ -91,7 +91,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/co/edu/unicauca/academicprojectsprototype/presentation/Icons/NewUser.png"/>
+              <Image iconType="3" name="/imagenes/NewUser.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="NUEVO USUARIO"/>
             <Property name="horizontalTextPosition" type="int" value="4"/>
@@ -171,6 +171,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="REGISTRAR EMPRESA"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnNewCompanyActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -324,10 +327,13 @@
               <Color blue="f0" green="e6" red="ec" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/co/edu/unicauca/academicprojectsprototype/presentation/Icons/back.png"/>
+              <Image iconType="3" name="/imagenes/back.png"/>
             </Property>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnBackHomeWithLogActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
