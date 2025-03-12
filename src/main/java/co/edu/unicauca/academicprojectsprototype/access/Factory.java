@@ -20,11 +20,14 @@ public class Factory {
     private static Factory instance;
 
     private Map<String, ICompanyRepository> dictionary;
+    private Map<String, IStudentRepository> dictionary2;
 
     private Factory() {
         dictionary = new HashMap<>();
+        dictionary2 = new HashMap<>();
         //dictionary.put("ARRAYS", new CompanyArraysRepository());
         dictionary.put("SQLITE", new CompanySqliteRepository());
+        dictionary2.put("SQLITE", new StudentSqliteRepository());
     }
 
     /**
@@ -56,6 +59,18 @@ public class Factory {
         }
 
         return result;
-
     }
+    
+    public IStudentRepository getRepository2(String repository) {
+
+        IStudentRepository result = null;
+
+        if (dictionary2.containsKey(repository)) {
+            result = dictionary2.get(repository);
+        }
+
+        return result;
+    }
+    
+    
 }
