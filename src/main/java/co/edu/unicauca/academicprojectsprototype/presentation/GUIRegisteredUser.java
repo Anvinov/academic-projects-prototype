@@ -31,7 +31,14 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         initComponents();
         this.companyService = serviceCompany;
         this.studentService = serviceStudent;
+        asignarAction();
         fillSectors();
+    }
+
+    private void asignarAction() {
+        jRbtnStudent.setActionCommand("Estudiante");
+        jRbtnCompany.setActionCommand("Empresa");
+        jRbtnCoordi.setActionCommand("Coordinador");
     }
 
     private void fillSectors() {
@@ -40,6 +47,15 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
             jCBSectorCompany.addItem(sector.toString());
         }
     }
+    
+     private void SeleccionarRol() {
+        String rol = RadiobuttonGroupSelecRol.getSelection().getActionCommand();
+        cardLayout = (CardLayout) jPRolInformation.getLayout();
+        cardLayout.show(jPRolInformation, rol);
+        cardLayout = (CardLayout) jPRegisterUser.getLayout();
+        cardLayout.show(jPRegisterUser, rol);
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -215,7 +231,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        jPRolInformation.add(jPCompanyInformation, "CompanyInfo");
+        jPRolInformation.add(jPCompanyInformation, "Empresa");
 
         jPCoordinatorInformation.setBackground(new java.awt.Color(255, 255, 255));
         jPCoordinatorInformation.setForeground(new java.awt.Color(255, 255, 255));
@@ -260,7 +276,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        jPRolInformation.add(jPCoordinatorInformation, "CoordiInfo");
+        jPRolInformation.add(jPCoordinatorInformation, "Coordinador");
 
         jPStudentInformation.setBackground(new java.awt.Color(255, 255, 255));
         jPStudentInformation.setName(""); // NOI18N
@@ -304,7 +320,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        jPRolInformation.add(jPStudentInformation, "StudentInfo");
+        jPRolInformation.add(jPStudentInformation, "Estudiante");
 
         jPContent.add(jPRolInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 360, 190));
 
@@ -325,7 +341,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
             .addGap(0, 380, Short.MAX_VALUE)
         );
 
-        jPRegisterUser.add(jPCoordiRegister, "CoordiRegis");
+        jPRegisterUser.add(jPCoordiRegister, "Coordinador");
 
         jPStudentRegister.setBackground(new java.awt.Color(255, 255, 255));
         jPStudentRegister.setName("StudentRegister"); // NOI18N
@@ -522,7 +538,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 108, 53, 0);
         jPStudentRegister.add(jBtnSaveStudent, gridBagConstraints);
 
-        jPRegisterUser.add(jPStudentRegister, "StudentRegis");
+        jPRegisterUser.add(jPStudentRegister, "Estudiante");
 
         jPCompanyRegister.setBackground(new java.awt.Color(255, 255, 255));
         jPCompanyRegister.setForeground(new java.awt.Color(255, 255, 255));
@@ -782,7 +798,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 108, 5, 0);
         jPCompanyRegister.add(jBtnSaveCompany, gridBagConstraints);
 
-        jPRegisterUser.add(jPCompanyRegister, "CompanyRegis");
+        jPRegisterUser.add(jPCompanyRegister, "Empresa");
 
         jPContent.add(jPRegisterUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 410, 380));
 
@@ -833,7 +849,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         if (jCheckSeePassCompany.isSelected()) {
             jFieldPassWordCompany.setEchoChar((char) 0); // Mostrar la contraseña
         } else {
-            jFieldPassWordCompany.setEchoChar('●'); // Ocultar la contraseña con puntos
+            jFieldPassWordCompany.setEchoChar('*'); // Ocultar la contraseña con puntos
         }
     }//GEN-LAST:event_jCheckSeePassCompanyActionPerformed
 
@@ -880,7 +896,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
             if (companyService.saveCompany(new Company(nit, nombre, telefono, pagina, sector, email, pass))) {
                 GUIHomeWithLog HomeCompany = new GUIHomeWithLog("Company");
                 HomeCompany.setVisible(true);
-                this.dispose();
+                //this.dispose();
             }
         }
     }//GEN-LAST:event_jBtnSaveCompanyActionPerformed
@@ -953,35 +969,15 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         if (validar.validarRegistroEstudiante(email, telefono, pass)) {
 
             if (studentService.save(new Student(code, name, telefono, email, pass))) {
-               GUIHomeWithLog homeStudent = new GUIHomeWithLog("Student");
-               homeStudent.setVisible(true);
-                this.dispose();
+                GUIHomeWithLog homeStudent = new GUIHomeWithLog("Student");
+                homeStudent.setVisible(true);
+                //this.dispose();
             }
 
         }
     }//GEN-LAST:event_jBtnSaveStudentActionPerformed
 
-    private void SeleccionarRol() {
-        if (jRbtnCompany.isSelected()) {
-            cardLayout = (CardLayout) jPRolInformation.getLayout();
-            cardLayout.show(jPRolInformation, "CompanyInfo");
-            cardLayout = (CardLayout) jPRegisterUser.getLayout();
-            cardLayout.show(jPRegisterUser, "CompanyRegis");
-        }
-        if (jRbtnStudent.isSelected()) {
-            cardLayout = (CardLayout) jPRolInformation.getLayout();
-            cardLayout.show(jPRolInformation, "StudentInfo");
-            cardLayout = (CardLayout) jPRegisterUser.getLayout();
-            cardLayout.show(jPRegisterUser, "StudentRegis");
-        }
-        if (jRbtnCoordi.isSelected()) {
-            cardLayout = (CardLayout) jPRolInformation.getLayout();
-            cardLayout.show(jPRolInformation, "CoordinatorInfo");
-            cardLayout = (CardLayout) jPRegisterUser.getLayout();
-            cardLayout.show(jPRegisterUser, "CoordiRegis");
-        }
-    }
-
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup RadiobuttonGroupSelecRol;

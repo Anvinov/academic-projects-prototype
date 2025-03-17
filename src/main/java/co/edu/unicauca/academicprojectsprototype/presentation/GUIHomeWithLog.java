@@ -120,6 +120,8 @@ public class GUIHomeWithLog extends javax.swing.JFrame {
         jPOptions.setForeground(new java.awt.Color(0, 0, 0));
         jPOptions.setLayout(new java.awt.CardLayout());
 
+        jPOpcionCompany.setBackground(new java.awt.Color(236, 230, 240));
+
         jBtnNewPubli.setBackground(new java.awt.Color(101, 85, 153));
         jBtnNewPubli.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jBtnNewPubli.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,6 +142,8 @@ public class GUIHomeWithLog extends javax.swing.JFrame {
         jPOpcionCompany.add(jBtnMyPubli);
 
         jPOptions.add(jPOpcionCompany, "Company");
+
+        jPOpcionCoordi.setBackground(new java.awt.Color(236, 230, 240));
 
         jBtnSolicitudes.setBackground(new java.awt.Color(101, 85, 153));
         jBtnSolicitudes.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -171,6 +175,8 @@ public class GUIHomeWithLog extends javax.swing.JFrame {
         );
 
         jPOptions.add(jPOpcionCoordi, "Coordi");
+
+        jPOpcionStudent.setBackground(new java.awt.Color(236, 230, 240));
 
         javax.swing.GroupLayout jPOpcionStudentLayout = new javax.swing.GroupLayout(jPOpcionStudent);
         jPOpcionStudent.setLayout(jPOpcionStudentLayout);
