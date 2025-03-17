@@ -4,17 +4,22 @@
  */
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
+import java.awt.CardLayout;
+
 /**
  *
- * @author anvig
+ * @author lopez
  */
-public class GUIHomeCoordinator extends javax.swing.JFrame {
+public class GUIHomeWithLog extends javax.swing.JFrame {
+
+    CardLayout cardLayout;
 
     /**
-     * Creates new form GUIMenu
+     * Creates new form GUIHomeWithLog
      */
-    public GUIHomeCoordinator() {
+    public GUIHomeWithLog(String rol) {
         initComponents();
+        cargarRol(rol);
     }
 
     /**
@@ -27,6 +32,22 @@ public class GUIHomeCoordinator extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jPSideMenu = new javax.swing.JPanel();
+        jLTittleMenu = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jBtnGetOut = new javax.swing.JButton();
+        jPContent = new javax.swing.JPanel();
+        jPOptions = new javax.swing.JPanel();
+        jPOpcionCompany = new javax.swing.JPanel();
+        jBtnNewPubli = new javax.swing.JButton();
+        jBtnMyPubli = new javax.swing.JButton();
+        jPOpcionCoordi = new javax.swing.JPanel();
+        jBtnSolicitudes = new javax.swing.JButton();
+        jPOpcionStudent = new javax.swing.JPanel();
+        jPPublis = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jSeparator = new javax.swing.JSeparator();
         jPSearchBar = new javax.swing.JPanel();
         jCBSelecFilter = new javax.swing.JComboBox<>();
@@ -37,85 +58,8 @@ public class GUIHomeCoordinator extends javax.swing.JFrame {
         jPOpcLogin = new javax.swing.JPanel();
         jBtnLoginU = new javax.swing.JButton();
         lbLogin = new javax.swing.JLabel();
-        jPSideMenu = new javax.swing.JPanel();
-        jLTittleMenu = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jBtnGetOut = new javax.swing.JButton();
-        jPContent = new javax.swing.JPanel();
-        jPOptions = new javax.swing.JPanel();
-        jBtnSolicitudes = new javax.swing.JButton();
-        jPPublis = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jSeparator.setBackground(new java.awt.Color(236, 230, 240));
-        jSeparator.setForeground(new java.awt.Color(204, 204, 204));
-
-        jPSearchBar.setBackground(new java.awt.Color(236, 230, 240));
-        jPSearchBar.setForeground(new java.awt.Color(0, 0, 0));
-        jPSearchBar.setLayout(new java.awt.GridBagLayout());
-
-        jCBSelecFilter.setBackground(new java.awt.Color(236, 230, 240));
-        jCBSelecFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtro 1", "Filtro 2", "Filtro3" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
-        jPSearchBar.add(jCBSelecFilter, gridBagConstraints);
-
-        jFieldSearchProyect.setBackground(new java.awt.Color(236, 230, 240));
-        jFieldSearchProyect.setText("Ingrese un proyecto a buscar...");
-        jFieldSearchProyect.setMaximumSize(new java.awt.Dimension(200, 2147483647));
-        jFieldSearchProyect.setMinimumSize(new java.awt.Dimension(100, 22));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 300;
-        jPSearchBar.add(jFieldSearchProyect, gridBagConstraints);
-
-        jBtnSearch.setBackground(new java.awt.Color(236, 230, 240));
-        jBtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/unicauca/academicprojectsprototype/presentation/Icons/search.png"))); // NOI18N
-        jBtnSearch.setBorderPainted(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        jPSearchBar.add(jBtnSearch, gridBagConstraints);
-
-        jPHead.setBackground(new java.awt.Color(236, 230, 240));
-        jPHead.setForeground(new java.awt.Color(0, 0, 0));
-        jPHead.setLayout(new javax.swing.BoxLayout(jPHead, javax.swing.BoxLayout.LINE_AXIS));
-
-        lbTitleProyect.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        lbTitleProyect.setText("Sistema gestor de proyectos academicos");
-        jPHead.add(lbTitleProyect);
-
-        jPOpcLogin.setBackground(new java.awt.Color(236, 230, 240));
-        jPOpcLogin.setForeground(new java.awt.Color(0, 0, 0));
-        jPOpcLogin.setLayout(new java.awt.GridLayout(2, 2, 10, 0));
-
-        jBtnLoginU.setBackground(new java.awt.Color(236, 230, 240));
-        jBtnLoginU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LoginUser2.png"))); // NOI18N
-        jBtnLoginU.setBorder(null);
-        jBtnLoginU.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jBtnLoginU.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBtnLoginU.setIconTextGap(5);
-        jBtnLoginU.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jBtnLoginU.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jBtnLoginU.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnLoginUActionPerformed(evt);
-            }
-        });
-        jPOpcLogin.add(jBtnLoginU);
-
-        lbLogin.setBackground(new java.awt.Color(101, 85, 153));
-        lbLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lbLogin.setForeground(new java.awt.Color(255, 255, 255));
-        lbLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbLogin.setText("Coordinador");
-        lbLogin.setOpaque(true);
-        jPOpcLogin.add(lbLogin);
-
-        jPHead.add(jPOpcLogin);
 
         jPSideMenu.setBackground(new java.awt.Color(255, 255, 255));
         jPSideMenu.setLayout(new java.awt.GridBagLayout());
@@ -174,7 +118,28 @@ public class GUIHomeCoordinator extends javax.swing.JFrame {
 
         jPOptions.setBackground(new java.awt.Color(236, 230, 240));
         jPOptions.setForeground(new java.awt.Color(0, 0, 0));
-        jPOptions.setLayout(new java.awt.GridBagLayout());
+        jPOptions.setLayout(new java.awt.CardLayout());
+
+        jBtnNewPubli.setBackground(new java.awt.Color(101, 85, 153));
+        jBtnNewPubli.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jBtnNewPubli.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnNewPubli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newPubli.png"))); // NOI18N
+        jBtnNewPubli.setText("Nueva publicación");
+        jBtnNewPubli.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnNewPubli.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jPOpcionCompany.add(jBtnNewPubli);
+
+        jBtnMyPubli.setBackground(new java.awt.Color(101, 85, 153));
+        jBtnMyPubli.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jBtnMyPubli.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnMyPubli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MyPubli.png"))); // NOI18N
+        jBtnMyPubli.setText("Mis publicaciones");
+        jBtnMyPubli.setToolTipText("");
+        jBtnMyPubli.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnMyPubli.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jPOpcionCompany.add(jBtnMyPubli);
+
+        jPOptions.add(jPOpcionCompany, "Company");
 
         jBtnSolicitudes.setBackground(new java.awt.Color(101, 85, 153));
         jBtnSolicitudes.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -183,9 +148,42 @@ public class GUIHomeCoordinator extends javax.swing.JFrame {
         jBtnSolicitudes.setText("Solicitudes");
         jBtnSolicitudes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBtnSolicitudes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 50);
-        jPOptions.add(jBtnSolicitudes, gridBagConstraints);
+
+        javax.swing.GroupLayout jPOpcionCoordiLayout = new javax.swing.GroupLayout(jPOpcionCoordi);
+        jPOpcionCoordi.setLayout(jPOpcionCoordiLayout);
+        jPOpcionCoordiLayout.setHorizontalGroup(
+            jPOpcionCoordiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 854, Short.MAX_VALUE)
+            .addGroup(jPOpcionCoordiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPOpcionCoordiLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jBtnSolicitudes)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPOpcionCoordiLayout.setVerticalGroup(
+            jPOpcionCoordiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 90, Short.MAX_VALUE)
+            .addGroup(jPOpcionCoordiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPOpcionCoordiLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jBtnSolicitudes)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jPOptions.add(jPOpcionCoordi, "Coordi");
+
+        javax.swing.GroupLayout jPOpcionStudentLayout = new javax.swing.GroupLayout(jPOpcionStudent);
+        jPOpcionStudent.setLayout(jPOpcionStudentLayout);
+        jPOpcionStudentLayout.setHorizontalGroup(
+            jPOpcionStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 854, Short.MAX_VALUE)
+        );
+        jPOpcionStudentLayout.setVerticalGroup(
+            jPOpcionStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 90, Short.MAX_VALUE)
+        );
+
+        jPOptions.add(jPOpcionStudent, "Student");
 
         jPPublis.setBackground(new java.awt.Color(236, 230, 240));
         jPPublis.setLayout(new java.awt.GridBagLayout());
@@ -210,12 +208,78 @@ public class GUIHomeCoordinator extends javax.swing.JFrame {
                 .addComponent(jPPublis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jSeparator.setBackground(new java.awt.Color(236, 230, 240));
+        jSeparator.setForeground(new java.awt.Color(204, 204, 204));
+
+        jPSearchBar.setBackground(new java.awt.Color(236, 230, 240));
+        jPSearchBar.setForeground(new java.awt.Color(0, 0, 0));
+        jPSearchBar.setLayout(new java.awt.GridBagLayout());
+
+        jCBSelecFilter.setBackground(new java.awt.Color(236, 230, 240));
+        jCBSelecFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtro 1", "Filtro 2", "Filtro3" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        jPSearchBar.add(jCBSelecFilter, gridBagConstraints);
+
+        jFieldSearchProyect.setBackground(new java.awt.Color(236, 230, 240));
+        jFieldSearchProyect.setText("Ingrese un proyecto a buscar...");
+        jFieldSearchProyect.setMaximumSize(new java.awt.Dimension(200, 2147483647));
+        jFieldSearchProyect.setMinimumSize(new java.awt.Dimension(100, 22));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 300;
+        jPSearchBar.add(jFieldSearchProyect, gridBagConstraints);
+
+        jBtnSearch.setBackground(new java.awt.Color(236, 230, 240));
+        jBtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search.png"))); // NOI18N
+        jBtnSearch.setBorderPainted(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        jPSearchBar.add(jBtnSearch, gridBagConstraints);
+
+        jPHead.setBackground(new java.awt.Color(236, 230, 240));
+        jPHead.setForeground(new java.awt.Color(0, 0, 0));
+        jPHead.setLayout(new javax.swing.BoxLayout(jPHead, javax.swing.BoxLayout.LINE_AXIS));
+
+        lbTitleProyect.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        lbTitleProyect.setText("Sistema gestor de proyectos academicos");
+        jPHead.add(lbTitleProyect);
+
+        jPOpcLogin.setBackground(new java.awt.Color(236, 230, 240));
+        jPOpcLogin.setForeground(new java.awt.Color(0, 0, 0));
+        jPOpcLogin.setLayout(new java.awt.GridLayout(2, 2, 10, 0));
+
+        jBtnLoginU.setBackground(new java.awt.Color(236, 230, 240));
+        jBtnLoginU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LoginUser2.png"))); // NOI18N
+        jBtnLoginU.setBorder(null);
+        jBtnLoginU.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBtnLoginU.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnLoginU.setIconTextGap(5);
+        jBtnLoginU.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jBtnLoginU.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnLoginU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnLoginUActionPerformed(evt);
+            }
+        });
+        jPOpcLogin.add(jBtnLoginU);
+
+        lbLogin.setBackground(new java.awt.Color(101, 85, 153));
+        lbLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbLogin.setForeground(new java.awt.Color(255, 255, 255));
+        lbLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbLogin.setText("Mi User");
+        lbLogin.setOpaque(true);
+        jPOpcLogin.add(lbLogin);
+
+        jPHead.add(jPOpcLogin);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPHead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPSearchBar, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
+            .addComponent(jPSearchBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jSeparator, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPSideMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,7 +296,7 @@ public class GUIHomeCoordinator extends javax.swing.JFrame {
                 .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPSideMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addComponent(jPSideMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
                     .addComponent(jPContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -243,51 +307,17 @@ public class GUIHomeCoordinator extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnLoginUActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIHomeCoordinator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIHomeCoordinator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIHomeCoordinator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIHomeCoordinator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUIHomeCoordinator().setVisible(true);
-            }
-        });
+    private void cargarRol(String rol) {
+        cardLayout = (CardLayout) jPOptions.getLayout();
+        cardLayout.show(jPOptions, rol);
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnGetOut;
     private javax.swing.JButton jBtnLoginU;
+    private javax.swing.JButton jBtnMyPubli;
+    private javax.swing.JButton jBtnNewPubli;
     private javax.swing.JButton jBtnSearch;
     private javax.swing.JButton jBtnSolicitudes;
     private javax.swing.JButton jButton1;
@@ -300,6 +330,9 @@ public class GUIHomeCoordinator extends javax.swing.JFrame {
     private javax.swing.JPanel jPContent;
     private javax.swing.JPanel jPHead;
     private javax.swing.JPanel jPOpcLogin;
+    private javax.swing.JPanel jPOpcionCompany;
+    private javax.swing.JPanel jPOpcionCoordi;
+    private javax.swing.JPanel jPOpcionStudent;
     private javax.swing.JPanel jPOptions;
     private javax.swing.JPanel jPPublis;
     private javax.swing.JPanel jPSearchBar;

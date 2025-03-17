@@ -11,7 +11,6 @@ import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
-import co.edu.unicauca.academicprojectsprototype.presentation.GUIHomeCoordinator;
 import co.edu.unicauca.academicprojectsprototype.presentation.GUIHomeWithoutLog;
 import javax.swing.JFrame;
 

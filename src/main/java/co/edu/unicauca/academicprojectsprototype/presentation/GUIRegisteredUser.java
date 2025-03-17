@@ -878,8 +878,8 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         if (validar.validarRegistroEmpresa(nit, email, telefono, pass)) {
 
             if (companyService.saveCompany(new Company(nit, nombre, telefono, pagina, sector, email, pass))) {
-                GUIHomeCompany hCompany = new GUIHomeCompany();
-                hCompany.setVisible(true);
+                GUIHomeWithLog HomeCompany = new GUIHomeWithLog("Company");
+                HomeCompany.setVisible(true);
                 this.dispose();
             }
         }
@@ -953,8 +953,8 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         if (validar.validarRegistroEstudiante(email, telefono, pass)) {
 
             if (studentService.save(new Student(code, name, telefono, email, pass))) {
-                GUIHomeStudent hStudent = new GUIHomeStudent();
-                hStudent.setVisible(true);
+               GUIHomeWithLog homeStudent = new GUIHomeWithLog("Student");
+               homeStudent.setVisible(true);
                 this.dispose();
             }
 
