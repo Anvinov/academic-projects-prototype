@@ -50,7 +50,7 @@ public class Factory {
      * @param repository cadena que indica qué tipo de clase hija debe instanciar
      * @return una clase hija de la abstracción IProductRepository
      */
-    public ICompanyRepository getRepository(String repository) {
+    public ICompanyRepository getRepositoryCompany(String repository) {
 
         ICompanyRepository result = null;
 
@@ -61,7 +61,7 @@ public class Factory {
         return result;
     }
     
-    public IStudentRepository getRepository2(String repository) {
+    public IStudentRepository getRepositoryStudent(String repository) {
 
         IStudentRepository result = null;
 
