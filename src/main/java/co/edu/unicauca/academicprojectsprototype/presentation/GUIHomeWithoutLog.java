@@ -5,6 +5,7 @@
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
 
 /**
  *
@@ -13,11 +14,13 @@ import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService
 public class GUIHomeWithoutLog extends javax.swing.JFrame {
 
     private ICompanyService companyService;
+    private IStudentService studentService;
     /**
      * Creates new form GUIMenuWithoutLog
      */
-    public GUIHomeWithoutLog(ICompanyService service) {
-        this.companyService = service;
+    public GUIHomeWithoutLog(ICompanyService serviceCompany,IStudentService studentService) {
+        this.companyService = serviceCompany;
+        this.studentService = studentService;
         initComponents();
     }
 
@@ -181,9 +184,12 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
 
     private void jBtnNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNewUserActionPerformed
         // TODO add your handling code here:
-        GUISelectRegistUser selecU = new GUISelectRegistUser(companyService);
+        //GUISelectRegistUser selecU = new GUISelectRegistUser(companyService);
+        GUIRegisteredUser selecU = new GUIRegisteredUser(companyService,studentService);
         selecU.setVisible(true);
         this.dispose();
+        
+ 
     }//GEN-LAST:event_jBtnNewUserActionPerformed
 
     private void jBtnLoginUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLoginUActionPerformed

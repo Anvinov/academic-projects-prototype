@@ -3,6 +3,7 @@ package co.edu.unicauca.academicprojectsprototype.access;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Sector;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
+import co.edu.unicauca.academicprojectsprototype.infra.Messages;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -42,9 +43,10 @@ public class CompanySqliteRepository implements ICompanyRepository {
             pstmt.executeUpdate();
             
             this.disconnect();
-            
+            Messages.showMessageDialog("Empresa creada correctamente", "Empresa creada");
             return true;
         } catch (SQLException ex) {
+            Messages.showMessageDialog("Error al registrar empresa:" + ex.getMessage(), "Error crear empresa");
             Logger.getLogger(CompanyService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;

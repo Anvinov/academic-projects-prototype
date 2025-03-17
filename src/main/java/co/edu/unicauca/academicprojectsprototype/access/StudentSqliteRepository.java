@@ -6,6 +6,7 @@ package co.edu.unicauca.academicprojectsprototype.access;
 
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
 import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
+import co.edu.unicauca.academicprojectsprototype.infra.Messages;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -47,9 +48,10 @@ public class StudentSqliteRepository implements IStudentRepository{
             pstmt.executeUpdate();
             
             this.disconnect();
-            
+            Messages.showMessageDialog("Estudiante registrado exitosamente", "Estudiante Registrado");
             return true;
         } catch (SQLException ex) {
+            Messages.showMessageDialog("Error al registrar estudiante" + ex.getMessage(), "Error registrar estudiante");
             Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
