@@ -143,6 +143,11 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         jBtnBackSelectUser.setBackground(new java.awt.Color(236, 230, 240));
         jBtnBackSelectUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back.png"))); // NOI18N
         jBtnBackSelectUser.setBorderPainted(false);
+        jBtnBackSelectUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnBackSelectUserActionPerformed(evt);
+            }
+        });
         jPButtom.add(jBtnBackSelectUser);
 
         jPContent.setBackground(new java.awt.Color(236, 230, 240));
@@ -894,9 +899,9 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         if (validar.validarRegistroEmpresa(nit, email, telefono, pass)) {
 
             if (companyService.saveCompany(new Company(nit, nombre, telefono, pagina, sector, email, pass))) {
-                GUIHomeWithLog HomeCompany = new GUIHomeWithLog("Company");
+                GUIHomeWithLog HomeCompany = new GUIHomeWithLog("Company",nit,companyService,studentService);
                 HomeCompany.setVisible(true);
-                //this.dispose();
+                this.dispose();
             }
         }
     }//GEN-LAST:event_jBtnSaveCompanyActionPerformed
@@ -969,13 +974,19 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         if (validar.validarRegistroEstudiante(email, telefono, pass)) {
 
             if (studentService.save(new Student(code, name, telefono, email, pass))) {
-                GUIHomeWithLog homeStudent = new GUIHomeWithLog("Student");
+                GUIHomeWithLog homeStudent = new GUIHomeWithLog("Student",code, companyService,studentService);
                 homeStudent.setVisible(true);
                 //this.dispose();
             }
 
         }
     }//GEN-LAST:event_jBtnSaveStudentActionPerformed
+
+    private void jBtnBackSelectUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackSelectUserActionPerformed
+        GUIHomeWithoutLog homeWithOutLog = new GUIHomeWithoutLog(companyService, studentService);
+        homeWithOutLog.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBtnBackSelectUserActionPerformed
 
    
 

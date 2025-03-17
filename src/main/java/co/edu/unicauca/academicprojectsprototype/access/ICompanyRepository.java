@@ -12,4 +12,5 @@ public interface ICompanyRepository {
     boolean save(Company newCompany);
     void initializeDatabase();
     List<Company> listAll();
+    Company Search(String id);
 }

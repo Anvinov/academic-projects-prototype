@@ -4,6 +4,11 @@
  */
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
+import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
+import co.edu.unicauca.academicprojectsprototype.infra.Messages;
 import java.awt.CardLayout;
 
 /**
@@ -13,13 +18,22 @@ import java.awt.CardLayout;
 public class GUIHomeWithLog extends javax.swing.JFrame {
 
     CardLayout cardLayout;
+    private ICompanyService companyService;
+    private IStudentService studentService;
+    private String id;
+    private String rol;
 
     /**
      * Creates new form GUIHomeWithLog
      */
-    public GUIHomeWithLog(String rol) {
+    public GUIHomeWithLog(String rol, String id, ICompanyService serviceCompany, IStudentService serviceStudent) {
         initComponents();
+        this.companyService = serviceCompany;
+        this.studentService = serviceStudent;
+        this.id = id;
+        this.rol = rol;
         cargarRol(rol);
+        cargarInfoUser();
     }
 
     /**
@@ -108,6 +122,11 @@ public class GUIHomeWithLog extends javax.swing.JFrame {
         jBtnGetOut.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jBtnGetOut.setForeground(new java.awt.Color(255, 255, 255));
         jBtnGetOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Get out.png"))); // NOI18N
+        jBtnGetOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnGetOutActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 100, 0);
@@ -129,6 +148,11 @@ public class GUIHomeWithLog extends javax.swing.JFrame {
         jBtnNewPubli.setText("Nueva publicación");
         jBtnNewPubli.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBtnNewPubli.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnNewPubli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnNewPubliActionPerformed(evt);
+            }
+        });
         jPOpcionCompany.add(jBtnNewPubli);
 
         jBtnMyPubli.setBackground(new java.awt.Color(101, 85, 153));
@@ -313,9 +337,42 @@ public class GUIHomeWithLog extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnLoginUActionPerformed
 
+    private void jBtnNewPubliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNewPubliActionPerformed
+        Company company = companyService.search(id);
+        GUINewProject newProject = new GUINewProject(company);
+        newProject.setVisible(true);
+    }//GEN-LAST:event_jBtnNewPubliActionPerformed
+
+    private void jBtnGetOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGetOutActionPerformed
+        GUIHomeWithoutLog HomeWithOutLog = new GUIHomeWithoutLog(companyService, studentService);
+        HomeWithOutLog.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBtnGetOutActionPerformed
+
     private void cargarRol(String rol) {
         cardLayout = (CardLayout) jPOptions.getLayout();
         cardLayout.show(jPOptions, rol);
+    }
+
+    private void cargarInfoUser() {
+        String nombre;
+        Messages.showMessageDialog("Se carga el rol de" + rol, id);
+        switch (rol) {
+            case "Student":
+                Student student = studentService.Search(id);
+                nombre = student.getName();
+
+                break;
+            case "Company":
+                Company company = companyService.search(id);
+                nombre = company.getName();
+                break;
+            default:
+                throw new AssertionError();
+        }
+
+        lbLogin.setText("Bienvenido " + nombre);
+
     }
 
 

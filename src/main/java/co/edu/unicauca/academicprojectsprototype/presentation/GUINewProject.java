@@ -4,17 +4,31 @@
  */
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
+import co.edu.unicauca.academicprojectsprototype.access.Factory;
+import co.edu.unicauca.academicprojectsprototype.access.ICompanyRepository;
+import co.edu.unicauca.academicprojectsprototype.access.IProjectRepository;
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
+import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.IProjectService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.ProjectService;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author anvig
  */
 public class GUINewProject extends javax.swing.JFrame {
 
+    Company company;
+    IProjectRepository repositoryCompany = Factory.getInstance().getRepositoryProject("ARRAY");
+    IProjectService serviceProject = new ProjectService(repositoryCompany);
+
     /**
      * Creates new form NewProject
      */
-    public GUINewProject() {
+    public GUINewProject(Company company) {
         initComponents();
+        this.company = company;
     }
 
     /**
@@ -27,58 +41,267 @@ public class GUINewProject extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jPHead = new javax.swing.JPanel();
+        lbTitleProyect = new java.awt.Label();
+        jPOpcLogin = new javax.swing.JPanel();
+        jBtnLoginU = new javax.swing.JButton();
+        lbLogin = new javax.swing.JLabel();
+        jPTitleNewProject = new javax.swing.JPanel();
+        jBtnNewPubli = new javax.swing.JButton();
+        jPSideMenu = new javax.swing.JPanel();
+        jLTittleMenu = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jBtnGetOut = new javax.swing.JButton();
+        jPContent = new javax.swing.JPanel();
+        jLTitleProject = new javax.swing.JLabel();
+        jFieldTitleProject = new javax.swing.JTextField();
+        jLDescriptionProject = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaDescripProject = new javax.swing.JTextArea();
+        jBtnPubliProject = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPHead.setBackground(new java.awt.Color(236, 230, 240));
+        jPHead.setForeground(new java.awt.Color(0, 0, 0));
+        jPHead.setLayout(new javax.swing.BoxLayout(jPHead, javax.swing.BoxLayout.LINE_AXIS));
+
+        lbTitleProyect.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        lbTitleProyect.setText("Sistema gestor de proyectos academicos");
+        jPHead.add(lbTitleProyect);
+
+        jPOpcLogin.setBackground(new java.awt.Color(236, 230, 240));
+        jPOpcLogin.setForeground(new java.awt.Color(0, 0, 0));
+        jPOpcLogin.setLayout(new java.awt.GridLayout(2, 2, 10, 0));
+
+        jBtnLoginU.setBackground(new java.awt.Color(236, 230, 240));
+        jBtnLoginU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LoginUser2.png"))); // NOI18N
+        jBtnLoginU.setBorder(null);
+        jBtnLoginU.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBtnLoginU.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnLoginU.setIconTextGap(5);
+        jBtnLoginU.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jBtnLoginU.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnLoginU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnLoginUActionPerformed(evt);
+            }
+        });
+        jPOpcLogin.add(jBtnLoginU);
+
+        lbLogin.setBackground(new java.awt.Color(101, 85, 153));
+        lbLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbLogin.setForeground(new java.awt.Color(255, 255, 255));
+        lbLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbLogin.setText("Mi User");
+        lbLogin.setOpaque(true);
+        jPOpcLogin.add(lbLogin);
+
+        jPHead.add(jPOpcLogin);
+
+        jPTitleNewProject.setBackground(new java.awt.Color(236, 230, 240));
+        jPTitleNewProject.setForeground(new java.awt.Color(0, 0, 0));
+
+        jBtnNewPubli.setBackground(new java.awt.Color(101, 85, 153));
+        jBtnNewPubli.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jBtnNewPubli.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnNewPubli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/newPubli.png"))); // NOI18N
+        jBtnNewPubli.setText("Nueva publicación");
+        jBtnNewPubli.setBorderPainted(false);
+        jBtnNewPubli.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnNewPubli.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnNewPubli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnNewPubliActionPerformed(evt);
+            }
+        });
+        jPTitleNewProject.add(jBtnNewPubli);
+
+        jPSideMenu.setBackground(new java.awt.Color(255, 255, 255));
+        jPSideMenu.setLayout(new java.awt.GridBagLayout());
+
+        jLTittleMenu.setBackground(new java.awt.Color(0, 0, 0));
+        jLTittleMenu.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLTittleMenu.setForeground(new java.awt.Color(0, 0, 0));
+        jLTittleMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTittleMenu.setText("Menú");
+        jLTittleMenu.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
+        jPSideMenu.add(jLTittleMenu, gridBagConstraints);
+
+        jButton1.setBackground(new java.awt.Color(101, 85, 153));
+        jButton1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("jButton1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        jPSideMenu.add(jButton1, gridBagConstraints);
+
+        jButton2.setBackground(new java.awt.Color(101, 85, 153));
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("jButton2");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        jPSideMenu.add(jButton2, gridBagConstraints);
+
+        jButton3.setBackground(new java.awt.Color(101, 85, 153));
+        jButton3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("jButton3");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        jPSideMenu.add(jButton3, gridBagConstraints);
+
+        jBtnGetOut.setBackground(new java.awt.Color(101, 85, 153));
+        jBtnGetOut.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jBtnGetOut.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnGetOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Get out.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 100, 0);
+        jPSideMenu.add(jBtnGetOut, gridBagConstraints);
+
+        jPContent.setBackground(new java.awt.Color(236, 230, 240));
+        jPContent.setLayout(new java.awt.GridBagLayout());
+
+        jLTitleProject.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLTitleProject.setForeground(new java.awt.Color(0, 0, 0));
+        jLTitleProject.setText("Titulo del proyecto:");
+        jPContent.add(jLTitleProject, new java.awt.GridBagConstraints());
+
+        jFieldTitleProject.setBackground(new java.awt.Color(255, 255, 255));
+        jFieldTitleProject.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jFieldTitleProject.setForeground(new java.awt.Color(0, 0, 0));
+        jFieldTitleProject.setText("Mi proyecto");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPContent.add(jFieldTitleProject, gridBagConstraints);
+
+        jLDescriptionProject.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLDescriptionProject.setForeground(new java.awt.Color(0, 0, 0));
+        jLDescriptionProject.setText("Descripción del proyecto: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 1;
+        jPContent.add(jLDescriptionProject, gridBagConstraints);
+
+        jTextAreaDescripProject.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAreaDescripProject.setColumns(20);
+        jTextAreaDescripProject.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jTextAreaDescripProject.setForeground(new java.awt.Color(0, 0, 0));
+        jTextAreaDescripProject.setLineWrap(true);
+        jTextAreaDescripProject.setRows(5);
+        jTextAreaDescripProject.setText("Proyecto enfocado en los sitemas gestores academicos\n");
+        jScrollPane1.setViewportView(jTextAreaDescripProject);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
+        jPContent.add(jScrollPane1, gridBagConstraints);
+
+        jBtnPubliProject.setBackground(new java.awt.Color(0, 0, 0));
+        jBtnPubliProject.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jBtnPubliProject.setText("PUBLICAR ");
+        jBtnPubliProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnPubliProjectActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+        jPContent.add(jBtnPubliProject, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPHead, javax.swing.GroupLayout.DEFAULT_SIZE, 993, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPSideMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPTitleNewProject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPHead, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPSideMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPTitleNewProject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBtnLoginUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLoginUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnLoginUActionPerformed
+
+    private void jBtnNewPubliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNewPubliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnNewPubliActionPerformed
+
+    private void jBtnPubliProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPubliProjectActionPerformed
+        String titulo = jFieldTitleProject.getText();
+        String descripcion = jTextAreaDescripProject.getText();
+        
+         try {
+            serviceProject.registerProject(titulo, descripcion, company);
+            JOptionPane.showMessageDialog(null, "¡Creado satisfactoriamente!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocurrió un error inesperado: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+         serviceProject.listProject();
+    }//GEN-LAST:event_jBtnPubliProjectActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUINewProject.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUINewProject.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUINewProject.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUINewProject.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUINewProject().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnGetOut;
+    private javax.swing.JButton jBtnLoginU;
+    private javax.swing.JButton jBtnNewPubli;
+    private javax.swing.JButton jBtnPubliProject;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JTextField jFieldTitleProject;
+    private javax.swing.JLabel jLDescriptionProject;
+    private javax.swing.JLabel jLTitleProject;
+    private javax.swing.JLabel jLTittleMenu;
+    private javax.swing.JPanel jPContent;
+    private javax.swing.JPanel jPHead;
+    private javax.swing.JPanel jPOpcLogin;
+    private javax.swing.JPanel jPSideMenu;
+    private javax.swing.JPanel jPTitleNewProject;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextAreaDescripProject;
+    private javax.swing.JLabel lbLogin;
+    private java.awt.Label lbTitleProyect;
     // End of variables declaration//GEN-END:variables
 }

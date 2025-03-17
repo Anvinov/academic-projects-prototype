@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  *
  * @author anvig
  */
-public class StudentSqliteRepository implements IStudentRepository{
+public class StudentSqliteRepository implements IStudentRepository {
 
     private Connection conn;
 
@@ -33,7 +33,7 @@ public class StudentSqliteRepository implements IStudentRepository{
             if (newStudent == null || newStudent.getCode().isBlank() || newStudent.getName().isBlank()) {
                 return false;
             }
-            
+
             this.connect();
             this.initializeDatabase();
             String sql = "INSERT INTO STUDENT (CODE, NAME, PHONE, EMAIL, PASSWORD ) "
@@ -46,7 +46,7 @@ public class StudentSqliteRepository implements IStudentRepository{
             pstmt.setString(4, newStudent.getEmail());
             pstmt.setString(5, newStudent.getPassword());
             pstmt.executeUpdate();
-            
+
             this.disconnect();
             Messages.showMessageDialog("Estudiante registrado exitosamente", "Estudiante Registrado");
             return true;
@@ -58,16 +58,44 @@ public class StudentSqliteRepository implements IStudentRepository{
     }
 
     @Override
+    public Student search(String id) {
+        Student searchStudent = null;
+        try {
+            this.connect();
+
+            String sql = "SELECT CODE, NAME, PHONE, EMAIL, PASSWORD FROM STUDENT WHERE CODE = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, id);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) { 
+                searchStudent = new Student();
+                searchStudent.setCode(rs.getString("CODE"));
+                searchStudent.setName(rs.getString("NAME"));
+                searchStudent.setPhone(rs.getString("PHONE"));
+                searchStudent.setEmail(rs.getString("EMAIL"));
+                searchStudent.setPassword(rs.getString("PASSWORD"));
+            }
+
+            this.disconnect();
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, "Error al buscar estudiante", ex);
+        }
+        return searchStudent; 
+    }
+
+    @Override
     public List<Student> listAll() {
         List<Student> students = new ArrayList<>();
         try {
             this.connect();
-            
+
             String sql = "SELECT CODE, NAME, PHONE, EMAIL, PASSWORD FROM STUDENT";
 
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            
+
             while (rs.next()) {
                 Student newStudent = new Student();
                 newStudent.setCode(rs.getString("CODE"));
@@ -75,26 +103,26 @@ public class StudentSqliteRepository implements IStudentRepository{
                 newStudent.setPhone(rs.getString("PHONE"));
                 newStudent.setEmail(rs.getString("EMAIL"));
                 newStudent.setPassword(rs.getString("PASSWORD"));
-                
+
                 students.add(newStudent);
             }
-            
+
             this.disconnect();
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return students;
     }
-    
+
     private static final String DB_PATH = "database/database.db";
-    
+
     public void connect() {
         // SQLite connection string
         //String url = "jdbc:sqlite:.\\\\miDatabase.db";
         //String url = "jdbc:sqlite:C:\\Users\\anvig\\OneDrive\\Documentos\\NetBeansProjects\\Principios SOLID\\miDatabase.db";
         String url = "jdbc:sqlite:C:\\Users\\lopez\\OneDrive\\Escritorio\\Cosas\\Uni\\2025 -1\\L. Software II\\Proyecto\\AcademicProjects\\DataBase\\MyDataBase.db";
-   
+
         //String absolutePath = new File(DB_PATH).getAbsolutePath();
         //String url = "jdbc:sqlite:" + absolutePath;
         try {
@@ -116,24 +144,23 @@ public class StudentSqliteRepository implements IStudentRepository{
         }
 
     }
+
     @Override
-    public void initializeDatabase () {
-    String sql = "CREATE TABLE IF NOT EXISTS student (" +
-                    "code TEXT PRIMARY KEY, " +
-                    "name TEXT NOT NULL, " +
-                    "phone TEXT, " +
-                    "email TEXT, " +
-                    "password TEXT" +
-                    ")";
-    try 
-    {
-        Statement statement = conn.createStatement();
-        statement.execute(sql);
-        System. out.println ("Database initialized successfully.");
-    }
-        catch (SQLException e) {
-        e.printStackTrace () ;
+    public void initializeDatabase() {
+        String sql = "CREATE TABLE IF NOT EXISTS student ("
+                + "code TEXT PRIMARY KEY, "
+                + "name TEXT NOT NULL, "
+                + "phone TEXT, "
+                + "email TEXT, "
+                + "password TEXT"
+                + ")";
+        try {
+            Statement statement = conn.createStatement();
+            statement.execute(sql);
+            System.out.println("Database initialized successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
-    
+
 }

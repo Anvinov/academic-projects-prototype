@@ -12,4 +12,6 @@ public interface ICompanyService {
      public List<Company> getAllCompanies();
      
      public boolean saveCompany(Company newCompany);
+     
+     public Company search (String id);
 }

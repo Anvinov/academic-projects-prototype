@@ -22,4 +22,9 @@ public class CompanyService implements ICompanyService {
         return repository.save(newCompany);
     }
 
+    @Override
+    public Company search(String id) {
+        return repository.Search(id);
+    }
+
 }

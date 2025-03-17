@@ -14,5 +14,6 @@ import java.util.List;
 public interface IStudentRepository {
     boolean save(Student newStudent);
     void initializeDatabase();
+    Student search(String id);
     List<Student> listAll();
 }

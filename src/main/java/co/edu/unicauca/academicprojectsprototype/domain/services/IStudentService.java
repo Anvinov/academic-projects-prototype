@@ -14,4 +14,5 @@ import java.util.List;
 public interface IStudentService{
     boolean save(Student newStudent);
     List<Student> listAll();
+    Student Search(String id);
 }

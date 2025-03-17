@@ -21,13 +21,16 @@ public class Factory {
 
     private Map<String, ICompanyRepository> dictionary;
     private Map<String, IStudentRepository> dictionary2;
+    private Map<String, IProjectRepository> dictionary3;
 
     private Factory() {
         dictionary = new HashMap<>();
         dictionary2 = new HashMap<>();
+        dictionary3 = new HashMap<>();
         //dictionary.put("ARRAYS", new CompanyArraysRepository());
         dictionary.put("SQLITE", new CompanySqliteRepository());
         dictionary2.put("SQLITE", new StudentSqliteRepository());
+        dictionary3.put("ARRAY", new ProjectArrayRepository());
     }
 
     /**
@@ -40,14 +43,15 @@ public class Factory {
         if (instance == null) {
             instance = new Factory();
         }
-        
+
         return instance;
     }
 
     /**
      * Método que crea una instancia concreta de la jerarquia ICompanyRepository
      *
-     * @param repository cadena que indica qué tipo de clase hija debe instanciar
+     * @param repository cadena que indica qué tipo de clase hija debe
+     * instanciar
      * @return una clase hija de la abstracción IProductRepository
      */
     public ICompanyRepository getRepositoryCompany(String repository) {
@@ -60,7 +64,7 @@ public class Factory {
 
         return result;
     }
-    
+
     public IStudentRepository getRepositoryStudent(String repository) {
 
         IStudentRepository result = null;
@@ -71,6 +75,16 @@ public class Factory {
 
         return result;
     }
-    
-    
+
+    public IProjectRepository getRepositoryProject(String repository) {
+
+        IProjectRepository result = null;
+
+        if (dictionary3.containsKey(repository)) {
+            result = dictionary3.get(repository);
+        }
+
+        return result;
+    }
+
 }
