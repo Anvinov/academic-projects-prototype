@@ -31,5 +31,10 @@ public class StudentService implements IStudentService{
     public boolean save(Student newStudent) {
         return repository.save(newStudent);
     }
+
+    @Override
+    public Student Search(String id) {
+        return repository.search(id);
+    }
     
 }

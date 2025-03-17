@@ -26,7 +26,7 @@ public class CompanySqliteRepository implements ICompanyRepository {
             if (newCompany == null || newCompany.getNit().isBlank() || newCompany.getName().isBlank()) {
                 return false;
             }
-            
+
             this.connect();
             this.initializeDatabase();
             String sql = "INSERT INTO COMPANY (NIT, NAME, PHONE, PAGEWEB, SECTOR, EMAIL, PASSWORD ) "
@@ -41,7 +41,7 @@ public class CompanySqliteRepository implements ICompanyRepository {
             pstmt.setString(6, newCompany.getEmail());
             pstmt.setString(7, newCompany.getPassword());
             pstmt.executeUpdate();
-            
+
             this.disconnect();
             Messages.showMessageDialog("Empresa creada correctamente", "Empresa creada");
             return true;
@@ -57,12 +57,12 @@ public class CompanySqliteRepository implements ICompanyRepository {
         List<Company> companies = new ArrayList<>();
         try {
             this.connect();
-            
+
             String sql = "SELECT NIT, NAME, PHONE, PAGEWEB, SECTOR, EMAIL, PASSWORD FROM COMPANY";
 
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            
+
             while (rs.next()) {
                 Company newCompany = new Company();
                 newCompany.setNit(rs.getString("NIT"));
@@ -72,26 +72,26 @@ public class CompanySqliteRepository implements ICompanyRepository {
                 newCompany.setSector(Sector.valueOf(rs.getString("SECTOR").toUpperCase()));
                 newCompany.setEmail(rs.getString("EMAIL"));
                 newCompany.setPassword(rs.getString("PASSWORD"));
-                
+
                 companies.add(newCompany);
             }
-            
+
             this.disconnect();
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(CompanyService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return companies;
     }
-    
+
     private static final String DB_PATH = "database/database.db";
-    
+
     public void connect() {
         // SQLite connection string
         //String url = "jdbc:sqlite:.\\\\miDatabase.db";
         //String url = "jdbc:sqlite:C:\\Users\\anvig\\OneDrive\\Documentos\\NetBeansProjects\\Principios SOLID\\miDatabase.db";
         String url = "jdbc:sqlite:C:\\Users\\lopez\\OneDrive\\Escritorio\\Cosas\\Uni\\2025 -1\\L. Software II\\Proyecto\\AcademicProjects\\DataBase\\MyDataBase.db";
-   
+
         //String absolutePath = new File(DB_PATH).getAbsolutePath();
         //String url = "jdbc:sqlite:" + absolutePath;
         try {
@@ -113,26 +113,53 @@ public class CompanySqliteRepository implements ICompanyRepository {
         }
 
     }
+
     @Override
-    public void initializeDatabase () {
-    String sql = "CREATE TABLE IF NOT EXISTS company (" +
-                    "nit TEXT PRIMARY KEY, " +
-                    "name TEXT NOT NULL, " +
-                    "phone TEXT, " +
-                    "pageWeb TEXT, " +
-                    "sector TEXT, " +
-                    "email TEXT, " +
-                    "password TEXT" +
-                    ")";
-    try 
-    {
-        Statement statement = conn.createStatement();
-        statement.execute(sql);
-        System. out.println ("Database initialized successfully.");
-    }
-        catch (SQLException e) {
-        e.printStackTrace () ;
+    public void initializeDatabase() {
+        String sql = "CREATE TABLE IF NOT EXISTS company ("
+                + "nit TEXT PRIMARY KEY, "
+                + "name TEXT NOT NULL, "
+                + "phone TEXT, "
+                + "pageWeb TEXT, "
+                + "sector TEXT, "
+                + "email TEXT, "
+                + "password TEXT"
+                + ")";
+        try {
+            Statement statement = conn.createStatement();
+            statement.execute(sql);
+            System.out.println("Database initialized successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+    }
+
+    @Override
+    public Company Search(String id) {
+        try {
+            this.connect();
+
+            String sql = "SELECT NIT, NAME, PHONE, PAGEWEB, SECTOR, EMAIL, PASSWORD FROM COMPANY WHERE NIT =" + id;
+
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            Company SearchCompany = new Company();
+            SearchCompany.setNit(rs.getString("NIT"));
+            SearchCompany.setName(rs.getString("NAME"));
+            SearchCompany.setPhone(rs.getString("PHONE"));
+            SearchCompany.setPageWeb(rs.getString("PAGEWEB"));
+            SearchCompany.setSector(Sector.valueOf(rs.getString("SECTOR").toUpperCase()));
+            SearchCompany.setEmail(rs.getString("EMAIL"));
+            SearchCompany.setPassword(rs.getString("PASSWORD"));
+
+            this.disconnect();
+            return SearchCompany;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CompanyService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
 }
