@@ -12,8 +12,9 @@ import co.edu.unicauca.academicprojectsprototype.domain.services.validationPipel
 import co.edu.unicauca.academicprojectsprototype.domain.services.validationPipelines.ProjectPipeline;
 import co.edu.unicauca.academicprojectsprototype.domain.services.validationPipelines.RegisterStep;
 import co.edu.unicauca.academicprojectsprototype.domain.services.validationPipelines.ValidationStep;
+import observer.Subject;
 
-public class ProjectService implements IProjectService {
+public class ProjectService extends Subject implements IProjectService {
 
     private IProjectRepository repositorio;
     private ProjectPipeline pipeline;
@@ -46,7 +47,7 @@ public class ProjectService implements IProjectService {
         try {
             pipeline.execute(proyecto);
             System.out.println("Proyecto registrado: " + proyecto.getTitle());
-            //notifyObservers();
+            notifyObservers();
         } catch (Exception e) {
             System.out.println("Error al registrar el proyecto: " + e.getMessage());
         }

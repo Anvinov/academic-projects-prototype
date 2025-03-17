@@ -5,10 +5,8 @@
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
 import co.edu.unicauca.academicprojectsprototype.access.Factory;
-import co.edu.unicauca.academicprojectsprototype.access.ICompanyRepository;
 import co.edu.unicauca.academicprojectsprototype.access.IProjectRepository;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
-import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.IProjectService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ProjectService;
 import javax.swing.JOptionPane;
@@ -275,13 +273,7 @@ public class GUINewProject extends javax.swing.JFrame {
          serviceProject.listProject();
     }//GEN-LAST:event_jBtnPubliProjectActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-
-    }
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnGetOut;
     private javax.swing.JButton jBtnLoginU;

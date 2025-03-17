@@ -47,7 +47,9 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
         jBtnSearch = new javax.swing.JButton();
         jSeparator = new javax.swing.JSeparator();
         jPContent = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLTittleProjects = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableProjects = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema GPACA");
@@ -147,21 +149,40 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
 
         jPContent.setBackground(new java.awt.Color(236, 230, 240));
         jPContent.setForeground(new java.awt.Color(0, 0, 0));
-        jPContent.setLayout(new java.awt.BorderLayout());
+        jPContent.setLayout(null);
 
-        jLabel1.setBackground(new java.awt.Color(236, 230, 240));
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("AQUI VA EL CONTENIDO ");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPContent.add(jLabel1, java.awt.BorderLayout.CENTER);
+        jLTittleProjects.setBackground(new java.awt.Color(236, 230, 240));
+        jLTittleProjects.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
+        jLTittleProjects.setForeground(new java.awt.Color(0, 0, 0));
+        jLTittleProjects.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTittleProjects.setText("Proyectos disponibles");
+        jLTittleProjects.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPContent.add(jLTittleProjects);
+        jLTittleProjects.setBounds(0, 0, 840, 70);
+
+        jTableProjects.setBackground(new java.awt.Color(255, 255, 255));
+        jTableProjects.setForeground(new java.awt.Color(0, 0, 0));
+        jTableProjects.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableProjects);
+
+        jPContent.add(jScrollPane1);
+        jScrollPane1.setBounds(2, 60, 860, 200);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPHead, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+            .addComponent(jPHead, javax.swing.GroupLayout.DEFAULT_SIZE, 856, Short.MAX_VALUE)
             .addComponent(jPSearchBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jSeparator, javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jPContent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -241,12 +262,14 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
     private javax.swing.JButton jBtnSearch;
     private javax.swing.JComboBox<String> jCBSelecFilter;
     private javax.swing.JTextField jFieldSearchProyect;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLTittleProjects;
     private javax.swing.JPanel jPContent;
     private javax.swing.JPanel jPHead;
     private javax.swing.JPanel jPOpcLogin;
     private javax.swing.JPanel jPSearchBar;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator;
+    private javax.swing.JTable jTableProjects;
     private javax.swing.JLabel lbLogin;
     private javax.swing.JLabel lbNewUser;
     private java.awt.Label lbTitleProyect;

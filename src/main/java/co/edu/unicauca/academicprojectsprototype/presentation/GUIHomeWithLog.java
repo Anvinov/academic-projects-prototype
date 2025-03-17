@@ -4,19 +4,29 @@
  */
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
+import co.edu.unicauca.academicprojectsprototype.access.Factory;
+import co.edu.unicauca.academicprojectsprototype.access.IProjectRepository;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Project;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.IProjectService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.ProjectService;
 import co.edu.unicauca.academicprojectsprototype.infra.Messages;
 import java.awt.CardLayout;
+import javax.swing.table.DefaultTableModel;
+import observer.IObserver;
 
 /**
  *
  * @author lopez
  */
-public class GUIHomeWithLog extends javax.swing.JFrame {
+public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
 
+    IProjectRepository repositoryCompany = Factory.getInstance().getRepositoryProject("ARRAY");
+    IProjectService serviceProject = new ProjectService(repositoryCompany);
+    private ProjectService project;
     CardLayout cardLayout;
     private ICompanyService companyService;
     private IStudentService studentService;
@@ -32,6 +42,8 @@ public class GUIHomeWithLog extends javax.swing.JFrame {
         this.studentService = serviceStudent;
         this.id = id;
         this.rol = rol;
+        this.project = new ProjectService(repositoryCompany);
+        project.addObserver(this);
         cargarRol(rol);
         cargarInfoUser();
     }
@@ -61,7 +73,9 @@ public class GUIHomeWithLog extends javax.swing.JFrame {
         jBtnSolicitudes = new javax.swing.JButton();
         jPOpcionStudent = new javax.swing.JPanel();
         jPPublis = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLTitleProjects = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableProjects = new javax.swing.JTable();
         jSeparator = new javax.swing.JSeparator();
         jPSearchBar = new javax.swing.JPanel();
         jCBSelecFilter = new javax.swing.JComboBox<>();
@@ -216,26 +230,49 @@ public class GUIHomeWithLog extends javax.swing.JFrame {
         jPOptions.add(jPOpcionStudent, "Student");
 
         jPPublis.setBackground(new java.awt.Color(236, 230, 240));
-        jPPublis.setLayout(new java.awt.GridBagLayout());
+        jPPublis.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("PUBLICACIONES AQUI");
-        jPPublis.add(jLabel1, new java.awt.GridBagConstraints());
+        jLTitleProjects.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLTitleProjects.setForeground(new java.awt.Color(0, 0, 0));
+        jLTitleProjects.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTitleProjects.setText("Proyectos disponibles");
+        jPPublis.add(jLTitleProjects);
+        jLTitleProjects.setBounds(0, 0, 854, 50);
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setForeground(new java.awt.Color(0, 0, 0));
+
+        jTableProjects.setBackground(new java.awt.Color(255, 255, 255));
+        jTableProjects.setForeground(new java.awt.Color(0, 0, 0));
+        jTableProjects.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableProjects);
+
+        jPPublis.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 60, 854, 260);
 
         javax.swing.GroupLayout jPContentLayout = new javax.swing.GroupLayout(jPContent);
         jPContent.setLayout(jPContentLayout);
         jPContentLayout.setHorizontalGroup(
             jPContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPOptions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPPublis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPPublis, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jPContentLayout.setVerticalGroup(
             jPContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPContentLayout.createSequentialGroup()
                 .addComponent(jPOptions, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPPublis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPPublis, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))
         );
 
         jSeparator.setBackground(new java.awt.Color(236, 230, 240));
@@ -326,7 +363,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame {
                 .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPSideMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                    .addComponent(jPSideMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
                     .addComponent(jPContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -375,6 +412,20 @@ public class GUIHomeWithLog extends javax.swing.JFrame {
 
     }
 
+    public void fillTableProject() {
+        DefaultTableModel modeloProyectos = new DefaultTableModel(new String[]{"Titulo", "descripcion", "Comapañia", "Estudiante encargado"}, 0);
+        modeloProyectos.setRowCount(0);
+
+        for (Project project : repositoryCompany.getProjects()) {
+
+            if (project.getStudent() != null && project.getStudent().getName() != null) {
+                modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getCompany().getName(), project.getStudent().getName()});
+            } else {
+                modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getCompany().getName(), "no tiene"});
+            }
+        }
+        jTableProjects.setModel(modeloProyectos);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnGetOut;
@@ -388,8 +439,8 @@ public class GUIHomeWithLog extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jCBSelecFilter;
     private javax.swing.JTextField jFieldSearchProyect;
+    private javax.swing.JLabel jLTitleProjects;
     private javax.swing.JLabel jLTittleMenu;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPContent;
     private javax.swing.JPanel jPHead;
     private javax.swing.JPanel jPOpcLogin;
@@ -400,8 +451,15 @@ public class GUIHomeWithLog extends javax.swing.JFrame {
     private javax.swing.JPanel jPPublis;
     private javax.swing.JPanel jPSearchBar;
     private javax.swing.JPanel jPSideMenu;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator;
+    private javax.swing.JTable jTableProjects;
     private javax.swing.JLabel lbLogin;
     private java.awt.Label lbTitleProyect;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update() {
+        fillTableProject();
+    }
 }

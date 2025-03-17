@@ -29,10 +29,12 @@ co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$3.class
 co\edu\unicauca\academicprojectsprototype\domain\services\IProjectService.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUINewProject$1.class
 co\edu\unicauca\academicprojectsprototype\domain\services\AdminService.class
+observer\IObserver.class
 co\edu\unicauca\academicprojectsprototype\domain\entities\Company.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$8.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithoutLog$2.class
 co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\PipelineStep.class
+observer\Subject.class
 co\edu\unicauca\academicprojectsprototype\access\IProjectRepository.class
 co\edu\unicauca\academicprojectsprototype\domain\entities\Coordinator.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeAdmin$1.class
