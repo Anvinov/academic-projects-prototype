@@ -30,4 +30,10 @@ public class Subject {
             observer.update();
         }
     }
+    
+    public void listObservers(){
+        for (IObserver observer : observers) {
+            System.out.println(observer.getClass());
+        }
+    }
 }

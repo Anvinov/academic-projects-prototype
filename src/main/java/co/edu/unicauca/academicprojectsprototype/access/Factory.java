@@ -22,15 +22,18 @@ public class Factory {
     private Map<String, ICompanyRepository> dictionary;
     private Map<String, IStudentRepository> dictionary2;
     private Map<String, IProjectRepository> dictionary3;
+    private Map<String, ICoordinatorRepository> dictionary4;
 
     private Factory() {
         dictionary = new HashMap<>();
         dictionary2 = new HashMap<>();
         dictionary3 = new HashMap<>();
+        dictionary4 = new HashMap<>();
         //dictionary.put("ARRAYS", new CompanyArraysRepository());
         dictionary.put("SQLITE", new CompanySqliteRepository());
         dictionary2.put("SQLITE", new StudentSqliteRepository());
         dictionary3.put("ARRAY", new ProjectArrayRepository());
+        dictionary4.put("ARRAY", new CoordinatorArrayRepository());
     }
 
     /**
@@ -82,6 +85,17 @@ public class Factory {
 
         if (dictionary3.containsKey(repository)) {
             result = dictionary3.get(repository);
+        }
+
+        return result;
+    }
+
+    public ICoordinatorRepository getRepositoryCoordi(String repository) {
+
+        ICoordinatorRepository result = null;
+
+        if (dictionary4.containsKey(repository)) {
+            result = dictionary4.get(repository);
         }
 
         return result;

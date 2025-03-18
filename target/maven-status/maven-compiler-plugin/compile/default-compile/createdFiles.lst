@@ -4,6 +4,8 @@ co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\Va
 co\edu\unicauca\academicprojectsprototype\access\ProjectSqliteRepository.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeAdmin.class
 co\edu\unicauca\academicprojectsprototype\domain\services\validateStudent.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$15.class
+co\edu\unicauca\academicprojectsprototype\access\ICoordinatorRepository.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$6.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithoutLog.class
 co\edu\unicauca\academicprojectsprototype\access\CoordinatorArrayRepository.class
@@ -24,6 +26,7 @@ co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser.class
 co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\RegisterStep.class
 co\edu\unicauca\academicprojectsprototype\domain\services\CoordinatorService.class
 co\edu\unicauca\academicprojectsprototype\domain\services\ProjectService.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$16.class
 co\edu\unicauca\academicprojectsprototype\access\StudentArrayRepository.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$3.class
 co\edu\unicauca\academicprojectsprototype\domain\services\IProjectService.class
@@ -31,6 +34,7 @@ co\edu\unicauca\academicprojectsprototype\presentation\GUINewProject$1.class
 co\edu\unicauca\academicprojectsprototype\domain\services\AdminService.class
 observer\IObserver.class
 co\edu\unicauca\academicprojectsprototype\domain\entities\Company.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$13.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$8.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithoutLog$2.class
 co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\PipelineStep.class
@@ -55,6 +59,7 @@ co\edu\unicauca\academicprojectsprototype\presentation\GUICoordinatorProjectsReq
 co\edu\unicauca\academicprojectsprototype\presentation\GUICompanyUpdateProject$1.class
 co\edu\unicauca\academicprojectsprototype\access\IStudentRepository.class
 co\edu\unicauca\academicprojectsprototype\access\ProjectArrayRepository.class
+co\edu\unicauca\academicprojectsprototype\domain\services\ICoordinatorService.class
 co\edu\unicauca\academicprojectsprototype\domain\entities\Sector.class
 co\edu\unicauca\academicprojectsprototype\domain\services\IStudentService.class
 co\edu\unicauca\academicprojectsprototype\domain\services\CompanyService.class
@@ -70,6 +75,6 @@ co\edu\unicauca\academicprojectsprototype\access\CoordinatorSqliteRepository.cla
 co\edu\unicauca\academicprojectsprototype\access\AdminSqliteRepository.class
 co\edu\unicauca\academicprojectsprototype\infra\Messages.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUICompanyUpdateProject.class
-co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithoutLog$3.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$14.class
 co\edu\unicauca\academicprojectsprototype\access\Factory.class
 co\edu\unicauca\academicprojectsprototype\domain\entities\Student.class
