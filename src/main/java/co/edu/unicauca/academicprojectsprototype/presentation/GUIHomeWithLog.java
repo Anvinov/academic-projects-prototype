@@ -183,7 +183,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         jBtnMyPubli.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jPOpcionCompany.add(jBtnMyPubli);
 
-        jPOptions.add(jPOpcionCompany, "Company");
+        jPOptions.add(jPOpcionCompany, "Empresa");
 
         jPOpcionCoordi.setBackground(new java.awt.Color(236, 230, 240));
 
@@ -216,7 +216,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPOptions.add(jPOpcionCoordi, "Coordi");
+        jPOptions.add(jPOpcionCoordi, "Coordinador");
 
         jPOpcionStudent.setBackground(new java.awt.Color(236, 230, 240));
 
@@ -231,7 +231,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
             .addGap(0, 90, Short.MAX_VALUE)
         );
 
-        jPOptions.add(jPOpcionStudent, "Student");
+        jPOptions.add(jPOpcionStudent, "Estudiante");
 
         jPPublis.setBackground(new java.awt.Color(236, 230, 240));
         jPPublis.setLayout(null);
@@ -399,16 +399,16 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         String nombre;
         Messages.showMessageDialog("Se carga el rol de" + rol, id);
         switch (rol) {
-            case "Student":
+            case "Estudiante":
                 Student student = studentService.Search(id);
                 nombre = student.getName();
 
                 break;
-            case "Company":
+            case "Empresa":
                 Company company = companyService.search(id);
                 nombre = company.getName();
                 break;
-            case "Coordi":
+            case "Coordinador":
                 Coordinator coordi = coordiService.Search(id);
                 nombre = coordi.getName();
                 break;

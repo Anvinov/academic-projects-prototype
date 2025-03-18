@@ -217,7 +217,9 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnNewUserActionPerformed
 
     private void jBtnLoginUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLoginUActionPerformed
-        // TODO add your handling code here:
+        GUILogIn login = new GUILogIn(companyService,studentService,coordiService);
+        login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jBtnLoginUActionPerformed
 
     

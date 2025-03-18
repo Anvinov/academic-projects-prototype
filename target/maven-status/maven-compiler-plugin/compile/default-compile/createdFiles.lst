@@ -14,6 +14,7 @@ co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\Pr
 co\edu\unicauca\academicprojectsprototype\presentation\GUICoordinatorProjectsRequests$1.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithLog.class
 co\edu\unicauca\academicprojectsprototype\domain\services\StudentService.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUILogIn$2.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUILogIn.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithoutLog$1.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUILogIn$1.class
@@ -72,6 +73,7 @@ co\edu\unicauca\academicprojectsprototype\domain\entities\Admin.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithLog$1.class
 co\edu\unicauca\academicprojectsprototype\domain\services\ICompanyService.class
 co\edu\unicauca\academicprojectsprototype\access\CoordinatorSqliteRepository.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUILogIn$3.class
 co\edu\unicauca\academicprojectsprototype\access\AdminSqliteRepository.class
 co\edu\unicauca\academicprojectsprototype\infra\Messages.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUICompanyUpdateProject.class

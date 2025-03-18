@@ -1137,7 +1137,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         if (validar.validarRegistroEmpresa(nit, email, telefono, pass)) {
 
             if (companyService.saveCompany(new Company(nit, nombre, telefono, pagina, sector, email, pass))) {
-                GUIHomeWithLog HomeCompany = new GUIHomeWithLog("Company", nit, companyService, studentService, coordiService);
+                GUIHomeWithLog HomeCompany = new GUIHomeWithLog("Empresa", nit, companyService, studentService, coordiService);
                 HomeCompany.setVisible(true);
                 this.dispose();
             }
@@ -1212,7 +1212,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         if (validar.validarRegistroEstudiante(email, telefono, pass)) {
 
             if (studentService.save(new Student(code, name, telefono, email, pass))) {
-                GUIHomeWithLog homeStudent = new GUIHomeWithLog("Student", code, companyService, studentService, coordiService);
+                GUIHomeWithLog homeStudent = new GUIHomeWithLog("Estudiante", code, companyService, studentService, coordiService);
                 homeStudent.setVisible(true);
                 //this.dispose();
             }
@@ -1237,7 +1237,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         String estado = "SinValidar";
 
         if (coordiService.save(new Coordinator(codigo, nombre, tel, email, program, pass, estado))) {
-            GUIHomeWithLog HomeCoordi = new GUIHomeWithLog("Coordi", codigo, companyService, studentService,coordiService);
+            GUIHomeWithLog HomeCoordi = new GUIHomeWithLog("Coordinador", codigo, companyService, studentService,coordiService);
             HomeCoordi.setVisible(true);
         }
     }//GEN-LAST:event_jBtnSaveCoordiActionPerformed

@@ -212,7 +212,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                  <CardConstraints cardName="Company"/>
+                  <CardConstraints cardName="Empresa"/>
                 </Constraint>
               </Constraints>
 
@@ -270,7 +270,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                  <CardConstraints cardName="Coordi"/>
+                  <CardConstraints cardName="Coordinador"/>
                 </Constraint>
               </Constraints>
 
@@ -330,7 +330,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                  <CardConstraints cardName="Student"/>
+                  <CardConstraints cardName="Estudiante"/>
                 </Constraint>
               </Constraints>
 
