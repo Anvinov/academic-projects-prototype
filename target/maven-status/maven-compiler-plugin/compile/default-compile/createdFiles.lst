@@ -45,7 +45,6 @@ co\edu\unicauca\academicprojectsprototype\main\Main.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$1.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$10.class
 co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\NormalizationStep.class
-co\edu\unicauca\academicprojectsprototype\access\AdmintArrayRepository.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$4.class
 co\edu\unicauca\academicprojectsprototype\access\CompanySqliteRepository.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUINewProject.class
@@ -75,7 +74,6 @@ co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithLog$1.class
 co\edu\unicauca\academicprojectsprototype\domain\services\ICompanyService.class
 co\edu\unicauca\academicprojectsprototype\access\CoordinatorSqliteRepository.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUILogIn$3.class
-co\edu\unicauca\academicprojectsprototype\access\AdminSqliteRepository.class
 co\edu\unicauca\academicprojectsprototype\infra\Messages.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUICompanyUpdateProject.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$14.class
