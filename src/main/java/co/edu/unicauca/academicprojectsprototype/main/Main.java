@@ -8,6 +8,7 @@ import co.edu.unicauca.academicprojectsprototype.access.Factory;
 import co.edu.unicauca.academicprojectsprototype.access.ICompanyRepository;
 import co.edu.unicauca.academicprojectsprototype.access.ICoordinatorRepository;
 import co.edu.unicauca.academicprojectsprototype.access.IStudentRepository;
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Admin;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
@@ -35,7 +36,11 @@ public class Main {
         IStudentService serviceStudent = new StudentService(repositoryStudent);
         ICoordinatorService serviceCoordi = new CoordinatorService(repositoryCoordi);
         
-        serviceCoordi.save(new Coordinator("codigo", "nombre", "tel", "email", "program", "pass","estado"));
+        serviceCoordi.save(new Coordinator("1", "SinValidar", "tel", "email", "program", "pass","Sin validar"));
+        serviceCoordi.save(new Coordinator("2", "SinValidar", "tel", "email", "program", "pass","Sin validar"));
+        
+        Admin admin = Admin.getInstance();
+        admin.setAdminData("Julian", "123", "123");
         
         GUIHomeWithoutLog instance = new GUIHomeWithoutLog(serviceCompany,serviceStudent,serviceCoordi);
         instance.setExtendedState(JFrame.MAXIMIZED_BOTH);

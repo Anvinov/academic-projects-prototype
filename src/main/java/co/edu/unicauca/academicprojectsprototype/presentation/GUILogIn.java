@@ -4,6 +4,7 @@
  */
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Admin;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
@@ -79,6 +80,22 @@ public class GUILogIn extends javax.swing.JFrame {
         }
         return false;
     }
+    
+    private boolean authenticateAdmin(String id, String pass) {
+        Admin admin = Admin.getInstance();
+        admin.getPassword();
+        
+        if (admin.getCodigo().equals(id)) {
+            if (admin.getPassword().equals(pass)) {
+                System.out.println("El admin " + admin.getNombre() + " sí existe en el sistema");
+                return true;
+            }
+            Messages.showMessageDialog("Clave incorrecta", "Clave incorrecta");
+        } else {
+            Messages.showMessageDialog("Admin no registrado en el sistema", "Admin no encontrada");
+        }
+        return false;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,7 +111,7 @@ public class GUILogIn extends javax.swing.JFrame {
         iconLoginUser = new javax.swing.JLabel();
         jLTitittleLogin = new javax.swing.JLabel();
         jPContent = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        jPFormUser = new javax.swing.JPanel();
         jLUser = new javax.swing.JLabel();
         jFieldUserName = new javax.swing.JTextField();
         jLPassWord = new javax.swing.JLabel();
@@ -136,10 +153,10 @@ public class GUILogIn extends javax.swing.JFrame {
 
         jPContent.setBackground(new java.awt.Color(236, 230, 240));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPFormUser.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.GridBagLayout jPanel1Layout = new java.awt.GridBagLayout();
         jPanel1Layout.columnWidths = new int[] {250};
-        jPanel1.setLayout(jPanel1Layout);
+        jPFormUser.setLayout(jPanel1Layout);
 
         jLUser.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLUser.setForeground(new java.awt.Color(0, 0, 0));
@@ -151,7 +168,7 @@ public class GUILogIn extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(15, 10, 10, 10);
-        jPanel1.add(jLUser, gridBagConstraints);
+        jPFormUser.add(jLUser, gridBagConstraints);
 
         jFieldUserName.setBackground(new java.awt.Color(255, 255, 255));
         jFieldUserName.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -165,7 +182,7 @@ public class GUILogIn extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
-        jPanel1.add(jFieldUserName, gridBagConstraints);
+        jPFormUser.add(jFieldUserName, gridBagConstraints);
 
         jLPassWord.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLPassWord.setForeground(new java.awt.Color(0, 0, 0));
@@ -177,7 +194,7 @@ public class GUILogIn extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 10);
-        jPanel1.add(jLPassWord, gridBagConstraints);
+        jPFormUser.add(jLPassWord, gridBagConstraints);
 
         jPasswordUser.setBackground(new java.awt.Color(255, 255, 255));
         jPasswordUser.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -190,7 +207,7 @@ public class GUILogIn extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 0, 10);
-        jPanel1.add(jPasswordUser, gridBagConstraints);
+        jPFormUser.add(jPasswordUser, gridBagConstraints);
 
         jBtnPassUser.setBackground(new java.awt.Color(0, 0, 0));
         jBtnPassUser.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -207,7 +224,7 @@ public class GUILogIn extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel1.add(jBtnPassUser, gridBagConstraints);
+        jPFormUser.add(jBtnPassUser, gridBagConstraints);
 
         jBtnPasswordForget.setBackground(new java.awt.Color(255, 255, 255));
         jBtnPasswordForget.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -217,7 +234,7 @@ public class GUILogIn extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
-        jPanel1.add(jBtnPasswordForget, gridBagConstraints);
+        jPFormUser.add(jBtnPasswordForget, gridBagConstraints);
 
         jBtnNewUser.setBackground(new java.awt.Color(236, 230, 240));
         jBtnNewUser.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -228,7 +245,7 @@ public class GUILogIn extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel1.add(jBtnNewUser, gridBagConstraints);
+        jPFormUser.add(jBtnNewUser, gridBagConstraints);
 
         jPRol.setBackground(new java.awt.Color(255, 255, 255));
         jPRol.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
@@ -254,7 +271,7 @@ public class GUILogIn extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(15, 10, 0, 10);
-        jPanel1.add(jPRol, gridBagConstraints);
+        jPFormUser.add(jPRol, gridBagConstraints);
 
         jCheckSeePass.setBackground(new java.awt.Color(255, 255, 255));
         jCheckSeePass.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -268,9 +285,9 @@ public class GUILogIn extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
-        jPanel1.add(jCheckSeePass, gridBagConstraints);
+        jPFormUser.add(jCheckSeePass, gridBagConstraints);
 
-        jPContent.add(jPanel1);
+        jPContent.add(jPFormUser);
 
         jPButtom.setBackground(new java.awt.Color(236, 230, 240));
         jPButtom.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
@@ -335,6 +352,13 @@ public class GUILogIn extends javax.swing.JFrame {
                     this.dispose();
                 }
                 break;
+            case "Admin":
+                if (authenticateAdmin(id, pass)) {
+                    GUIHomeWithLog Home = new GUIHomeWithLog(rol, id, companyService, studentService, coordiService);
+                    Home.setVisible(true);
+                    this.dispose();
+                }
+                break;
             default:
                 throw new AssertionError();
         }
@@ -371,9 +395,9 @@ public class GUILogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLUser;
     private javax.swing.JPanel jPButtom;
     private javax.swing.JPanel jPContent;
+    private javax.swing.JPanel jPFormUser;
     private javax.swing.JPanel jPHead;
     private javax.swing.JPanel jPRol;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordUser;
     // End of variables declaration//GEN-END:variables
 }
