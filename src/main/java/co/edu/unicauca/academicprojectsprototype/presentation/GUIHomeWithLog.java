@@ -6,6 +6,7 @@ package co.edu.unicauca.academicprojectsprototype.presentation;
 
 import co.edu.unicauca.academicprojectsprototype.access.Factory;
 import co.edu.unicauca.academicprojectsprototype.access.IProjectRepository;
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Admin;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Project;
@@ -16,6 +17,7 @@ import co.edu.unicauca.academicprojectsprototype.domain.services.IProjectService
 import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ProjectService;
 import co.edu.unicauca.academicprojectsprototype.infra.Messages;
+import co.edu.unicauca.academicprojectsprototype.presentation.admin.Users;
 import java.awt.CardLayout;
 import javax.swing.table.DefaultTableModel;
 import observer.IObserver;
@@ -39,7 +41,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     /**
      * Creates new form GUIHomeWithLog
      */
-    public GUIHomeWithLog(String rol, String id, ICompanyService serviceCompany, IStudentService serviceStudent,ICoordinatorService serviceCoordi) {
+    public GUIHomeWithLog(String rol, String id, ICompanyService serviceCompany, IStudentService serviceStudent, ICoordinatorService serviceCoordi) {
         initComponents();
         this.companyService = serviceCompany;
         this.studentService = serviceStudent;
@@ -76,6 +78,10 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         jPOpcionCoordi = new javax.swing.JPanel();
         jBtnSolicitudes = new javax.swing.JButton();
         jPOpcionStudent = new javax.swing.JPanel();
+        jPOpcionAdmin = new javax.swing.JPanel();
+        jBtnUsers = new javax.swing.JButton();
+        jBtnCoordiSoli = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jPPublis = new javax.swing.JPanel();
         jLTitleProjects = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -233,6 +239,26 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
 
         jPOptions.add(jPOpcionStudent, "Estudiante");
 
+        jPOpcionAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        jPOpcionAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        jPOpcionAdmin.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 50, 30));
+
+        jBtnUsers.setText("VER USUARIOS EN EL SISTEMA");
+        jBtnUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnUsersActionPerformed(evt);
+            }
+        });
+        jPOpcionAdmin.add(jBtnUsers);
+
+        jBtnCoordiSoli.setText("GESTION DE COORDINADORES");
+        jPOpcionAdmin.add(jBtnCoordiSoli);
+
+        jButton6.setText("jButton6");
+        jPOpcionAdmin.add(jButton6);
+
+        jPOptions.add(jPOpcionAdmin, "Admin");
+
         jPPublis.setBackground(new java.awt.Color(236, 230, 240));
         jPPublis.setLayout(null);
 
@@ -385,10 +411,15 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     }//GEN-LAST:event_jBtnNewPubliActionPerformed
 
     private void jBtnGetOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGetOutActionPerformed
-        GUIHomeWithoutLog HomeWithOutLog = new GUIHomeWithoutLog(companyService, studentService,coordiService);
+        GUIHomeWithoutLog HomeWithOutLog = new GUIHomeWithoutLog(companyService, studentService, coordiService);
         HomeWithOutLog.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnGetOutActionPerformed
+
+    private void jBtnUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnUsersActionPerformed
+        Users user = new Users(companyService, studentService, coordiService);
+        user.setVisible(true);
+    }//GEN-LAST:event_jBtnUsersActionPerformed
 
     private void cargarRol(String rol) {
         cardLayout = (CardLayout) jPOptions.getLayout();
@@ -411,6 +442,10 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
             case "Coordinador":
                 Coordinator coordi = coordiService.Search(id);
                 nombre = coordi.getName();
+                break;
+            case "Admin":
+                Admin admin = Admin.getInstance();
+                nombre = admin.getNombre();
                 break;
             default:
                 throw new AssertionError();
@@ -436,15 +471,18 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnCoordiSoli;
     private javax.swing.JButton jBtnGetOut;
     private javax.swing.JButton jBtnLoginU;
     private javax.swing.JButton jBtnMyPubli;
     private javax.swing.JButton jBtnNewPubli;
     private javax.swing.JButton jBtnSearch;
     private javax.swing.JButton jBtnSolicitudes;
+    private javax.swing.JButton jBtnUsers;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jCBSelecFilter;
     private javax.swing.JTextField jFieldSearchProyect;
     private javax.swing.JLabel jLTitleProjects;
@@ -452,6 +490,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     private javax.swing.JPanel jPContent;
     private javax.swing.JPanel jPHead;
     private javax.swing.JPanel jPOpcLogin;
+    private javax.swing.JPanel jPOpcionAdmin;
     private javax.swing.JPanel jPOpcionCompany;
     private javax.swing.JPanel jPOpcionCoordi;
     private javax.swing.JPanel jPOpcionStudent;
