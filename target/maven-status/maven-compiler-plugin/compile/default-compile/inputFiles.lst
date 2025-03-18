@@ -6,6 +6,7 @@ C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academ
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\CoordinatorSqliteRepository.java
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\Factory.java
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\ICompanyRepository.java
+C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\ICoordinatorRepository.java
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\IProjectRepository.java
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\IStudentRepository.java
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\ProjectArrayRepository.java
@@ -22,6 +23,7 @@ C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academ
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\CompanyService.java
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\CoordinatorService.java
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\ICompanyService.java
+C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\ICoordinatorService.java
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\IProjectService.java
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\IStudentService.java
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\ProjectService.java

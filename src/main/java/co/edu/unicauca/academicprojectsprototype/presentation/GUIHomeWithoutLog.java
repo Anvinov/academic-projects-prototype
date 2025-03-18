@@ -5,6 +5,7 @@
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.ICoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
 
 /**
@@ -15,12 +16,14 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
 
     private ICompanyService companyService;
     private IStudentService studentService;
+    private ICoordinatorService coordiService;
     /**
      * Creates new form GUIMenuWithoutLog
      */
-    public GUIHomeWithoutLog(ICompanyService serviceCompany,IStudentService studentService) {
+    public GUIHomeWithoutLog(ICompanyService serviceCompany,IStudentService studentService,ICoordinatorService coordiService) {
         this.companyService = serviceCompany;
         this.studentService = studentService;
+        this.coordiService = coordiService;
         initComponents();
     }
 
@@ -206,7 +209,7 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
     private void jBtnNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNewUserActionPerformed
         // TODO add your handling code here:
         //GUISelectRegistUser selecU = new GUISelectRegistUser(companyService);
-        GUIRegisteredUser selecU = new GUIRegisteredUser(companyService,studentService);
+        GUIRegisteredUser selecU = new GUIRegisteredUser(companyService,studentService,coordiService);
         selecU.setVisible(true);
         this.dispose();
         
@@ -214,47 +217,13 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnNewUserActionPerformed
 
     private void jBtnLoginUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLoginUActionPerformed
-        // TODO add your handling code here:
+        GUILogIn login = new GUILogIn(companyService,studentService,coordiService);
+        login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jBtnLoginUActionPerformed
 
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIHomeWithoutLog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIHomeWithoutLog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIHomeWithoutLog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIHomeWithoutLog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                //new GUIHomeWithoutLog().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnLoginU;

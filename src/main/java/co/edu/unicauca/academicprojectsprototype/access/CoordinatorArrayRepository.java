@@ -4,10 +4,53 @@
  */
 package co.edu.unicauca.academicprojectsprototype.access;
 
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author anvig
  */
-public class CoordinatorArrayRepository {
+public class CoordinatorArrayRepository implements ICoordinatorRepository{
+
+    private final List<Coordinator> coordinators;
+    
+     /**
+     * Constructor que inicializa la lista de proyectos.
+     */
+    public CoordinatorArrayRepository() {
+        this.coordinators = new ArrayList<>();
+    }
+    
+    @Override
+    public boolean save(Coordinator newCoordinator) {
+         if (newCoordinator != null) {
+            coordinators.add(newCoordinator);
+             System.out.println("Coordinador creado correctamente");
+            return true;
+        }
+         return false;
+    }
+
+    @Override
+    public void initializeDatabase() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List<Coordinator> listAll() {
+            return new ArrayList<>(coordinators);
+    }
+
+    @Override
+    public Coordinator Search(String id) {
+        for (Coordinator coordinator : coordinators) {
+            if (coordinator.getCode().equalsIgnoreCase(id)) {
+                return coordinator;
+            }
+        }
+        return null;
+    }
     
 }

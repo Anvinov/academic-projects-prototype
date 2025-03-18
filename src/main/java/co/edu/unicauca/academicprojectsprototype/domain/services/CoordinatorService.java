@@ -4,10 +4,35 @@
  */
 package co.edu.unicauca.academicprojectsprototype.domain.services;
 
+import co.edu.unicauca.academicprojectsprototype.access.ICoordinatorRepository;
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
+import java.util.List;
+
 /**
  *
  * @author anvig
  */
-public class CoordinatorService {
+public class CoordinatorService implements ICoordinatorService{
+
+    private ICoordinatorRepository repository;
+    
+     public CoordinatorService(ICoordinatorRepository repository) {
+        this.repository = repository;
+     }
+    
+    @Override
+    public boolean save(Coordinator newCoordinator) {
+        return repository.save(newCoordinator);
+    }
+
+    @Override
+    public List<Coordinator> listAll() {
+        return repository.listAll();
+    }
+
+    @Override
+    public Coordinator Search(String id) {
+        return repository.Search(id);
+    }
     
 }

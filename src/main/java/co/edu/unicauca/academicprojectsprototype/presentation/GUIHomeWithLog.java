@@ -7,9 +7,11 @@ package co.edu.unicauca.academicprojectsprototype.presentation;
 import co.edu.unicauca.academicprojectsprototype.access.Factory;
 import co.edu.unicauca.academicprojectsprototype.access.IProjectRepository;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Project;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.ICoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.IProjectService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ProjectService;
@@ -30,16 +32,18 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     CardLayout cardLayout;
     private ICompanyService companyService;
     private IStudentService studentService;
+    private ICoordinatorService coordiService;
     private String id;
     private String rol;
 
     /**
      * Creates new form GUIHomeWithLog
      */
-    public GUIHomeWithLog(String rol, String id, ICompanyService serviceCompany, IStudentService serviceStudent) {
+    public GUIHomeWithLog(String rol, String id, ICompanyService serviceCompany, IStudentService serviceStudent,ICoordinatorService serviceCoordi) {
         initComponents();
         this.companyService = serviceCompany;
         this.studentService = serviceStudent;
+        this.coordiService = serviceCoordi;
         this.id = id;
         this.rol = rol;
         this.project = new ProjectService(repositoryCompany);
@@ -179,7 +183,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         jBtnMyPubli.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jPOpcionCompany.add(jBtnMyPubli);
 
-        jPOptions.add(jPOpcionCompany, "Company");
+        jPOptions.add(jPOpcionCompany, "Empresa");
 
         jPOpcionCoordi.setBackground(new java.awt.Color(236, 230, 240));
 
@@ -212,7 +216,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPOptions.add(jPOpcionCoordi, "Coordi");
+        jPOptions.add(jPOpcionCoordi, "Coordinador");
 
         jPOpcionStudent.setBackground(new java.awt.Color(236, 230, 240));
 
@@ -227,7 +231,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
             .addGap(0, 90, Short.MAX_VALUE)
         );
 
-        jPOptions.add(jPOpcionStudent, "Student");
+        jPOptions.add(jPOpcionStudent, "Estudiante");
 
         jPPublis.setBackground(new java.awt.Color(236, 230, 240));
         jPPublis.setLayout(null);
@@ -381,7 +385,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     }//GEN-LAST:event_jBtnNewPubliActionPerformed
 
     private void jBtnGetOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGetOutActionPerformed
-        GUIHomeWithoutLog HomeWithOutLog = new GUIHomeWithoutLog(companyService, studentService);
+        GUIHomeWithoutLog HomeWithOutLog = new GUIHomeWithoutLog(companyService, studentService,coordiService);
         HomeWithOutLog.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnGetOutActionPerformed
@@ -395,14 +399,18 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         String nombre;
         Messages.showMessageDialog("Se carga el rol de" + rol, id);
         switch (rol) {
-            case "Student":
+            case "Estudiante":
                 Student student = studentService.Search(id);
                 nombre = student.getName();
 
                 break;
-            case "Company":
+            case "Empresa":
                 Company company = companyService.search(id);
                 nombre = company.getName();
+                break;
+            case "Coordinador":
+                Coordinator coordi = coordiService.Search(id);
+                nombre = coordi.getName();
                 break;
             default:
                 throw new AssertionError();

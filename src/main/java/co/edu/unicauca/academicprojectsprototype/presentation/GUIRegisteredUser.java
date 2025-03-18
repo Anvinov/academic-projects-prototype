@@ -5,9 +5,11 @@
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Sector;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.ICoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.validateCompany;
 import co.edu.unicauca.academicprojectsprototype.domain.services.validateStudent;
@@ -23,14 +25,16 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
     CardLayout cardLayout;
     private ICompanyService companyService;
     private IStudentService studentService;
+    private ICoordinatorService coordiService;
 
     /**
      * Creates new form GUIRegisteredUser
      */
-    public GUIRegisteredUser(ICompanyService serviceCompany, IStudentService serviceStudent) {
+    public GUIRegisteredUser(ICompanyService serviceCompany, IStudentService serviceStudent, ICoordinatorService coordiService) {
         initComponents();
         this.companyService = serviceCompany;
         this.studentService = serviceStudent;
+        this.coordiService = coordiService;
         asignarAction();
         fillSectors();
     }
@@ -47,15 +51,14 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
             jCBSectorCompany.addItem(sector.toString());
         }
     }
-    
-     private void SeleccionarRol() {
+
+    private void SeleccionarRol() {
         String rol = RadiobuttonGroupSelecRol.getSelection().getActionCommand();
         cardLayout = (CardLayout) jPRolInformation.getLayout();
         cardLayout.show(jPRolInformation, rol);
         cardLayout = (CardLayout) jPRegisterUser.getLayout();
         cardLayout.show(jPRegisterUser, rol);
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -93,6 +96,20 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         jTextAInfoStudent = new javax.swing.JTextArea();
         jPRegisterUser = new javax.swing.JPanel();
         jPCoordiRegister = new javax.swing.JPanel();
+        jBtnSaveCoordi = new javax.swing.JButton();
+        jFieldPassWordCoordi = new javax.swing.JPasswordField();
+        jCheckSeePassCoordi = new javax.swing.JCheckBox();
+        jLPasswordCoordi = new javax.swing.JLabel();
+        jFieldEmailCoordi = new javax.swing.JTextField();
+        jLEmailCoordi = new javax.swing.JLabel();
+        jFieldTelCoordi = new javax.swing.JTextField();
+        jLTelCoordi = new javax.swing.JLabel();
+        jFieldCodeCoordi = new javax.swing.JTextField();
+        jLCodeCoordi = new javax.swing.JLabel();
+        jFieldNameCoordi = new javax.swing.JTextField();
+        jLNameCoordi = new javax.swing.JLabel();
+        jCBProgramCoordi = new javax.swing.JComboBox<>();
+        jLProgramCoordi = new javax.swing.JLabel();
         jPStudentRegister = new javax.swing.JPanel();
         jLNameStudent = new javax.swing.JLabel();
         jFieldNameStudent = new javax.swing.JTextField();
@@ -157,35 +174,45 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         jPSelecRol.setBackground(new java.awt.Color(255, 255, 255));
         jPSelecRol.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLSelectRol.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jLSelectRol.setForeground(new java.awt.Color(0, 0, 0));
+        jLSelectRol.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLSelectRol.setText("Seleccione su rol :");
-        jPSelecRol.add(jLSelectRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+        jPSelecRol.add(jLSelectRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 10, 360, -1));
 
+        jRbtnStudent.setBackground(new java.awt.Color(255, 255, 255));
         RadiobuttonGroupSelecRol.add(jRbtnStudent);
+        jRbtnStudent.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jRbtnStudent.setForeground(new java.awt.Color(0, 0, 0));
         jRbtnStudent.setText("Estudiante");
         jRbtnStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRbtnStudentActionPerformed(evt);
             }
         });
-        jPSelecRol.add(jRbtnStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+        jPSelecRol.add(jRbtnStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         RadiobuttonGroupSelecRol.add(jRbtnCompany);
+        jRbtnCompany.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jRbtnCompany.setForeground(new java.awt.Color(0, 0, 0));
         jRbtnCompany.setText("Empresa");
         jRbtnCompany.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRbtnCompanyActionPerformed(evt);
             }
         });
-        jPSelecRol.add(jRbtnCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
+        jPSelecRol.add(jRbtnCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
 
         RadiobuttonGroupSelecRol.add(jRbtnCoordi);
+        jRbtnCoordi.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jRbtnCoordi.setForeground(new java.awt.Color(0, 0, 0));
         jRbtnCoordi.setText("Coordinador");
         jRbtnCoordi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRbtnCoordiActionPerformed(evt);
             }
         });
-        jPSelecRol.add(jRbtnCoordi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+        jPSelecRol.add(jRbtnCoordi, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
 
         jPContent.add(jPSelecRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 360, 110));
 
@@ -207,9 +234,11 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         jTextAInfoCompany.setEditable(false);
         jTextAInfoCompany.setBackground(new java.awt.Color(255, 255, 255));
         jTextAInfoCompany.setColumns(20);
+        jTextAInfoCompany.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTextAInfoCompany.setForeground(new java.awt.Color(0, 0, 0));
+        jTextAInfoCompany.setLineWrap(true);
         jTextAInfoCompany.setRows(5);
-        jTextAInfoCompany.setText("bla bla bla bla bla bla bla bla");
+        jTextAInfoCompany.setText("Empresas interesadas en publicar proyectos para asignarlos a estudiantes ");
         jScrolInfoCompany.setViewportView(jTextAInfoCompany);
 
         javax.swing.GroupLayout jPCompanyInformationLayout = new javax.swing.GroupLayout(jPCompanyInformation);
@@ -252,9 +281,11 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         jTextAInfoCoordi.setEditable(false);
         jTextAInfoCoordi.setBackground(new java.awt.Color(255, 255, 255));
         jTextAInfoCoordi.setColumns(20);
+        jTextAInfoCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTextAInfoCoordi.setForeground(new java.awt.Color(0, 0, 0));
+        jTextAInfoCoordi.setLineWrap(true);
         jTextAInfoCoordi.setRows(5);
-        jTextAInfoCoordi.setText("bla bla bla bla bla bla bla bla");
+        jTextAInfoCoordi.setText("Persona encargada para la gestión de proyectos entre empresas y estudiantes. Necesita la validación del administrador del sistema para la creación de la cuenta. ");
         jScrolInfoCoordi.setViewportView(jTextAInfoCoordi);
 
         javax.swing.GroupLayout jPCoordinatorInformationLayout = new javax.swing.GroupLayout(jPCoordinatorInformation);
@@ -296,9 +327,11 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         jTextAInfoStudent.setEditable(false);
         jTextAInfoStudent.setBackground(new java.awt.Color(255, 255, 255));
         jTextAInfoStudent.setColumns(20);
+        jTextAInfoStudent.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTextAInfoStudent.setForeground(new java.awt.Color(0, 0, 0));
+        jTextAInfoStudent.setLineWrap(true);
         jTextAInfoStudent.setRows(5);
-        jTextAInfoStudent.setText("bla bla bla bla bla bla bla bla");
+        jTextAInfoStudent.setText("Estudiantes de la Universidad del Cauca que deseen la creación de una cuenta para postularse a proyectos que publican empresas.");
         jScrolInfoStudent.setViewportView(jTextAInfoStudent);
 
         javax.swing.GroupLayout jPStudentInformationLayout = new javax.swing.GroupLayout(jPStudentInformation);
@@ -332,19 +365,224 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         jPRegisterUser.setBackground(new java.awt.Color(255, 255, 255));
         jPRegisterUser.setLayout(new java.awt.CardLayout());
 
-        jPCoordiRegister.setBackground(new java.awt.Color(255, 204, 153));
+        jPCoordiRegister.setBackground(new java.awt.Color(255, 255, 255));
         jPCoordiRegister.setName("CoordiRegister"); // NOI18N
-
-        javax.swing.GroupLayout jPCoordiRegisterLayout = new javax.swing.GroupLayout(jPCoordiRegister);
+        java.awt.GridBagLayout jPCoordiRegisterLayout = new java.awt.GridBagLayout();
+        jPCoordiRegisterLayout.columnWidths = new int[] {100};
         jPCoordiRegister.setLayout(jPCoordiRegisterLayout);
-        jPCoordiRegisterLayout.setHorizontalGroup(
-            jPCoordiRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
-        );
-        jPCoordiRegisterLayout.setVerticalGroup(
-            jPCoordiRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
-        );
+
+        jBtnSaveCoordi.setBackground(new java.awt.Color(0, 0, 0));
+        jBtnSaveCoordi.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jBtnSaveCoordi.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnSaveCoordi.setText("GUARDAR");
+        jBtnSaveCoordi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnSaveCoordiActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(8, 108, 35, 0);
+        jPCoordiRegister.add(jBtnSaveCoordi, gridBagConstraints);
+
+        jFieldPassWordCoordi.setBackground(new java.awt.Color(255, 255, 255));
+        jFieldPassWordCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jFieldPassWordCoordi.setForeground(new java.awt.Color(0, 0, 0));
+        jFieldPassWordCoordi.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jFieldPassWordCoordi.setText("jPasswordField1");
+        jFieldPassWordCoordi.setMaximumSize(new java.awt.Dimension(500, 100));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 53;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 99, 0, 0);
+        jPCoordiRegister.add(jFieldPassWordCoordi, gridBagConstraints);
+
+        jCheckSeePassCoordi.setText("Mostrar clave");
+        jCheckSeePassCoordi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckSeePassCoordiActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 100);
+        jPCoordiRegister.add(jCheckSeePassCoordi, gridBagConstraints);
+
+        jLPasswordCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLPasswordCoordi.setForeground(new java.awt.Color(0, 0, 0));
+        jLPasswordCoordi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLPasswordCoordi.setText("Clave:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 83;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 99, 0, 0);
+        jPCoordiRegister.add(jLPasswordCoordi, gridBagConstraints);
+
+        jFieldEmailCoordi.setBackground(new java.awt.Color(255, 255, 255));
+        jFieldEmailCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jFieldEmailCoordi.setForeground(new java.awt.Color(0, 0, 0));
+        jFieldEmailCoordi.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jFieldEmailCoordi.setText("lopez@gmail.com");
+        jFieldEmailCoordi.setMaximumSize(new java.awt.Dimension(500, 100));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 53;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 99, 0, 0);
+        jPCoordiRegister.add(jFieldEmailCoordi, gridBagConstraints);
+
+        jLEmailCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLEmailCoordi.setForeground(new java.awt.Color(0, 0, 0));
+        jLEmailCoordi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLEmailCoordi.setText("Email:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 82;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 99, 0, 0);
+        jPCoordiRegister.add(jLEmailCoordi, gridBagConstraints);
+
+        jFieldTelCoordi.setBackground(new java.awt.Color(255, 255, 255));
+        jFieldTelCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jFieldTelCoordi.setForeground(new java.awt.Color(0, 0, 0));
+        jFieldTelCoordi.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jFieldTelCoordi.setText("317123");
+        jFieldTelCoordi.setMaximumSize(new java.awt.Dimension(500, 100));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 53;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 99, 0, 0);
+        jPCoordiRegister.add(jFieldTelCoordi, gridBagConstraints);
+
+        jLTelCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLTelCoordi.setForeground(new java.awt.Color(0, 0, 0));
+        jLTelCoordi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLTelCoordi.setText("Telefono de contacto:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 99, 0, 0);
+        jPCoordiRegister.add(jLTelCoordi, gridBagConstraints);
+
+        jFieldCodeCoordi.setBackground(new java.awt.Color(255, 255, 255));
+        jFieldCodeCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jFieldCodeCoordi.setForeground(new java.awt.Color(0, 0, 0));
+        jFieldCodeCoordi.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jFieldCodeCoordi.setText("1046123");
+        jFieldCodeCoordi.setMaximumSize(new java.awt.Dimension(500, 100));
+        jFieldCodeCoordi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFieldCodeCoordiActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 53;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 99, 0, 0);
+        jPCoordiRegister.add(jFieldCodeCoordi, gridBagConstraints);
+
+        jLCodeCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLCodeCoordi.setForeground(new java.awt.Color(0, 0, 0));
+        jLCodeCoordi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLCodeCoordi.setText("Codigo:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 74;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 99, 0, 0);
+        jPCoordiRegister.add(jLCodeCoordi, gridBagConstraints);
+
+        jFieldNameCoordi.setBackground(new java.awt.Color(255, 255, 255));
+        jFieldNameCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jFieldNameCoordi.setForeground(new java.awt.Color(0, 0, 0));
+        jFieldNameCoordi.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jFieldNameCoordi.setText("Julian Lopez");
+        jFieldNameCoordi.setMaximumSize(new java.awt.Dimension(500, 100));
+        jFieldNameCoordi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFieldNameCoordiActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 53;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 99, 0, 0);
+        jPCoordiRegister.add(jFieldNameCoordi, gridBagConstraints);
+
+        jLNameCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLNameCoordi.setForeground(new java.awt.Color(0, 0, 0));
+        jLNameCoordi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLNameCoordi.setText("*Nombre:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 64;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(35, 99, 0, 0);
+        jPCoordiRegister.add(jLNameCoordi, gridBagConstraints);
+
+        jCBProgramCoordi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Inge Sistemas" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 99, 0, 0);
+        jPCoordiRegister.add(jCBProgramCoordi, gridBagConstraints);
+
+        jLProgramCoordi.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jLProgramCoordi.setForeground(new java.awt.Color(0, 0, 0));
+        jLProgramCoordi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLProgramCoordi.setText("Programa academico:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 74;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 99, 0, 0);
+        jPCoordiRegister.add(jLProgramCoordi, gridBagConstraints);
 
         jPRegisterUser.add(jPCoordiRegister, "Coordinador");
 
@@ -822,7 +1060,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPTittleNewUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPHead, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE)
+            .addComponent(jPHead, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE)
             .addComponent(jPButtom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPContent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -899,7 +1137,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         if (validar.validarRegistroEmpresa(nit, email, telefono, pass)) {
 
             if (companyService.saveCompany(new Company(nit, nombre, telefono, pagina, sector, email, pass))) {
-                GUIHomeWithLog HomeCompany = new GUIHomeWithLog("Company",nit,companyService,studentService);
+                GUIHomeWithLog HomeCompany = new GUIHomeWithLog("Empresa", nit, companyService, studentService, coordiService);
                 HomeCompany.setVisible(true);
                 this.dispose();
             }
@@ -974,7 +1212,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         if (validar.validarRegistroEstudiante(email, telefono, pass)) {
 
             if (studentService.save(new Student(code, name, telefono, email, pass))) {
-                GUIHomeWithLog homeStudent = new GUIHomeWithLog("Student",code, companyService,studentService);
+                GUIHomeWithLog homeStudent = new GUIHomeWithLog("Estudiante", code, companyService, studentService, coordiService);
                 homeStudent.setVisible(true);
                 //this.dispose();
             }
@@ -983,43 +1221,89 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnSaveStudentActionPerformed
 
     private void jBtnBackSelectUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackSelectUserActionPerformed
-        GUIHomeWithoutLog homeWithOutLog = new GUIHomeWithoutLog(companyService, studentService);
+        GUIHomeWithoutLog homeWithOutLog = new GUIHomeWithoutLog(companyService, studentService, coordiService);
         homeWithOutLog.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnBackSelectUserActionPerformed
 
-   
+    private void jBtnSaveCoordiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSaveCoordiActionPerformed
+        // TODO add your handling code here:
+        String nombre = jFieldNameCoordi.getText();
+        String codigo = jFieldCodeCoordi.getText();
+        String tel = jFieldTelCoordi.getText();
+        String email = jFieldEmailCoordi.getText();
+        String program = jCBProgramCoordi.getSelectedItem().toString();
+        String pass = jFieldPassWordCoordi.getText();
+        String estado = "SinValidar";
+
+        if (coordiService.save(new Coordinator(codigo, nombre, tel, email, program, pass, estado))) {
+            GUIHomeWithLog HomeCoordi = new GUIHomeWithLog("Coordinador", codigo, companyService, studentService,coordiService);
+            HomeCoordi.setVisible(true);
+        }
+    }//GEN-LAST:event_jBtnSaveCoordiActionPerformed
+
+    private void jCheckSeePassCoordiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSeePassCoordiActionPerformed
+         if (jCheckSeePassCoordi.isSelected()) {
+            jFieldPassWordCoordi.setEchoChar((char) 0); // Mostrar la contraseña
+        } else {
+            jFieldPassWordCoordi.setEchoChar('*'); // Ocultar la contraseña con puntos
+        }
+        
+    }//GEN-LAST:event_jCheckSeePassCoordiActionPerformed
+
+    private void jFieldCodeCoordiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFieldCodeCoordiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFieldCodeCoordiActionPerformed
+
+    private void jFieldNameCoordiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFieldNameCoordiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFieldNameCoordiActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup RadiobuttonGroupSelecRol;
     private javax.swing.JButton jBtnBackSelectUser;
     private javax.swing.JButton jBtnSaveCompany;
+    private javax.swing.JButton jBtnSaveCoordi;
     private javax.swing.JButton jBtnSaveStudent;
+    private javax.swing.JComboBox<String> jCBProgramCoordi;
     private javax.swing.JComboBox<String> jCBSectorCompany;
     private javax.swing.JCheckBox jCheckSeePassCompany;
+    private javax.swing.JCheckBox jCheckSeePassCoordi;
     private javax.swing.JCheckBox jCheckSeePassStudent;
+    private javax.swing.JTextField jFieldCodeCoordi;
     private javax.swing.JTextField jFieldCodeStudent;
     private javax.swing.JTextField jFieldEmailCompany;
+    private javax.swing.JTextField jFieldEmailCoordi;
     private javax.swing.JTextField jFieldEmailStudent;
     private javax.swing.JTextField jFieldNameCompany;
+    private javax.swing.JTextField jFieldNameCoordi;
     private javax.swing.JTextField jFieldNameStudent;
     private javax.swing.JTextField jFieldNitCompany;
     private javax.swing.JPasswordField jFieldPassWordCompany;
+    private javax.swing.JPasswordField jFieldPassWordCoordi;
     private javax.swing.JPasswordField jFieldPassWordStudent;
     private javax.swing.JTextField jFieldTelCompany;
+    private javax.swing.JTextField jFieldTelCoordi;
     private javax.swing.JTextField jFieldTelStudent;
     private javax.swing.JTextField jFieldWebCompany;
+    private javax.swing.JLabel jLCodeCoordi;
     private javax.swing.JLabel jLCodeStudent;
     private javax.swing.JLabel jLEmailCompany;
+    private javax.swing.JLabel jLEmailCoordi;
     private javax.swing.JLabel jLEmailStudent;
     private javax.swing.JLabel jLNameCompany;
+    private javax.swing.JLabel jLNameCoordi;
     private javax.swing.JLabel jLNameStudent;
     private javax.swing.JLabel jLNitCompany;
     private javax.swing.JLabel jLPasswordCompany;
+    private javax.swing.JLabel jLPasswordCoordi;
     private javax.swing.JLabel jLPasswordStudent;
+    private javax.swing.JLabel jLProgramCoordi;
     private javax.swing.JLabel jLSectorCompany;
     private javax.swing.JLabel jLSelectRol;
     private javax.swing.JLabel jLTelCompany;
+    private javax.swing.JLabel jLTelCoordi;
     private javax.swing.JLabel jLTelStudent;
     private javax.swing.JLabel jLTittleNewCompany;
     private javax.swing.JLabel jLTittleNewCompany1;
