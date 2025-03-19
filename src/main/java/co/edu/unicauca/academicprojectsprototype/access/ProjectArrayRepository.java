@@ -16,50 +16,40 @@ public class ProjectArrayRepository implements IProjectRepository {
 
     private final List<Project> projects;
 
-    /**
-     * Constructor que inicializa la lista de proyectos.
-     */
-    public ProjectArrayRepository() {
+    public ProjectArrayRepository(){
         this.projects = new ArrayList<>();
     }
-
-    /**
-     * Agrega un nuevo proyecto a la lista de proyectos.
-     *
-     * @param proyecto El proyecto que se desea agregar.
-     */
+    
     @Override
-    public void addProject(Project proyecto) {
-        if (proyecto != null) {
-            projects.add(proyecto);
-        }
+    public void initializeDatabase() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    /**
-     * Obtiene la lista de todos los proyectos almacenados.
-     *
-     * @return Una lista de proyectos.
-     */
     @Override
-    public List<Project> getProjects() {
+    public boolean save(Project newProject){
+        if (newProject != null) {
+            projects.add(newProject);
+            return true;
+        }
+        
+        return false;
+    }
+
+    @Override
+    public List<Project> listAll() {
         return new ArrayList<>(projects); // Retornar una copia para evitar modificaciones externas
     }
 
-    /**
-     * Busca un proyecto por su título.
-     *
-     * @param titulo El título del proyecto que se desea buscar.
-     * @return El proyecto encontrado, o `null` si no se encuentra ningún
-     * proyecto con el título especificado.
-     */
     @Override
-    public Project findProjectByTitle(String titulo) {
+    public Project Search(String title){
         for (Project project : projects) {
-            if (project.getTitle().equalsIgnoreCase(titulo)) {
+            if (project.getTitle().equalsIgnoreCase(title)) {
                 return project;
             }
         }
         return null;
     }
+
+    
 
 }

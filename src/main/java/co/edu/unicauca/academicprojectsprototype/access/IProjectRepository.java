@@ -7,30 +7,29 @@ package co.edu.unicauca.academicprojectsprototype.access;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Project;
 import java.util.List;
 
-/**
- *
- * @author lopez
- */
 public interface IProjectRepository {
+    
+    /**
+     * Inicializa el repositorio para guardar los proyectos.
+     */
+    void initializeDatabase();
+    
     /**
      * Agrega un nuevo proyecto al repositorio.
-     * 
-     * @param proyecto Objeto de tipo Project que representa el proyecto a agregar.
+     * @param newProject Objeto de tipo Project que representa el proyecto a agregar.
      */
-    void addProject(Project proyecto);
-
+    boolean save(Project newProject);
+    
+    /**
+     * Obtiene la lista de todos los proyectos almacenados en el repositorio.
+     * @return Lista de objetos Project.
+     */
+    List<Project> listAll();
+    
     /**
      * Busca un proyecto en el repositorio por su título.
-     * 
      * @param titulo Título del proyecto a buscar.
      * @return El objeto Project si se encuentra, de lo contrario, null.
      */
-    Project findProjectByTitle(String titulo);
-
-    /**
-     * Obtiene la lista de todos los proyectos almacenados en el repositorio.
-     * 
-     * @return Lista de objetos Project.
-     */
-    List<Project> getProjects();
+    Project Search(String title);
 }

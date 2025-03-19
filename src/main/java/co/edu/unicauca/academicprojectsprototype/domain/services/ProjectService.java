@@ -58,7 +58,7 @@ public class ProjectService extends Subject implements IProjectService {
      */
     @Override
     public void listProject() {
-        repositorio.getProjects().forEach(System.out::println);
+        repositorio.listAll().forEach(System.out::println);
     }
 
     /**
@@ -69,7 +69,7 @@ public class ProjectService extends Subject implements IProjectService {
      */
     @Override
     public void assignProject(String titulo, Student estudiante) {
-        Project proyecto = repositorio.findProjectByTitle(titulo);
+        Project proyecto = repositorio.Search(titulo);
         if (proyecto == null) {
             System.out.println("Proyecto no encontrado.");
             return;

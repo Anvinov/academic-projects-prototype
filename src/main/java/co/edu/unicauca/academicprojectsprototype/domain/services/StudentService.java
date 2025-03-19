@@ -33,8 +33,8 @@ public class StudentService implements IStudentService{
     }
 
     @Override
-    public Student Search(String id) {
-        return repository.search(id);
+    public Student Search(String code) {
+        return repository.search(code);
     }
     
 }

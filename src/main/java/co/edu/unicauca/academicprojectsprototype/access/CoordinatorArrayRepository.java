@@ -24,6 +24,11 @@ public class CoordinatorArrayRepository implements ICoordinatorRepository{
     }
     
     @Override
+    public void initializeDatabase() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    @Override
     public boolean save(Coordinator newCoordinator) {
          if (newCoordinator != null) {
             coordinators.add(newCoordinator);
@@ -31,11 +36,6 @@ public class CoordinatorArrayRepository implements ICoordinatorRepository{
             return true;
         }
          return false;
-    }
-
-    @Override
-    public void initializeDatabase() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override

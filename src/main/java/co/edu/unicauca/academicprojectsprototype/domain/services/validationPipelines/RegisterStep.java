@@ -43,7 +43,7 @@ public class RegisterStep implements PipelineStep {
      */
     @Override
     public Project process(Project proyecto) {
-        List<Project> proyectosExistentes = repositorio.getProjects();
+        List<Project> proyectosExistentes = repositorio.listAll();
         boolean existe = proyectosExistentes.stream()
                 .anyMatch(p -> p.getTitle().equals(proyecto.getTitle()));
         
@@ -51,7 +51,7 @@ public class RegisterStep implements PipelineStep {
             throw new IllegalArgumentException("Ya existe un proyecto con este título.");
         }
         
-        repositorio.addProject(proyecto);
+        repositorio.save(proyecto);
         return proyecto;
     }
 }

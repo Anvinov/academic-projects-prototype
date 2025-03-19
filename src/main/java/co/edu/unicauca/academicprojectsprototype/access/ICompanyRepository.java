@@ -9,8 +9,27 @@ import java.util.List;
 
 public interface ICompanyRepository {
     
-    boolean save(Company newCompany);
+    /**
+     * Inicializa el repositorio para guardar las empresas.
+     */
     void initializeDatabase();
+    
+    /**
+     * Agrega una nueva empresa al repositorio.
+     * @param newCompany Objeto de tipo Company que representa la empresa a agregar.
+     */
+    boolean save(Company newCompany);
+    
+    /**
+     * Obtiene la lista de todas las empresas almacenadas en el repositorio.
+     * @return Lista de objetos Company.
+     */
     List<Company> listAll();
-    Company Search(String id);
+    
+    /**
+     * Busca una empresa en el repositorio por su NIT.
+     * @param nit NIT de la empresa a buscar.
+     * @return El objeto Company si se encuentra, de lo contrario, null.
+     */
+    Company Search(String nit);
 }

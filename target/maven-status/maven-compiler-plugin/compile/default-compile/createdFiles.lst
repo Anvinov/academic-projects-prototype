@@ -30,6 +30,7 @@ co\edu\unicauca\academicprojectsprototype\access\StudentArrayRepository.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$3.class
 co\edu\unicauca\academicprojectsprototype\domain\services\IProjectService.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUINewProject$1.class
+co\edu\unicauca\academicprojectsprototype\access\SqliteRepository.class
 co\edu\unicauca\academicprojectsprototype\domain\services\AdminService.class
 observer\IObserver.class
 co\edu\unicauca\academicprojectsprototype\domain\entities\Company.class

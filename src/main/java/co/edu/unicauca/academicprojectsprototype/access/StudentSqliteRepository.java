@@ -22,10 +22,26 @@ import java.util.logging.Logger;
  *
  * @author anvig
  */
-public class StudentSqliteRepository implements IStudentRepository {
+public class StudentSqliteRepository extends SqliteRepository implements IStudentRepository {
 
-    private Connection conn;
-
+    @Override
+    public void initializeDatabase() {
+        String sql = "CREATE TABLE IF NOT EXISTS student ("
+                + "code TEXT PRIMARY KEY, "
+                + "name TEXT NOT NULL, "
+                + "phone TEXT, "
+                + "email TEXT, "
+                + "password TEXT"
+                + ")";
+        try {
+            Statement statement = conn.createStatement();
+            statement.execute(sql);
+            System.out.println("Database initialized successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
     @Override
     public boolean save(Student newStudent) {
         try {
@@ -58,14 +74,14 @@ public class StudentSqliteRepository implements IStudentRepository {
     }
 
     @Override
-    public Student search(String id) {
+    public Student search(String code) {
         Student searchStudent = null;
         try {
             this.connect();
 
             String sql = "SELECT CODE, NAME, PHONE, EMAIL, PASSWORD FROM STUDENT WHERE CODE = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, id);
+            stmt.setString(1, code);
 
             ResultSet rs = stmt.executeQuery();
 
@@ -113,54 +129,6 @@ public class StudentSqliteRepository implements IStudentRepository {
             Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return students;
-    }
-
-    private static final String DB_PATH = "database/database.db";
-
-    public void connect() {
-        // SQLite connection string
-        //String url = "jdbc:sqlite:.\\\\miDatabase.db";
-        //String url = "jdbc:sqlite:C:\\Users\\anvig\\OneDrive\\Documentos\\NetBeansProjects\\Principios SOLID\\miDatabase.db";
-        String url = "jdbc:sqlite:C:\\Users\\lopez\\OneDrive\\Escritorio\\Cosas\\Uni\\2025 -1\\L. Software II\\Proyecto\\AcademicProjects\\DataBase\\MyDataBase.db";
-
-        //String absolutePath = new File(DB_PATH).getAbsolutePath();
-        //String url = "jdbc:sqlite:" + absolutePath;
-        try {
-            conn = DriverManager.getConnection(url);
-            //System.out.println("Conexión exitosa a la base de datos en: " + absolutePath);
-        } catch (SQLException ex) {
-            System.out.println("Error al conectar a la base de datos: " + ex.getMessage());
-            Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public void disconnect() {
-        try {
-            if (conn != null) {
-                conn.close();
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-    }
-
-    @Override
-    public void initializeDatabase() {
-        String sql = "CREATE TABLE IF NOT EXISTS student ("
-                + "code TEXT PRIMARY KEY, "
-                + "name TEXT NOT NULL, "
-                + "phone TEXT, "
-                + "email TEXT, "
-                + "password TEXT"
-                + ")";
-        try {
-            Statement statement = conn.createStatement();
-            statement.execute(sql);
-            System.out.println("Database initialized successfully.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
 }

@@ -12,6 +12,8 @@ public class Coordinator {
 
     private String code, name, phone, email, programaAcademico, password,estado;
 
+    public Coordinator(){};
+    
     public Coordinator(String code, String name, String phone, String email, String programaAcademico, String password, String estado) {
         this.code = code;
         this.name = name;

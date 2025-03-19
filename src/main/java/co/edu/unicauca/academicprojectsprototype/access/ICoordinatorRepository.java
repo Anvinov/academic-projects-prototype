@@ -7,13 +7,29 @@ package co.edu.unicauca.academicprojectsprototype.access;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import java.util.List;
 
-/**
- *
- * @author lopez
- */
 public interface ICoordinatorRepository {
-    boolean save(Coordinator newCoordinator);
+    
+    /**
+     * Inicializa el repositorio para guardar los coordinadores.
+     */
     void initializeDatabase();
+    
+    /**
+     * Agrega un nuevo coordinador al repositorio.
+     * @param newCoordinator Objeto de tipo Coordinator que representa el coordinador a agregar.
+     */
+    boolean save(Coordinator newCoordinator);
+    
+    /**
+     * Obtiene la lista de todos los coordinadores almacenadas en el repositorio.
+     * @return Lista de objetos Coordinator.
+     */
     List<Coordinator> listAll();
-    Coordinator Search(String id);
+    
+    /**
+     * Busca un coordinador en el repositorio por su NIT.
+     * @param code codigo de el coordinador a buscar.
+     * @return El objeto Coordinator si se encuentra, de lo contrario, null.
+     */
+    Coordinator Search(String code);
 }

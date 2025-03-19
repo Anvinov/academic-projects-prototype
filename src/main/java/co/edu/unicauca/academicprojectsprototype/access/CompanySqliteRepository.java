@@ -15,9 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class CompanySqliteRepository implements ICompanyRepository {
-
-    private Connection conn;
+public class CompanySqliteRepository extends SqliteRepository implements ICompanyRepository {
 
     @Override
     public boolean save(Company newCompany) {
@@ -82,36 +80,6 @@ public class CompanySqliteRepository implements ICompanyRepository {
             Logger.getLogger(CompanyService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return companies;
-    }
-
-    private static final String DB_PATH = "database/database.db";
-
-    public void connect() {
-        // SQLite connection string
-        //String url = "jdbc:sqlite:.\\\\miDatabase.db";
-        //String url = "jdbc:sqlite:C:\\Users\\anvig\\OneDrive\\Documentos\\NetBeansProjects\\Principios SOLID\\miDatabase.db";
-        String url = "jdbc:sqlite:C:\\Users\\lopez\\OneDrive\\Escritorio\\Cosas\\Uni\\2025 -1\\L. Software II\\Proyecto\\AcademicProjects\\DataBase\\MyDataBase.db";
-
-        //String absolutePath = new File(DB_PATH).getAbsolutePath();
-        //String url = "jdbc:sqlite:" + absolutePath;
-        try {
-            conn = DriverManager.getConnection(url);
-            //System.out.println("Conexión exitosa a la base de datos en: " + absolutePath);
-        } catch (SQLException ex) {
-            System.out.println("Error al conectar a la base de datos: " + ex.getMessage());
-            Logger.getLogger(CompanyService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public void disconnect() {
-        try {
-            if (conn != null) {
-                conn.close();
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
     }
 
     @Override

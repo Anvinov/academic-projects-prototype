@@ -37,7 +37,7 @@ public class AdminService implements IAdminService {
 
     @Override
     public List<Project> getAllProjects() {
-        return projectRepository.getProjects();
+        return projectRepository.listAll();
     }
 
     @Override
