@@ -24,7 +24,7 @@ public class SqliteRepository {
         //String url = "jdbc:sqlite:.\\\\miDatabase.db";
         //String url = "jdbc:sqlite:C:\\Users\\anvig\\OneDrive\\Documentos\\NetBeansProjects\\Principios SOLID\\miDatabase.db";
         //String url = "jdbc:sqlite:C:\\Users\\lopez\\OneDrive\\Escritorio\\Cosas\\Uni\\2025 -1\\L. Software II\\Proyecto\\AcademicProjects\\DataBase\\MyDataBase.db";
-        String url = System.getProperty("user.dir") + "\\database\\database.db";
+        String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "\\database\\database.db";
         
         
         //String absolutePath = new File(DB_PATH).getAbsolutePath();
