@@ -6,12 +6,24 @@ import java.util.List;
 
 public class CompanyService implements ICompanyService {
 
+    private static CompanyService instance;
     private ICompanyRepository repository;
 
-    public CompanyService(ICompanyRepository repository) {
+    private CompanyService(ICompanyRepository repository) {
         this.repository = repository;
     }
-    
+
+    public static CompanyService getInstance(ICompanyRepository repository) {
+        if (instance == null) {
+            instance = new CompanyService(repository);
+        }
+        return instance;
+    }
+
+    public void SetCompanyRepository(ICompanyRepository repository) {
+        this.repository = repository;
+    }
+
     @Override
     public List<Company> getAllCompanies() {
         return repository.listAll();

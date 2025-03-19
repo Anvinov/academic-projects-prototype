@@ -14,6 +14,8 @@ public class Admin {
     private String codigo;
     private String password;
 
+    
+    // -- Se usa singleton 
     private static Admin instance;
 
     private Admin() {

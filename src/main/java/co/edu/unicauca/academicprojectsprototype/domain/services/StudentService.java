@@ -5,7 +5,6 @@
 package co.edu.unicauca.academicprojectsprototype.domain.services;
 
 import co.edu.unicauca.academicprojectsprototype.access.IStudentRepository;
-import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
 import java.util.List;
 
@@ -13,16 +12,27 @@ import java.util.List;
  *
  * @author anvig
  */
-public class StudentService implements IStudentService{
+public class StudentService implements IStudentService {
 
-     private IStudentRepository repository;
+    private static StudentService instance;
+    private IStudentRepository repository;
 
-     public StudentService(IStudentRepository repository) {
+    private StudentService(IStudentRepository repository) {
         this.repository = repository;
     }
-     
-     
-   @Override
+
+    public static StudentService getInstance(IStudentRepository repository) {
+        if (instance == null) {
+            instance = new StudentService(repository);
+        }
+        return instance;
+    }
+
+    public void SetStudentRepository(IStudentRepository repository) {
+        this.repository = repository;
+    }
+
+    @Override
     public List<Student> listAll() {
         return repository.listAll();
     }
@@ -36,5 +46,5 @@ public class StudentService implements IStudentService{
     public Student Search(String code) {
         return repository.search(code);
     }
-    
+
 }

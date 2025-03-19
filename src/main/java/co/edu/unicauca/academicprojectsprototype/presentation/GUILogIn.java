@@ -8,9 +8,12 @@ import co.edu.unicauca.academicprojectsprototype.domain.entities.Admin;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
+import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
 import co.edu.unicauca.academicprojectsprototype.infra.Messages;
 
 /**
@@ -26,10 +29,10 @@ public class GUILogIn extends javax.swing.JFrame {
     /**
      * Creates new form GUILogIn
      */
-    public GUILogIn(ICompanyService serviceCompany, IStudentService studentService, ICoordinatorService coordiService) {
-        this.companyService = serviceCompany;
-        this.studentService = studentService;
-        this.coordiService = coordiService;
+    public GUILogIn() {
+        this.companyService = CompanyService.getInstance(null);
+        this.studentService = StudentService.getInstance(null);
+        this.coordiService = CoordinatorService.getInstance(null);
         initComponents();
     }
 
@@ -80,11 +83,11 @@ public class GUILogIn extends javax.swing.JFrame {
         }
         return false;
     }
-    
+
     private boolean authenticateAdmin(String id, String pass) {
         Admin admin = Admin.getInstance();
         admin.getPassword();
-        
+
         if (admin.getCodigo().equals(id)) {
             if (admin.getPassword().equals(pass)) {
                 System.out.println("El admin " + admin.getNombre() + " sí existe en el sistema");
@@ -333,28 +336,28 @@ public class GUILogIn extends javax.swing.JFrame {
         switch (rol) {
             case "Estudiante":
                 if (authenticateStudent(id, pass)) {
-                    GUIHomeWithLog Home = new GUIHomeWithLog(rol, id, companyService, studentService, coordiService);
+                    GUIHomeWithLog Home = new GUIHomeWithLog(rol, id);
                     Home.setVisible(true);
                     this.dispose();
                 }
                 break;
             case "Empresa":
                 if (authenticateCompany(id, pass)) {
-                    GUIHomeWithLog Home = new GUIHomeWithLog(rol, id, companyService, studentService, coordiService);
+                    GUIHomeWithLog Home = new GUIHomeWithLog(rol, id);
                     Home.setVisible(true);
                     this.dispose();
                 }
                 break;
             case "Coordinador":
                 if (authenticateCoordinator(id, pass)) {
-                    GUIHomeWithLog Home = new GUIHomeWithLog(rol, id, companyService, studentService, coordiService);
+                    GUIHomeWithLog Home = new GUIHomeWithLog(rol, id);
                     Home.setVisible(true);
                     this.dispose();
                 }
                 break;
             case "Admin":
                 if (authenticateAdmin(id, pass)) {
-                    GUIHomeWithLog Home = new GUIHomeWithLog(rol, id, companyService, studentService, coordiService);
+                    GUIHomeWithLog Home = new GUIHomeWithLog(rol, id);
                     Home.setVisible(true);
                     this.dispose();
                 }
@@ -374,7 +377,7 @@ public class GUILogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckSeePassActionPerformed
 
     private void jBtnBackHomeWithLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackHomeWithLoginActionPerformed
-        GUIHomeWithoutLog HomeSinLogin = new GUIHomeWithoutLog(companyService, studentService, coordiService);
+        GUIHomeWithoutLog HomeSinLogin = new GUIHomeWithoutLog();
         HomeSinLogin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnBackHomeWithLoginActionPerformed

@@ -11,11 +11,14 @@ import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Project;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
+import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.IProjectService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ProjectService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
 import co.edu.unicauca.academicprojectsprototype.infra.Messages;
 import co.edu.unicauca.academicprojectsprototype.presentation.admin.Users;
 import java.awt.CardLayout;
@@ -32,20 +35,20 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     IProjectService serviceProject = new ProjectService(repositoryCompany);
     private ProjectService project;
     CardLayout cardLayout;
-    private ICompanyService companyService;
-    private IStudentService studentService;
-    private ICoordinatorService coordiService;
+    private CompanyService companyService;
+    private StudentService studentService;
+    private CoordinatorService coordiService;
     private String id;
     private String rol;
 
     /**
      * Creates new form GUIHomeWithLog
      */
-    public GUIHomeWithLog(String rol, String id, ICompanyService serviceCompany, IStudentService serviceStudent, ICoordinatorService serviceCoordi) {
+    public GUIHomeWithLog(String rol, String id) {
         initComponents();
-        this.companyService = serviceCompany;
-        this.studentService = serviceStudent;
-        this.coordiService = serviceCoordi;
+        this.companyService = CompanyService.getInstance(null);
+        this.studentService = StudentService.getInstance(null);
+        this.coordiService = CoordinatorService.getInstance(null);
         this.id = id;
         this.rol = rol;
         this.project = new ProjectService(repositoryCompany);
@@ -411,7 +414,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     }//GEN-LAST:event_jBtnNewPubliActionPerformed
 
     private void jBtnGetOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGetOutActionPerformed
-        GUIHomeWithoutLog HomeWithOutLog = new GUIHomeWithoutLog(companyService, studentService, coordiService);
+        GUIHomeWithoutLog HomeWithOutLog = new GUIHomeWithoutLog();
         HomeWithOutLog.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnGetOutActionPerformed

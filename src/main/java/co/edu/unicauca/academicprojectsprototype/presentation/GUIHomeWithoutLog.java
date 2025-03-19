@@ -4,9 +4,9 @@
  */
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
-import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
-import co.edu.unicauca.academicprojectsprototype.domain.services.ICoordinatorService;
-import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
 
 /**
  *
@@ -14,16 +14,16 @@ import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService
  */
 public class GUIHomeWithoutLog extends javax.swing.JFrame {
 
-    private ICompanyService companyService;
-    private IStudentService studentService;
-    private ICoordinatorService coordiService;
+    private CompanyService companyService;
+    private StudentService studentService;
+    private CoordinatorService coordiService;
     /**
      * Creates new form GUIMenuWithoutLog
      */
-    public GUIHomeWithoutLog(ICompanyService serviceCompany,IStudentService studentService,ICoordinatorService coordiService) {
-        this.companyService = serviceCompany;
-        this.studentService = studentService;
-        this.coordiService = coordiService;
+    public GUIHomeWithoutLog() {
+        this.companyService = CompanyService.getInstance(null);
+        this.studentService = StudentService.getInstance(null);
+        this.coordiService = CoordinatorService.getInstance(null);
         initComponents();
     }
 
@@ -209,7 +209,7 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
     private void jBtnNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNewUserActionPerformed
         // TODO add your handling code here:
         //GUISelectRegistUser selecU = new GUISelectRegistUser(companyService);
-        GUIRegisteredUser selecU = new GUIRegisteredUser(companyService,studentService,coordiService);
+        GUIRegisteredUser selecU = new GUIRegisteredUser();
         selecU.setVisible(true);
         this.dispose();
         
@@ -217,7 +217,7 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnNewUserActionPerformed
 
     private void jBtnLoginUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLoginUActionPerformed
-        GUILogIn login = new GUILogIn(companyService,studentService,coordiService);
+        GUILogIn login = new GUILogIn();
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnLoginUActionPerformed

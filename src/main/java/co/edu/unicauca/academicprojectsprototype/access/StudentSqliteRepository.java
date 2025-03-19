@@ -7,8 +7,6 @@ package co.edu.unicauca.academicprojectsprototype.access;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
 import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
 import co.edu.unicauca.academicprojectsprototype.infra.Messages;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,24 +22,6 @@ import java.util.logging.Logger;
  */
 public class StudentSqliteRepository extends SqliteRepository implements IStudentRepository {
 
-    @Override
-    public void initializeDatabase() {
-        String sql = "CREATE TABLE IF NOT EXISTS student ("
-                + "code TEXT PRIMARY KEY, "
-                + "name TEXT NOT NULL, "
-                + "phone TEXT, "
-                + "email TEXT, "
-                + "password TEXT"
-                + ")";
-        try {
-            Statement statement = conn.createStatement();
-            statement.execute(sql);
-            System.out.println("Database initialized successfully.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    
     @Override
     public boolean save(Student newStudent) {
         try {
@@ -85,7 +65,7 @@ public class StudentSqliteRepository extends SqliteRepository implements IStuden
 
             ResultSet rs = stmt.executeQuery();
 
-            if (rs.next()) { 
+            if (rs.next()) {
                 searchStudent = new Student();
                 searchStudent.setCode(rs.getString("CODE"));
                 searchStudent.setName(rs.getString("NAME"));
@@ -98,7 +78,7 @@ public class StudentSqliteRepository extends SqliteRepository implements IStuden
         } catch (SQLException ex) {
             Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, "Error al buscar estudiante", ex);
         }
-        return searchStudent; 
+        return searchStudent;
     }
 
     @Override
@@ -129,6 +109,24 @@ public class StudentSqliteRepository extends SqliteRepository implements IStuden
             Logger.getLogger(StudentService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return students;
+    }
+
+    @Override
+    public void initializeDatabase() {
+        String sql = "CREATE TABLE IF NOT EXISTS student ("
+                + "code TEXT PRIMARY KEY, "
+                + "name TEXT NOT NULL, "
+                + "phone TEXT, "
+                + "email TEXT, "
+                + "password TEXT"
+                + ")";
+        try {
+            Statement statement = conn.createStatement();
+            statement.execute(sql);
+            System.out.println("Database initialized successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

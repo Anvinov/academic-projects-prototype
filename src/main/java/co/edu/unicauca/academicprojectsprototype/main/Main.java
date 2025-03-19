@@ -12,9 +12,6 @@ import co.edu.unicauca.academicprojectsprototype.domain.entities.Admin;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
-import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
-import co.edu.unicauca.academicprojectsprototype.domain.services.ICoordinatorService;
-import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
 import co.edu.unicauca.academicprojectsprototype.presentation.GUIHomeWithoutLog;
 import javax.swing.JFrame;
@@ -32,17 +29,20 @@ public class Main {
         IStudentRepository repositoryStudent = Factory.getInstance().getRepositoryStudent("SQLITE");
         ICoordinatorRepository repositoryCoordi = Factory.getInstance().getRepositoryCoordi("ARRAY");
         
-        ICompanyService serviceCompany = new CompanyService(repositoryCompany);
-        IStudentService serviceStudent = new StudentService(repositoryStudent);
-        ICoordinatorService serviceCoordi = new CoordinatorService(repositoryCoordi);
         
-        serviceCoordi.save(new Coordinator("1", "SinValidar", "tel", "email", "program", "pass","Sin validar"));
-        serviceCoordi.save(new Coordinator("2", "SinValidar", "tel", "email", "program", "pass","Sin validar"));
+        CompanyService.getInstance(repositoryCompany);
+        StudentService.getInstance(repositoryStudent);
+        CoordinatorService coordiService = CoordinatorService.getInstance(repositoryCoordi);
+        
+        
+        //------- quema de datos Coordi
+        coordiService.save(new Coordinator("1", "SinValidar", "tel", "email", "program", "pass","Sin validar"));
+        coordiService.save(new Coordinator("2", "SinValidar", "tel", "email", "program", "pass","Sin validar"));
         
         Admin admin = Admin.getInstance();
         admin.setAdminData("Julian", "123", "123");
         
-        GUIHomeWithoutLog instance = new GUIHomeWithoutLog(serviceCompany,serviceStudent,serviceCoordi);
+        GUIHomeWithoutLog instance = new GUIHomeWithoutLog();
         instance.setExtendedState(JFrame.MAXIMIZED_BOTH);
         instance.setVisible(true);
     }

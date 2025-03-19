@@ -8,9 +8,12 @@ import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Project;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
+import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
 import co.edu.unicauca.academicprojectsprototype.presentation.GUIHomeWithoutLog;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,9 +31,9 @@ public class Users extends javax.swing.JFrame {
      * Creates new form Users
      */
     public Users(ICompanyService serviceCompany, IStudentService serviceStudent, ICoordinatorService serviceCoordi) {
-        this.companyService = serviceCompany;
-        this.studentService = serviceStudent;
-        this.coordiService = serviceCoordi;
+        this.companyService = CompanyService.getInstance(null);
+        this.studentService = StudentService.getInstance(null);
+        this.coordiService = CoordinatorService.getInstance(null);
         initComponents();
         fillCompanies();
         fillCoordinators();
@@ -308,7 +311,7 @@ public class Users extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnBackHomeWithLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackHomeWithLoginActionPerformed
-        GUIHomeWithoutLog HomeSinLogin = new GUIHomeWithoutLog(companyService, studentService, coordiService);
+        GUIHomeWithoutLog HomeSinLogin = new GUIHomeWithoutLog();
         HomeSinLogin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnBackHomeWithLoginActionPerformed

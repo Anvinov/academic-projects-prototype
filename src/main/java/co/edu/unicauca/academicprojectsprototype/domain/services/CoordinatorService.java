@@ -12,14 +12,30 @@ import java.util.List;
  *
  * @author anvig
  */
-public class CoordinatorService implements ICoordinatorService{
+public class CoordinatorService implements ICoordinatorService {
 
+    private static CoordinatorService instance;
     private ICoordinatorRepository repository;
-    
-     public CoordinatorService(ICoordinatorRepository repository) {
+
+    private CoordinatorService(ICoordinatorRepository repository) {
         this.repository = repository;
-     }
-    
+    }
+
+    public static CoordinatorService getInstance(ICoordinatorRepository repository) {
+        if (instance == null) {
+            instance = new CoordinatorService(repository);
+        }
+        return instance;
+    }
+
+    public void SetStudentRepository(ICoordinatorRepository repository) {
+        this.repository = repository;
+    }
+
+    public void SetCoordinatorService(ICoordinatorRepository repository) {
+        this.repository = repository;
+    }
+
     @Override
     public boolean save(Coordinator newCoordinator) {
         return repository.save(newCoordinator);
@@ -34,5 +50,5 @@ public class CoordinatorService implements ICoordinatorService{
     public Coordinator Search(String id) {
         return repository.Search(id);
     }
-    
+
 }

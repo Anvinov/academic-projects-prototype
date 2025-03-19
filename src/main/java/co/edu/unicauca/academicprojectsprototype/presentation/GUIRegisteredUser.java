@@ -8,9 +8,12 @@ import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Sector;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
+import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ICoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.validateCompany;
 import co.edu.unicauca.academicprojectsprototype.domain.services.validateStudent;
 import co.edu.unicauca.academicprojectsprototype.infra.Messages;
@@ -23,18 +26,18 @@ import java.awt.CardLayout;
 public class GUIRegisteredUser extends javax.swing.JFrame {
 
     CardLayout cardLayout;
-    private ICompanyService companyService;
-    private IStudentService studentService;
-    private ICoordinatorService coordiService;
+    private CompanyService companyService;
+    private StudentService studentService;
+    private CoordinatorService coordiService;
 
     /**
      * Creates new form GUIRegisteredUser
      */
-    public GUIRegisteredUser(ICompanyService serviceCompany, IStudentService serviceStudent, ICoordinatorService coordiService) {
+    public GUIRegisteredUser() {
         initComponents();
-        this.companyService = serviceCompany;
-        this.studentService = serviceStudent;
-        this.coordiService = coordiService;
+        this.companyService = CompanyService.getInstance(null);
+        this.studentService = StudentService.getInstance(null);
+        this.coordiService = CoordinatorService.getInstance(null);
         asignarAction();
         fillSectors();
     }
@@ -1137,7 +1140,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         if (validar.validarRegistroEmpresa(nit, email, telefono, pass)) {
 
             if (companyService.saveCompany(new Company(nit, nombre, telefono, pagina, sector, email, pass))) {
-                GUIHomeWithLog HomeCompany = new GUIHomeWithLog("Empresa", nit, companyService, studentService, coordiService);
+                GUIHomeWithLog HomeCompany = new GUIHomeWithLog("Empresa", nit);
                 HomeCompany.setVisible(true);
                 this.dispose();
             }
@@ -1212,7 +1215,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         if (validar.validarRegistroEstudiante(email, telefono, pass)) {
 
             if (studentService.save(new Student(code, name, telefono, email, pass))) {
-                GUIHomeWithLog homeStudent = new GUIHomeWithLog("Estudiante", code, companyService, studentService, coordiService);
+                GUIHomeWithLog homeStudent = new GUIHomeWithLog("Estudiante", code);
                 homeStudent.setVisible(true);
                 //this.dispose();
             }
@@ -1221,7 +1224,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnSaveStudentActionPerformed
 
     private void jBtnBackSelectUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackSelectUserActionPerformed
-        GUIHomeWithoutLog homeWithOutLog = new GUIHomeWithoutLog(companyService, studentService, coordiService);
+        GUIHomeWithoutLog homeWithOutLog = new GUIHomeWithoutLog();
         homeWithOutLog.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnBackSelectUserActionPerformed
@@ -1237,7 +1240,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         String estado = "SinValidar";
 
         if (coordiService.save(new Coordinator(codigo, nombre, tel, email, program, pass, estado))) {
-            GUIHomeWithLog HomeCoordi = new GUIHomeWithLog("Coordinador", codigo, companyService, studentService,coordiService);
+            GUIHomeWithLog HomeCoordi = new GUIHomeWithLog("Coordinador", codigo);
             HomeCoordi.setVisible(true);
         }
     }//GEN-LAST:event_jBtnSaveCoordiActionPerformed
