@@ -4,15 +4,17 @@
  */
 package co.edu.unicauca.academicprojectsprototype.domain.services;
 
+import State.ICoordinatorState;
 import co.edu.unicauca.academicprojectsprototype.access.ICoordinatorRepository;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import java.util.List;
+import observer.Subject;
 
 /**
  *
  * @author anvig
  */
-public class CoordinatorService implements ICoordinatorService {
+public class CoordinatorService extends Subject implements ICoordinatorService {
 
     private static CoordinatorService instance;
     private ICoordinatorRepository repository;
@@ -51,4 +53,16 @@ public class CoordinatorService implements ICoordinatorService {
         return repository.Search(id);
     }
 
+        public void actualizarEstadoCoordinador(String code, ICoordinatorState nuevoEstado) {
+        Coordinator coordi = this.Search(code);
+        
+        if (coordi != null) {
+            coordi.setEstado(nuevoEstado); // Cambia el estado en el objeto
+            repository.actualizarEstado(code, nuevoEstado); // Actualiza en la base de datos
+            System.out.println("Estado actualizado a: " + nuevoEstado);
+            notifyObservers();
+        } else {
+            System.out.println("Coordinador no encontrado.");
+        }
+    }
 }

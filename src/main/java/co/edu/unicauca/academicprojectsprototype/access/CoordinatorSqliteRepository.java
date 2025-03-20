@@ -152,4 +152,31 @@ public class CoordinatorSqliteRepository extends SqliteRepository implements ICo
         }
     }
 
+    @Override
+    public boolean actualizarEstado(String code, ICoordinatorState nuevoEstado) {
+        String sql = "UPDATE COORDINATOR SET state = ? WHERE code = ?";
+
+        try {
+            this.connect(); // Asegura que conn está inicializado
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, nuevoEstado.toString()); // Guardamos el estado como String
+            pstmt.setString(2, code);
+
+            int filasActualizadas = pstmt.executeUpdate(); // Ejecutamos la consulta
+            if (filasActualizadas > 0) {
+                System.out.println("Estado actualizado correctamente.");
+                return true;
+            } else {
+                System.out.println("No se encontró el coordinador con el código: " + code);
+            }
+
+            pstmt.close(); // Cerramos el PreparedStatement
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }

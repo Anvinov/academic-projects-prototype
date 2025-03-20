@@ -47,7 +47,7 @@ public class Main {
         System.out.println("Estado antes: " + coordi.getEstado());
 
         adminService.aceptarCoordinador(coordi);  // Le pasamos el mismo objeto Coordinator
-
+        coordiService.actualizarEstadoCoordinador(coordi.getCode(), coordi.getEstado());
         System.out.println("Estado después: " + coordi.getEstado());
 
         System.out.println("Estado después: " + coordi.getEstado());

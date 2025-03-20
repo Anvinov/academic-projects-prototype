@@ -6,13 +6,9 @@ package co.edu.unicauca.academicprojectsprototype.presentation.admin;
 
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
-import co.edu.unicauca.academicprojectsprototype.domain.entities.Project;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
-import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
-import co.edu.unicauca.academicprojectsprototype.domain.services.ICoordinatorService;
-import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
 import co.edu.unicauca.academicprojectsprototype.presentation.GUIHomeWithoutLog;
 import javax.swing.table.DefaultTableModel;
@@ -23,14 +19,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Users extends javax.swing.JFrame {
 
-    private ICompanyService companyService;
-    private IStudentService studentService;
-    private ICoordinatorService coordiService;
+    private CompanyService companyService;
+    private StudentService studentService;
+    private CoordinatorService coordiService;
 
     /**
      * Creates new form Users
      */
-    public Users(ICompanyService serviceCompany, IStudentService serviceStudent, ICoordinatorService serviceCoordi) {
+    public Users() {
         this.companyService = CompanyService.getInstance(null);
         this.studentService = StudentService.getInstance(null);
         this.coordiService = CoordinatorService.getInstance(null);
@@ -44,12 +40,14 @@ public class Users extends javax.swing.JFrame {
         DefaultTableModel modeloStudent = new DefaultTableModel(new String[]{"Codigo", "Nombre", "Telefono", "Email"}, 0);
         modeloStudent.setRowCount(0);
 
-        for (Student student : studentService.listAll()) {
+        if (studentService != null) {
+            for (Student student : studentService.listAll()) {
 
-            if (student.getName() != null && student.getCode() != null) {
-                modeloStudent.addRow(new Object[]{student.getCode(), student.getName(), student.getPhone(), student.getEmail()});
+                if (student.getName() != null && student.getCode() != null) {
+                    modeloStudent.addRow(new Object[]{student.getCode(), student.getName(), student.getPhone(), student.getEmail()});
+                }
+                jTableStudent.setModel(modeloStudent);
             }
-            jTableStudent.setModel(modeloStudent);
         }
     }
 
@@ -57,27 +55,33 @@ public class Users extends javax.swing.JFrame {
         DefaultTableModel modeloCompani = new DefaultTableModel(new String[]{"NIT", "Nombre", "Telefono", "Page Web", "Sector", "Email"}, 0);
         modeloCompani.setRowCount(0);
 
-        for (Company company : companyService.getAllCompanies()) {
+        if (companyService.getAllCompanies() != null) {
 
-            if (company.getName() != null && company.getNit() != null) {
-                modeloCompani.addRow(new Object[]{company.getNit(), company.getName(), company.getPhone(), company.getPageWeb(), company.getSector(), company.getEmail()});
+            for (Company company : companyService.getAllCompanies()) {
 
+                if (company.getName() != null && company.getNit() != null) {
+                    modeloCompani.addRow(new Object[]{company.getNit(), company.getName(), company.getPhone(), company.getPageWeb(), company.getSector(), company.getEmail()});
+                }
+                jTableCompany.setModel(modeloCompani);
             }
-            jTableCompany.setModel(modeloCompani);
         }
+
     }
 
     public void fillCoordinators() {
-        DefaultTableModel modeloCoordi = new DefaultTableModel(new String[]{"Codigo", "Nombre", "Telefono", "Email","Programa Acacemico","Estado"}, 0);
+        DefaultTableModel modeloCoordi = new DefaultTableModel(new String[]{"Codigo", "Nombre", "Telefono", "Email", "Programa Acacemico", "Estado"}, 0);
         modeloCoordi.setRowCount(0);
 
-        for (Coordinator coordi : coordiService.listAll()) {
+        if (coordiService.listAll() != null) {
+            for (Coordinator coordi : coordiService.listAll()) {
 
-            if (coordi.getName() != null && coordi.getCode() != null) {
-                modeloCoordi.addRow(new Object[]{coordi.getCode(), coordi.getName(), coordi.getPhone(), coordi.getEmail(),coordi.getProgramaAcademico(),coordi.getEstado()});
+                if (coordi.getName() != null && coordi.getCode() != null) {
+                    modeloCoordi.addRow(new Object[]{coordi.getCode(), coordi.getName(), coordi.getPhone(), coordi.getEmail(), coordi.getProgramaAcademico(), coordi.getEstado()});
+                }
+                jTableCoordinator.setModel(modeloCoordi);
             }
-            jTableCoordinator.setModel(modeloCoordi);
         }
+
     }
 
     /**
@@ -91,15 +95,15 @@ public class Users extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPContent = new javax.swing.JPanel();
-        jPStudent = new javax.swing.JPanel();
+        jPCoordi = new javax.swing.JPanel();
         jLCoordinator = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCoordinator = new javax.swing.JTable();
-        jPCompany = new javax.swing.JPanel();
+        jPSudent = new javax.swing.JPanel();
         jLStudent1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableStudent = new javax.swing.JTable();
-        jPStudent1 = new javax.swing.JPanel();
+        jPCompany = new javax.swing.JPanel();
         jLCompany1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableCompany = new javax.swing.JTable();
@@ -114,7 +118,7 @@ public class Users extends javax.swing.JFrame {
         jPContent.setBackground(new java.awt.Color(236, 230, 240));
         jPContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPStudent.setBackground(new java.awt.Color(255, 255, 255));
+        jPCoordi.setBackground(new java.awt.Color(255, 255, 255));
 
         jLCoordinator.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLCoordinator.setForeground(new java.awt.Color(0, 0, 0));
@@ -137,20 +141,20 @@ public class Users extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTableCoordinator);
 
-        javax.swing.GroupLayout jPStudentLayout = new javax.swing.GroupLayout(jPStudent);
-        jPStudent.setLayout(jPStudentLayout);
-        jPStudentLayout.setHorizontalGroup(
-            jPStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPStudentLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPCoordiLayout = new javax.swing.GroupLayout(jPCoordi);
+        jPCoordi.setLayout(jPCoordiLayout);
+        jPCoordiLayout.setHorizontalGroup(
+            jPCoordiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCoordiLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPCoordiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLCoordinator, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(148, 148, 148))
         );
-        jPStudentLayout.setVerticalGroup(
-            jPStudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPStudentLayout.createSequentialGroup()
+        jPCoordiLayout.setVerticalGroup(
+            jPCoordiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPCoordiLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLCoordinator)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -158,9 +162,9 @@ public class Users extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPContent.add(jPStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 320, 450));
+        jPContent.add(jPCoordi, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 320, 450));
 
-        jPCompany.setBackground(new java.awt.Color(255, 255, 255));
+        jPSudent.setBackground(new java.awt.Color(255, 255, 255));
 
         jLStudent1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLStudent1.setForeground(new java.awt.Color(0, 0, 0));
@@ -183,20 +187,20 @@ public class Users extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTableStudent);
 
-        javax.swing.GroupLayout jPCompanyLayout = new javax.swing.GroupLayout(jPCompany);
-        jPCompany.setLayout(jPCompanyLayout);
-        jPCompanyLayout.setHorizontalGroup(
-            jPCompanyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCompanyLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPSudentLayout = new javax.swing.GroupLayout(jPSudent);
+        jPSudent.setLayout(jPSudentLayout);
+        jPSudentLayout.setHorizontalGroup(
+            jPSudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPSudentLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPCompanyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPSudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLStudent1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(148, 148, 148))
         );
-        jPCompanyLayout.setVerticalGroup(
-            jPCompanyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPCompanyLayout.createSequentialGroup()
+        jPSudentLayout.setVerticalGroup(
+            jPSudentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPSudentLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLStudent1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -204,9 +208,9 @@ public class Users extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPContent.add(jPCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 320, 450));
+        jPContent.add(jPSudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 320, 450));
 
-        jPStudent1.setBackground(new java.awt.Color(255, 255, 255));
+        jPCompany.setBackground(new java.awt.Color(255, 255, 255));
 
         jLCompany1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLCompany1.setForeground(new java.awt.Color(0, 0, 0));
@@ -229,20 +233,20 @@ public class Users extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTableCompany);
 
-        javax.swing.GroupLayout jPStudent1Layout = new javax.swing.GroupLayout(jPStudent1);
-        jPStudent1.setLayout(jPStudent1Layout);
-        jPStudent1Layout.setHorizontalGroup(
-            jPStudent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPStudent1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPCompanyLayout = new javax.swing.GroupLayout(jPCompany);
+        jPCompany.setLayout(jPCompanyLayout);
+        jPCompanyLayout.setHorizontalGroup(
+            jPCompanyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCompanyLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPStudent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPCompanyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLCompany1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(148, 148, 148))
         );
-        jPStudent1Layout.setVerticalGroup(
-            jPStudent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPStudent1Layout.createSequentialGroup()
+        jPCompanyLayout.setVerticalGroup(
+            jPCompanyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPCompanyLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLCompany1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -250,7 +254,7 @@ public class Users extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPContent.add(jPStudent1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 320, 450));
+        jPContent.add(jPCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 320, 450));
 
         jPButtom.setBackground(new java.awt.Color(236, 230, 240));
         jPButtom.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
@@ -327,9 +331,9 @@ public class Users extends javax.swing.JFrame {
     private javax.swing.JPanel jPButtom;
     private javax.swing.JPanel jPCompany;
     private javax.swing.JPanel jPContent;
+    private javax.swing.JPanel jPCoordi;
     private javax.swing.JPanel jPHead;
-    private javax.swing.JPanel jPStudent;
-    private javax.swing.JPanel jPStudent1;
+    private javax.swing.JPanel jPSudent;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

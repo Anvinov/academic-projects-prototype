@@ -13,13 +13,11 @@ import co.edu.unicauca.academicprojectsprototype.domain.entities.Project;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
-import co.edu.unicauca.academicprojectsprototype.domain.services.ICompanyService;
-import co.edu.unicauca.academicprojectsprototype.domain.services.ICoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.IProjectService;
-import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ProjectService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
 import co.edu.unicauca.academicprojectsprototype.infra.Messages;
+import co.edu.unicauca.academicprojectsprototype.presentation.admin.RequestCoordinators;
 import co.edu.unicauca.academicprojectsprototype.presentation.admin.Users;
 import java.awt.CardLayout;
 import javax.swing.table.DefaultTableModel;
@@ -255,6 +253,11 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         jPOpcionAdmin.add(jBtnUsers);
 
         jBtnCoordiSoli.setText("GESTION DE COORDINADORES");
+        jBtnCoordiSoli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnCoordiSoliActionPerformed(evt);
+            }
+        });
         jPOpcionAdmin.add(jBtnCoordiSoli);
 
         jButton6.setText("jButton6");
@@ -420,9 +423,14 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     }//GEN-LAST:event_jBtnGetOutActionPerformed
 
     private void jBtnUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnUsersActionPerformed
-        Users user = new Users(companyService, studentService, coordiService);
+        Users user = new Users();
         user.setVisible(true);
     }//GEN-LAST:event_jBtnUsersActionPerformed
+
+    private void jBtnCoordiSoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCoordiSoliActionPerformed
+        RequestCoordinators requesCoordinators = new RequestCoordinators();
+        requesCoordinators.setVisible(true);
+    }//GEN-LAST:event_jBtnCoordiSoliActionPerformed
 
     private void cargarRol(String rol) {
         cardLayout = (CardLayout) jPOptions.getLayout();
