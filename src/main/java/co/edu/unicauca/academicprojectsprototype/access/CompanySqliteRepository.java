@@ -84,7 +84,7 @@ public class CompanySqliteRepository extends SqliteRepository implements ICompan
 
     @Override
     public void initializeDatabase() {
-        String sql = "CREATE TABLE IF NOT EXISTS company ("
+        String sql = "CREATE TABLE IF NOT EXISTS COMPANY ("
                 + "nit TEXT PRIMARY KEY, "
                 + "name TEXT NOT NULL, "
                 + "phone TEXT, "

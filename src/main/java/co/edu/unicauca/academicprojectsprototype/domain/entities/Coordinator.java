@@ -4,35 +4,41 @@
  */
 package co.edu.unicauca.academicprojectsprototype.domain.entities;
 
+import State.Coordinator.PendienteCoordi;
+import State.ICoordinatorState;
+
 /**
  *
  * @author anvig
  */
 public class Coordinator {
 
-    private String code, name, phone, email, programaAcademico, password,estado;
+    private String code, name, phone, email, programaAcademico, password;
+    private ICoordinatorState estado;
 
-    public Coordinator(){};
-    
-    public Coordinator(String code, String name, String phone, String email, String programaAcademico, String password, String estado) {
+    public Coordinator() {
+
+    }
+
+    public Coordinator(String code, String name, String phone, String email, String programaAcademico, String password) {
         this.code = code;
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.programaAcademico = programaAcademico;
         this.password = password;
-        this.estado = estado;
+        this.estado = new PendienteCoordi(this);
     }
 
-    public String getEstado() {
+    public ICoordinatorState getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setEstado(ICoordinatorState Nuevoestado) {
+        System.out.println("Cambiando estado a: " + Nuevoestado.toString());
+        this.estado = Nuevoestado;
     }
 
-  
     public String getCode() {
         return code;
     }
@@ -80,5 +86,11 @@ public class Coordinator {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public void solicitarAcceso() {
+        System.out.println(estado.solicitarAcceso());
+
+    }
+
 
 }

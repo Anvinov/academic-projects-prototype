@@ -20,7 +20,7 @@ public interface IAdminService {
     public List<Student> getAllStudents();
     public List<Project> getAllProjects();
     public List<Coordinator> getAllCoordinators();
-    public boolean aceptarCoordinador(String codeCoordinator);
-    public boolean eliminarCoodinador(String codeCoordinator);
+    public boolean aceptarCoordinador(Coordinator coordi);
+    public boolean rechazarCoodinador(Coordinator coordi);
     
 }

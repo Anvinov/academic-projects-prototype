@@ -48,3 +48,7 @@ C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academ
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUIStudentProjectsRequests.java
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\observer\IObserver.java
 C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\observer\Subject.java
+C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\State\Coordinator\PendienteCoordi.java
+C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\State\Coordinator\RechazadoCoordi.java
+C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\State\Coordinator\VerificadoCoordi.java
+C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\State\ICoordinatorState.java

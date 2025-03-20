@@ -25,15 +25,33 @@ public class Factory {
     private Map<String, ICoordinatorRepository> dictionary4;
 
     private Factory() {
+        //------------- empresas
         dictionary = new HashMap<>();
-        dictionary2 = new HashMap<>();
-        dictionary3 = new HashMap<>();
-        dictionary4 = new HashMap<>();
-        //dictionary.put("ARRAYS", new CompanyArraysRepository());
         dictionary.put("SQLITE", new CompanySqliteRepository());
+        
+        //----------------
+        
+        //----------- estudiantes
+        dictionary2 = new HashMap<>();
         dictionary2.put("SQLITE", new StudentSqliteRepository());
+        
+        //-----------
+        
+        //--------- proyectos
+        dictionary3 = new HashMap<>();
         dictionary3.put("ARRAY", new ProjectArrayRepository());
+        
+        //---------------
+        
+        //----------- coordinador
+        dictionary4 = new HashMap<>();
         dictionary4.put("ARRAY", new CoordinatorArrayRepository());
+         dictionary4.put("SQLITE", new CoordinatorSqliteRepository());
+        //dictionary.put("ARRAYS", new CompanyArraysRepository());
+        
+        
+        
+        
     }
 
     /**

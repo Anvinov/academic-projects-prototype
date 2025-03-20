@@ -4,10 +4,10 @@
  */
 package co.edu.unicauca.academicprojectsprototype.domain.services;
 
-import co.edu.unicauca.academicprojectsprototype.access.ICompanyRepository;
-import co.edu.unicauca.academicprojectsprototype.access.ICoordinatorRepository;
-import co.edu.unicauca.academicprojectsprototype.access.IProjectRepository;
-import co.edu.unicauca.academicprojectsprototype.access.IStudentRepository;
+import State.Coordinator.RechazadoCoordi;
+import State.Coordinator.VerificadoCoordi;
+import State.ICoordinatorState;
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Admin;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Project;
@@ -20,53 +20,68 @@ import java.util.List;
  */
 public class AdminService implements IAdminService {
 
-    private ICompanyRepository CompanyRepository;
-    private IStudentRepository studentRepository;
-    private IProjectRepository projectRepository;
-    private ICoordinatorRepository coordiRepository;
+    private CompanyService companyService;
+    private StudentService studentService;
+    private ProjectService projectService;
+    private CoordinatorService coordinatorService;
+    private ICoordinatorState estado;
+    private static AdminService instance;
+
+    public AdminService() {
+        this.companyService = CompanyService.getInstance(null);
+        this.studentService = StudentService.getInstance(null);
+        this.projectService = ProjectService.getInstance(null);
+        this.coordinatorService = CoordinatorService.getInstance(null);
+    }
+
+    public static AdminService getInstance() {
+        if (instance == null) {
+            instance = new AdminService();
+        }
+        return instance;
+    }
 
     @Override
     public List<Company> getAllCompanies() {
-        return CompanyRepository.listAll();
+        return companyService.getAllCompanies();
     }
 
     @Override
     public List<Student> getAllStudents() {
-        return studentRepository.listAll();
+        return studentService.listAll();
     }
 
     @Override
     public List<Project> getAllProjects() {
-        return projectRepository.listAll();
+        //return ProjectService.listProject();
+        return null;
     }
 
     @Override
     public List<Coordinator> getAllCoordinators() {
-        return coordiRepository.listAll();
+        return coordinatorService.listAll();
     }
 
     @Override
-    public boolean aceptarCoordinador(String codeCoordinator) {
-        if (coordiRepository.Search(codeCoordinator) != null) {
-            Coordinator coordi = coordiRepository.Search(codeCoordinator);
-            coordi.setEstado("Aceptado");
-            System.out.println("El coordinador ha sido aceptado por el admin");
+    public boolean aceptarCoordinador(Coordinator coordi) {
+        if (coordi != null) {
+            System.out.println("Te vamos a pasar el estado de " + coordi.getEstado());
+            coordi.setEstado(coordi.getEstado().verificar()); // Aquí sí se cambia el estado
+            System.out.println("Nuevo estado: " + coordi.getEstado());
             return true;
         }
-        System.out.println("El coordinador NO sido aceptado por el admin");
         return false;
     }
 
     @Override
-    public boolean eliminarCoodinador(String codeCoordinator) {
-        if (coordiRepository.Search(codeCoordinator) != null) {
-            Coordinator coordi = coordiRepository.Search(codeCoordinator);
-            coordi.setEstado("Eliminado");
-            System.out.println("El coordinador ha sido eliminado por el admin");
+    public boolean rechazarCoodinador(Coordinator coordi) {
+        if (coordi != null) {
+            System.out.println("Te vamos a pasar el estado de " + coordi.getEstado());
+            coordi.setEstado(coordi.getEstado().rechazar()); // Aquí sí se cambia el estado
+            System.out.println("Nuevo estado: " + coordi.getEstado());
             return true;
         }
-        System.out.println("Error al borrar el coordinador");
         return false;
-    }
 
+    }
 }

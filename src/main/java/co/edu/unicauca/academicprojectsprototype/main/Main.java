@@ -10,6 +10,7 @@ import co.edu.unicauca.academicprojectsprototype.access.ICoordinatorRepository;
 import co.edu.unicauca.academicprojectsprototype.access.IStudentRepository;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Admin;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
+import co.edu.unicauca.academicprojectsprototype.domain.services.AdminService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
@@ -22,30 +23,38 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         // Hacia futuro el tipo de repositorio lo podemos leer de un archivo plano
         // setup.properties, asi no tendriamos que recompilar la aplicación
         ICompanyRepository repositoryCompany = Factory.getInstance().getRepositoryCompany("SQLITE");// Podria ir ARRAYS/SQLITE
         IStudentRepository repositoryStudent = Factory.getInstance().getRepositoryStudent("SQLITE");
-        ICoordinatorRepository repositoryCoordi = Factory.getInstance().getRepositoryCoordi("ARRAY");
-        
-        
+        ICoordinatorRepository repositoryCoordi = Factory.getInstance().getRepositoryCoordi("SQLITE");
+
         CompanyService.getInstance(repositoryCompany);
         StudentService.getInstance(repositoryStudent);
         CoordinatorService coordiService = CoordinatorService.getInstance(repositoryCoordi);
-        
-        
+
         //------- quema de datos Coordi
-        coordiService.save(new Coordinator("1", "SinValidar", "tel", "email", "program", "pass","Sin validar"));
-        coordiService.save(new Coordinator("2", "SinValidar", "tel", "email", "program", "pass","Sin validar"));
-        
+        coordiService.save(new Coordinator("1", "SinValidar", "tel", "email", "program", "pass"));
+        coordiService.save(new Coordinator("2", "SinValidar", "tel", "email", "program", "pass"));
+
         Admin admin = Admin.getInstance();
         admin.setAdminData("Julian", "123", "123");
-        
+
+        AdminService adminService = AdminService.getInstance();
+
+        Coordinator coordi = coordiService.Search("2");
+        System.out.println("Estado antes: " + coordi.getEstado());
+
+        adminService.aceptarCoordinador(coordi);  // Le pasamos el mismo objeto Coordinator
+
+        System.out.println("Estado después: " + coordi.getEstado());
+
+        System.out.println("Estado después: " + coordi.getEstado());
+
         GUIHomeWithoutLog instance = new GUIHomeWithoutLog();
         instance.setExtendedState(JFrame.MAXIMIZED_BOTH);
         instance.setVisible(true);
     }
-    
-}
 
+}

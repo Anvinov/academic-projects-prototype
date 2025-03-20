@@ -1239,7 +1239,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         String pass = jFieldPassWordCoordi.getText();
         String estado = "SinValidar";
 
-        if (coordiService.save(new Coordinator(codigo, nombre, tel, email, program, pass, estado))) {
+        if (coordiService.save(new Coordinator(codigo, nombre, tel, email, program, pass))) {
             GUIHomeWithLog HomeCoordi = new GUIHomeWithLog("Coordinador", codigo);
             HomeCoordi.setVisible(true);
         }

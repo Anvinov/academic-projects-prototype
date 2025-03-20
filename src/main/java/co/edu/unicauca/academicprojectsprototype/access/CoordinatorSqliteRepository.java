@@ -4,6 +4,10 @@
  */
 package co.edu.unicauca.academicprojectsprototype.access;
 
+import State.Coordinator.PendienteCoordi;
+import State.Coordinator.RechazadoCoordi;
+import State.Coordinator.VerificadoCoordi;
+import State.ICoordinatorState;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.infra.Messages;
@@ -20,7 +24,7 @@ import java.util.logging.Logger;
  *
  * @author anvig
  */
-public class CoordinatorSqliteRepository extends SqliteRepository implements ICoordinatorRepository{
+public class CoordinatorSqliteRepository extends SqliteRepository implements ICoordinatorRepository {
 
     @Override
     public boolean save(Coordinator newCoordinator) {
@@ -32,7 +36,7 @@ public class CoordinatorSqliteRepository extends SqliteRepository implements ICo
 
             this.connect();
             this.initializeDatabase();
-            String sql = "INSERT INTO COMPANY (CODE, NAME, PHONE, EMAIL, ACADEMIC_PROGRAM, PASSWORD, STATE ) "
+            String sql = "INSERT INTO COORDINATOR (CODE, NAME, PHONE, EMAIL, ACADEMIC_PROGRAM, PASSWORD, STATE ) "
                     + "VALUES ( ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -42,7 +46,7 @@ public class CoordinatorSqliteRepository extends SqliteRepository implements ICo
             pstmt.setString(4, newCoordinator.getEmail());
             pstmt.setString(5, newCoordinator.getProgramaAcademico());
             pstmt.setString(6, newCoordinator.getPassword());
-            pstmt.setString(7, newCoordinator.getEstado());
+            pstmt.setString(7, newCoordinator.getEstado().toString());
             pstmt.executeUpdate();
 
             this.disconnect();
@@ -94,7 +98,7 @@ public class CoordinatorSqliteRepository extends SqliteRepository implements ICo
                 newCoordinator.setEmail(rs.getString("EMAIL"));
                 newCoordinator.setProgramaAcademico(rs.getString("ACADEMIC_PROGRAM"));
                 newCoordinator.setPassword(rs.getString("PASSWORD"));
-                newCoordinator.setEstado(rs.getString("STATE"));
+                newCoordinator.setEstado(obtenerEstado(rs.getString("STATE"), newCoordinator));
 
                 coordinators.add(newCoordinator);
             }
@@ -109,9 +113,9 @@ public class CoordinatorSqliteRepository extends SqliteRepository implements ICo
 
     @Override
     public Coordinator Search(String code) {
-         try {
+        try {
             this.connect();
-            String sql = "SELECT CODE, NAME, PHONE, EMAIL, ACADEMIC_PROGRAM, PASSWORD, STATE FROM COORDINATOR WHERE NIT = " + code;
+            String sql = "SELECT CODE, NAME, PHONE, EMAIL, ACADEMIC_PROGRAM, PASSWORD, STATE FROM COORDINATOR WHERE CODE = " + code;
 
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
@@ -123,7 +127,7 @@ public class CoordinatorSqliteRepository extends SqliteRepository implements ICo
             searchCoordinator.setEmail(rs.getString("EMAIL"));
             searchCoordinator.setProgramaAcademico(rs.getString("ACADEMIC_PROGRAM"));
             searchCoordinator.setPassword(rs.getString("PASSWORD"));
-            searchCoordinator.setEstado(rs.getString("STATE"));
+            searchCoordinator.setEstado(obtenerEstado(rs.getString("STATE"), searchCoordinator));
 
             this.disconnect();
             return searchCoordinator;
@@ -133,5 +137,19 @@ public class CoordinatorSqliteRepository extends SqliteRepository implements ICo
         }
         return null;
     }
-    
+
+    // Método para convertir un String en un objeto de estado
+    public ICoordinatorState obtenerEstado(String estado, Coordinator coordinator) {
+        switch (estado) {
+            case "PENDIENTE":
+                return new PendienteCoordi(coordinator);
+            case "VERIFICADO":
+                return new VerificadoCoordi(coordinator);
+            case "RECHAZADO":
+                return new RechazadoCoordi(coordinator);
+            default:
+                throw new IllegalArgumentException("Estado no válido: " + estado);
+        }
+    }
+
 }
