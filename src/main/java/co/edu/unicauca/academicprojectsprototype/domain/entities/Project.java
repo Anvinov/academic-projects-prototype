@@ -15,7 +15,16 @@ public class Project {
     private Company company;
     private Student student;
     private String state; // "PROPUESTO", "ASIGNADO", "FINALIZADO"
+    private String tituloEmpresa;
+    private String nombreEstudiante;
 
+    public String getNombreEstudiante() {
+        return nombreEstudiante;
+    }
+
+    public void setNombreEstudiante(String nombreEstudiante) {
+        this.nombreEstudiante = nombreEstudiante;
+    }
     /**
      * Constructor de la clase Project.
      *
@@ -52,6 +61,22 @@ public class Project {
         this.description = descripcion;
         this.company = empresa;
         this.state = "PROPUESTO"; // Estado inicial
+    }
+
+    public String getTituloEmpresa() {
+        return tituloEmpresa;
+    }
+
+    public void setTituloEmpresa(String tituloEmpresa) {
+        this.tituloEmpresa = tituloEmpresa;
+    }
+    
+    public Project(String titulo,String descripcion, String tituloEmpresa,String nombreEstudiante,String state){
+        this.title = titulo;
+        this.description = descripcion;
+        this.tituloEmpresa = tituloEmpresa;
+        this.nombreEstudiante = nombreEstudiante;
+        this.state = state;
     }
 
     /**
@@ -127,9 +152,8 @@ public class Project {
     @Override
     public String toString() {
         return "Proyecto: " + title + " | Estado: " + state
-                + " | Empresa: " + company.getName()
+                + " | Empresa: " + (company != null ? getTituloEmpresa() : "Sin empresa")
                 + (student != null ? " | Estudiante: " + student.getName() : "");
     }
 
-    
 }

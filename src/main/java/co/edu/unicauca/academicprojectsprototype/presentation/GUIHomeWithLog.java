@@ -466,10 +466,10 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     private void jBtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSearchActionPerformed
         String filterType = jCBSelecFilter.getSelectedItem().toString();
         String keyword = jFieldSearchProyect.getText().trim();
-        
+
         System.out.println("Filtro seleccionado: " + filterType);
         System.out.println("Palabra clave ingresada: " + keyword);
-        
+
         filterProjects(filterType, keyword);
     }//GEN-LAST:event_jBtnSearchActionPerformed
 
@@ -480,51 +480,51 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         fillTableProject();
         jButtonQuitF.setVisible(false);
     }//GEN-LAST:event_jButtonQuitFActionPerformed
-    
+
     public void filterProjects(String filterType, String keyword) {
-    DefaultTableModel modeloFiltrado = new DefaultTableModel(new String[]{"Titulo", "descripcion", "Compañia", "Estudiante encargado"}, 0);
+        DefaultTableModel modeloFiltrado = new DefaultTableModel(new String[]{"Titulo", "descripcion", "Compañia", "Estudiante encargado"}, 0);
 
-    keyword = keyword.toLowerCase();
-    boolean found = false; // Variable para verificar si se encontraron coincidencias
-    
-    System.out.println("Total de proyectos: " + projectService.getAllProjects().size());
-    
-    for (Project project : projectService.getAllProjects()) {
-        String title = project.getTitle();
-        String description = project.getDescription();
-        String company = project.getCompany().getName();
-        String student = (project.getStudent() != null) ? project.getStudent().getName() : "No tiene";
+        keyword = keyword.toLowerCase();
+        boolean found = false; // Variable para verificar si se encontraron coincidencias
 
-        boolean matches = false;
-        switch (filterType) {
-            case "Por Nombre":
-                matches = title.toLowerCase().contains(keyword);
-                break;
-            case "Por Empresa":
-                matches = company.toLowerCase().contains(keyword);
-                break;
-            case "Por Estudiante":
-                matches = student.toLowerCase().contains(keyword);
-                break;
-            default:
-                matches = true;
-                break;
+        System.out.println("Total de proyectos: " + projectService.getAllProjects().size());
+
+        for (Project project : projectService.getAllProjects()) {
+            String title = project.getTitle();
+            String description = project.getDescription();
+            String company = project.getCompany().getName();
+            String student = (project.getStudent() != null) ? project.getStudent().getName() : "No tiene";
+
+            boolean matches = false;
+            switch (filterType) {
+                case "Por Nombre":
+                    matches = title.toLowerCase().contains(keyword);
+                    break;
+                case "Por Empresa":
+                    matches = company.toLowerCase().contains(keyword);
+                    break;
+                case "Por Estudiante":
+                    matches = student.toLowerCase().contains(keyword);
+                    break;
+                default:
+                    matches = true;
+                    break;
+            }
+
+            if (matches) {
+                modeloFiltrado.addRow(new Object[]{title, description, company, student});
+                found = true;
+            }
         }
 
-        if (matches) {
-            modeloFiltrado.addRow(new Object[]{title, description, company, student});
-            found = true;
+        if (!found) {
+            Messages.showMessageDialog("Búsqueda sin resultados", "Error");
         }
-    }
-    
-    if (!found) {
-        Messages.showMessageDialog("Búsqueda sin resultados", "Error");
+
+        jTableProjects.setModel(modeloFiltrado);
+        jButtonQuitF.setVisible(true);
     }
 
-    jTableProjects.setModel(modeloFiltrado);
-    jButtonQuitF.setVisible(true);
-    }
-    
     private void cargarRol(String rol) {
         cardLayout = (CardLayout) jPOptions.getLayout();
         cardLayout.show(jPOptions, rol);
@@ -564,13 +564,13 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         modeloProyectos.setRowCount(0);
 
         System.out.println(projectService.getAllProjects());
-        
+
         for (Project project : projectService.getAllProjects()) {
 
             if (project.getStudent() != null && project.getStudent().getName() != null) {
-                modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getCompany().getName(), project.getStudent().getName()});
+                modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getTituloEmpresa(), project.getStudent().getName()});
             } else {
-                modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getCompany().getName(), "no tiene"});
+                modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getTituloEmpresa(), "no tiene"});
             }
         }
         jTableProjects.setModel(modeloProyectos);

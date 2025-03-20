@@ -4,9 +4,13 @@
  */
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Project;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.ProjectService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
+import java.awt.CardLayout;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,17 +18,16 @@ import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
  */
 public class GUIHomeWithoutLog extends javax.swing.JFrame {
 
-    private CompanyService companyService;
-    private StudentService studentService;
-    private CoordinatorService coordiService;
+    private ProjectService projectService;
+    CardLayout cardLayout;
+
     /**
      * Creates new form GUIMenuWithoutLog
      */
     public GUIHomeWithoutLog() {
-        this.companyService = CompanyService.getInstance(null);
-        this.studentService = StudentService.getInstance(null);
-        this.coordiService = CoordinatorService.getInstance(null);
+        this.projectService = ProjectService.getInstance(null);
         initComponents();
+        fillTableProject();
     }
 
     /**
@@ -152,7 +155,7 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
 
         jPContent.setBackground(new java.awt.Color(236, 230, 240));
         jPContent.setForeground(new java.awt.Color(0, 0, 0));
-        jPContent.setLayout(null);
+        jPContent.setLayout(new javax.swing.BoxLayout(jPContent, javax.swing.BoxLayout.Y_AXIS));
 
         jLTittleProjects.setBackground(new java.awt.Color(236, 230, 240));
         jLTittleProjects.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
@@ -161,7 +164,6 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
         jLTittleProjects.setText("Proyectos disponibles");
         jLTittleProjects.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPContent.add(jLTittleProjects);
-        jLTittleProjects.setBounds(0, 0, 840, 70);
 
         jTableProjects.setBackground(new java.awt.Color(255, 255, 255));
         jTableProjects.setForeground(new java.awt.Color(0, 0, 0));
@@ -179,7 +181,6 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTableProjects);
 
         jPContent.add(jScrollPane1);
-        jScrollPane1.setBounds(2, 60, 860, 200);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -199,7 +200,7 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPContent, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                .addComponent(jPContent, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -212,8 +213,8 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
         GUIRegisteredUser selecU = new GUIRegisteredUser();
         selecU.setVisible(true);
         this.dispose();
-        
- 
+
+
     }//GEN-LAST:event_jBtnNewUserActionPerformed
 
     private void jBtnLoginUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLoginUActionPerformed
@@ -222,7 +223,22 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jBtnLoginUActionPerformed
 
-    
+    public void fillTableProject() {
+        DefaultTableModel modeloProyectos = new DefaultTableModel(new String[]{"Titulo", "descripcion", "Comapañia", "Estudiante encargado"}, 0);
+        modeloProyectos.setRowCount(0);
+
+        System.out.println(projectService.getAllProjects());
+
+        for (Project project : projectService.getAllProjects()) {
+
+            if (project.getStudent() != null && project.getStudent().getName() != null) {
+                modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getTituloEmpresa(), project.getStudent().getName()});
+            } else {
+                modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getTituloEmpresa(), "no tiene"});
+            }
+        }
+        jTableProjects.setModel(modeloProyectos);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

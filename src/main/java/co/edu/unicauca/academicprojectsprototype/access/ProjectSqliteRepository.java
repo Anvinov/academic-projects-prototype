@@ -105,19 +105,9 @@ public class ProjectSqliteRepository extends SqliteRepository implements IProjec
                 Project newProject = new Project();
                 newProject.setTitulo(rs.getString("TITLE"));
                 newProject.setDescription(rs.getString("DESCRIPTION"));
-                // Recuperar la empresa a partir de su ID
-                String companTitle = rs.getString("COMPANY");
-                Company company = companyService.searchTitle(companTitle);  // Método para obtener la empresa desde BD
-                newProject.setCompany(company);
-
-                // Recuperar el estudiante a partir de su ID
-                String studentId = rs.getString("STUDENT");
-                Student student = studentService.Search(studentId); // Método para obtener el estudiante desde BD
-
-                newProject.setStudent(student);
-
+                newProject.setTituloEmpresa(rs.getString("COMPANY"));
+                newProject.setNombreEstudiante("STUDENT");
                 newProject.setState(rs.getString("STATE"));
-
                 projects.add(newProject);
             }
 
