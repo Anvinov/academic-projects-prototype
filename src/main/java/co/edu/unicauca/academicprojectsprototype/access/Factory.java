@@ -40,6 +40,7 @@ public class Factory {
         //--------- proyectos
         dictionary3 = new HashMap<>();
         dictionary3.put("ARRAY", new ProjectArrayRepository());
+        dictionary3.put("SQLITE", new ProjectSqliteRepository());
         
         //---------------
         

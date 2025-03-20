@@ -18,8 +18,9 @@ import javax.swing.JOptionPane;
 public class GUINewProject extends javax.swing.JFrame {
 
     Company company;
-    IProjectRepository repositoryCompany = Factory.getInstance().getRepositoryProject("ARRAY");
-    IProjectService serviceProject = new ProjectService(repositoryCompany);
+    ProjectService projectService;
+    //IProjectRepository repositoryCompany = Factory.getInstance().getRepositoryProject("ARRAY");
+    //IProjectService serviceProject = new ProjectService(repositoryCompany);
 
     /**
      * Creates new form NewProject
@@ -27,6 +28,7 @@ public class GUINewProject extends javax.swing.JFrame {
     public GUINewProject(Company company) {
         initComponents();
         this.company = company;
+        this.projectService = ProjectService.getInstance(null);
     }
 
     /**
@@ -264,13 +266,13 @@ public class GUINewProject extends javax.swing.JFrame {
         String descripcion = jTextAreaDescripProject.getText();
         
          try {
-            serviceProject.registerProject(titulo, descripcion, company);
+            projectService.registerProject(titulo, descripcion, company);
             JOptionPane.showMessageDialog(null, "¡Creado satisfactoriamente!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ocurrió un error inesperado: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
         
-         serviceProject.listProject();
+         projectService.listProject();
     }//GEN-LAST:event_jBtnPubliProjectActionPerformed
 
    

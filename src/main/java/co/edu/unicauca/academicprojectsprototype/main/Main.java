@@ -7,12 +7,14 @@ package co.edu.unicauca.academicprojectsprototype.main;
 import co.edu.unicauca.academicprojectsprototype.access.Factory;
 import co.edu.unicauca.academicprojectsprototype.access.ICompanyRepository;
 import co.edu.unicauca.academicprojectsprototype.access.ICoordinatorRepository;
+import co.edu.unicauca.academicprojectsprototype.access.IProjectRepository;
 import co.edu.unicauca.academicprojectsprototype.access.IStudentRepository;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Admin;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
 import co.edu.unicauca.academicprojectsprototype.domain.services.AdminService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.ProjectService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
 import co.edu.unicauca.academicprojectsprototype.presentation.GUIHomeWithoutLog;
 import javax.swing.JFrame;
@@ -29,7 +31,9 @@ public class Main {
         ICompanyRepository repositoryCompany = Factory.getInstance().getRepositoryCompany("SQLITE");// Podria ir ARRAYS/SQLITE
         IStudentRepository repositoryStudent = Factory.getInstance().getRepositoryStudent("SQLITE");
         ICoordinatorRepository repositoryCoordi = Factory.getInstance().getRepositoryCoordi("SQLITE");
-
+        IProjectRepository repositoryProject = Factory.getInstance().getRepositoryProject("SQLITE");
+        
+        ProjectService.getInstance(repositoryProject);
         CompanyService.getInstance(repositoryCompany);
         StudentService.getInstance(repositoryStudent);
         CoordinatorService coordiService = CoordinatorService.getInstance(repositoryCoordi);
