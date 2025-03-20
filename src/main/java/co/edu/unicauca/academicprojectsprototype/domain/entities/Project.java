@@ -9,7 +9,8 @@ package co.edu.unicauca.academicprojectsprototype.domain.entities;
  * @author anvig
  */
 public class Project {
-     private String title;
+
+    private String title;
     private String description;
     private Company company;
     private Student student;
@@ -17,11 +18,35 @@ public class Project {
 
     /**
      * Constructor de la clase Project.
-     * 
-     * @param titulo     Título del proyecto.
+     *
+     * @param titulo Título del proyecto.
      * @param descripcion Descripción del proyecto.
-     * @param empresa    Empresa que propone el proyecto.
+     * @param empresa Empresa que propone el proyecto.
      */
+    public Project() {
+
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     public Project(String titulo, String descripcion, Company empresa) {
         this.title = titulo;
         this.description = descripcion;
@@ -31,7 +56,7 @@ public class Project {
 
     /**
      * Obtiene el título del proyecto.
-     * 
+     *
      * @return Título del proyecto.
      */
     public String getTitle() {
@@ -40,7 +65,7 @@ public class Project {
 
     /**
      * Obtiene la descripción del proyecto.
-     * 
+     *
      * @return Descripción del proyecto.
      */
     public String getDescription() {
@@ -49,7 +74,7 @@ public class Project {
 
     /**
      * Obtiene la empresa que propuso el proyecto.
-     * 
+     *
      * @return Objeto Company que representa la empresa.
      */
     public Company getCompany() {
@@ -58,7 +83,7 @@ public class Project {
 
     /**
      * Obtiene el estudiante asignado al proyecto, si existe.
-     * 
+     *
      * @return Objeto User del estudiante asignado o null si no hay ninguno.
      */
     public Student getStudent() {
@@ -67,7 +92,7 @@ public class Project {
 
     /**
      * Obtiene el estado actual del proyecto.
-     * 
+     *
      * @return Estado del proyecto.
      */
     public String getState() {
@@ -76,7 +101,7 @@ public class Project {
 
     /**
      * Asigna un estudiante al proyecto y cambia su estado a "ASIGNADO".
-     * 
+     *
      * @param estudiante Usuario con rol de estudiante.
      * @throws IllegalArgumentException si el usuario no es un estudiante.
      */
@@ -87,7 +112,7 @@ public class Project {
 
     /**
      * Establece un nuevo título para el proyecto.
-     * 
+     *
      * @param titulo Nuevo título del proyecto.
      */
     public void setTitulo(String titulo) {
@@ -96,7 +121,7 @@ public class Project {
 
     /**
      * Representación en cadena del proyecto.
-     * 
+     *
      * @return Cadena con información del proyecto.
      */
     @Override
@@ -105,4 +130,6 @@ public class Project {
                 + " | Empresa: " + company.getName()
                 + (student != null ? " | Estudiante: " + student.getName() : "");
     }
+
+    
 }

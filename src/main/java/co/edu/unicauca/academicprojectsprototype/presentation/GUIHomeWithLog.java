@@ -29,13 +29,11 @@ import observer.IObserver;
  */
 public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
 
-    IProjectRepository repositoryCompany = Factory.getInstance().getRepositoryProject("ARRAY");
-    IProjectService serviceProject = new ProjectService(repositoryCompany);
-    private ProjectService project;
     CardLayout cardLayout;
     private CompanyService companyService;
     private StudentService studentService;
     private CoordinatorService coordiService;
+    private ProjectService projectService;
     private String id;
     private String rol;
 
@@ -47,12 +45,13 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         this.companyService = CompanyService.getInstance(null);
         this.studentService = StudentService.getInstance(null);
         this.coordiService = CoordinatorService.getInstance(null);
+        this.projectService = ProjectService.getInstance(null);
         this.id = id;
         this.rol = rol;
-        this.project = new ProjectService(repositoryCompany);
-        project.addObserver(this);
+        projectService.addObserver(this);
         cargarRol(rol);
         cargarInfoUser();
+        fillTableProject();
     }
 
     /**
@@ -488,9 +487,9 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     keyword = keyword.toLowerCase();
     boolean found = false; // Variable para verificar si se encontraron coincidencias
     
-    System.out.println("Total de proyectos: " + repositoryCompany.listAll().size());
+    System.out.println("Total de proyectos: " + projectService.getAllProjects().size());
     
-    for (Project project : repositoryCompany.listAll()) {
+    for (Project project : projectService.getAllProjects()) {
         String title = project.getTitle();
         String description = project.getDescription();
         String company = project.getCompany().getName();
@@ -564,7 +563,9 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         DefaultTableModel modeloProyectos = new DefaultTableModel(new String[]{"Titulo", "descripcion", "Comapañia", "Estudiante encargado"}, 0);
         modeloProyectos.setRowCount(0);
 
-        for (Project project : repositoryCompany.listAll()) {
+        System.out.println(projectService.getAllProjects());
+        
+        for (Project project : projectService.getAllProjects()) {
 
             if (project.getStudent() != null && project.getStudent().getName() != null) {
                 modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getCompany().getName(), project.getStudent().getName()});

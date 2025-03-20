@@ -47,4 +47,7 @@ public class StudentService implements IStudentService {
         return repository.search(code);
     }
 
+    public void setRepository(IStudentRepository repositorioNuevo) {
+        this.repository = repositorioNuevo;
+    }
 }

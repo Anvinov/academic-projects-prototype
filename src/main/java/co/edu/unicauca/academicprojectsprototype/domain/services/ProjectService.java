@@ -12,6 +12,7 @@ import co.edu.unicauca.academicprojectsprototype.domain.services.validationPipel
 import co.edu.unicauca.academicprojectsprototype.domain.services.validationPipelines.ProjectPipeline;
 import co.edu.unicauca.academicprojectsprototype.domain.services.validationPipelines.RegisterStep;
 import co.edu.unicauca.academicprojectsprototype.domain.services.validationPipelines.ValidationStep;
+import java.util.List;
 import observer.Subject;
 
 public class ProjectService extends Subject implements IProjectService {
@@ -61,6 +62,10 @@ public class ProjectService extends Subject implements IProjectService {
         repositorio.listAll().forEach(System.out::println);
     }
 
+     public List<Project> getAllProjects() {
+        return repositorio.listAll();
+    }
+    
     /**
      * Asigna un estudiante a un proyecto específico.
      *

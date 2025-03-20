@@ -38,5 +38,9 @@ public class CompanyService implements ICompanyService {
     public Company search(String id) {
         return repository.Search(id);
     }
+    
+    public Company searchTitle(String title) {
+        return repository.Search(title);
+    }
 
 }

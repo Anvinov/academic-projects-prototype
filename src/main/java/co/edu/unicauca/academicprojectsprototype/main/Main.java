@@ -31,11 +31,13 @@ public class Main {
         ICompanyRepository repositoryCompany = Factory.getInstance().getRepositoryCompany("SQLITE");// Podria ir ARRAYS/SQLITE
         IStudentRepository repositoryStudent = Factory.getInstance().getRepositoryStudent("SQLITE");
         ICoordinatorRepository repositoryCoordi = Factory.getInstance().getRepositoryCoordi("SQLITE");
-        IProjectRepository repositoryProject = Factory.getInstance().getRepositoryProject("SQLITE");
-        
-        ProjectService.getInstance(repositoryProject);
         CompanyService.getInstance(repositoryCompany);
         StudentService.getInstance(repositoryStudent);
+        
+        IProjectRepository repositoryProject = Factory.getInstance().getRepositoryProject("SQLITE");
+        ProjectService.getInstance(repositoryProject);
+
+        
         CoordinatorService coordiService = CoordinatorService.getInstance(repositoryCoordi);
 
         //------- quema de datos Coordi

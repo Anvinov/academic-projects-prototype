@@ -272,7 +272,7 @@ public class GUINewProject extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ocurrió un error inesperado: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
         
-         projectService.listProject();
+         System.out.println(projectService.getAllProjects());
     }//GEN-LAST:event_jBtnPubliProjectActionPerformed
 
    

@@ -4,6 +4,8 @@
  */
 package co.edu.unicauca.academicprojectsprototype.access;
 
+import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
+import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,34 +27,29 @@ public class Factory {
     private Map<String, ICoordinatorRepository> dictionary4;
 
     private Factory() {
-        //------------- empresas
+        // Inicializar diccionarios antes de crear repositorios
         dictionary = new HashMap<>();
-        dictionary.put("SQLITE", new CompanySqliteRepository());
-        
-        //----------------
-        
-        //----------- estudiantes
         dictionary2 = new HashMap<>();
-        dictionary2.put("SQLITE", new StudentSqliteRepository());
-        
-        //-----------
-        
-        //--------- proyectos
         dictionary3 = new HashMap<>();
-        dictionary3.put("ARRAY", new ProjectArrayRepository());
-        dictionary3.put("SQLITE", new ProjectSqliteRepository());
-        
-        //---------------
-        
-        //----------- coordinador
         dictionary4 = new HashMap<>();
+
+        // Inicializar repositorios de Company y Student
+        ICompanyRepository repositoryCompany = new CompanySqliteRepository();
+        IStudentRepository repositoryStudent = new StudentSqliteRepository();
+
+        dictionary.put("SQLITE", repositoryCompany);
+        dictionary2.put("SQLITE", repositoryStudent);
+
+        // Inicializar servicios con repositorios
+        CompanyService companyService = CompanyService.getInstance(repositoryCompany);
+        StudentService studentService = StudentService.getInstance(repositoryStudent);
+
+        // Inicializar repositorios de Project y Coordinator
+        dictionary3.put("ARRAY", new ProjectArrayRepository());
+        dictionary3.put("SQLITE", new ProjectSqliteRepository(companyService, studentService));
+
         dictionary4.put("ARRAY", new CoordinatorArrayRepository());
-         dictionary4.put("SQLITE", new CoordinatorSqliteRepository());
-        //dictionary.put("ARRAYS", new CompanyArraysRepository());
-        
-        
-        
-        
+        dictionary4.put("SQLITE", new CoordinatorSqliteRepository());
     }
 
     /**
