@@ -92,6 +92,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         jCBSelecFilter = new javax.swing.JComboBox<>();
         jFieldSearchProyect = new javax.swing.JTextField();
         jBtnSearch = new javax.swing.JButton();
+        jButtonQuitF = new javax.swing.JButton();
         jPHead = new javax.swing.JPanel();
         lbTitleProyect = new java.awt.Label();
         jPOpcLogin = new javax.swing.JPanel();
@@ -319,7 +320,12 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         jPSearchBar.setLayout(new java.awt.GridBagLayout());
 
         jCBSelecFilter.setBackground(new java.awt.Color(236, 230, 240));
-        jCBSelecFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtro 1", "Filtro 2", "Filtro3" }));
+        jCBSelecFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Por Nombre", "Por Compañia", "Por Estudiante" }));
+        jCBSelecFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBSelecFilterActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
         jPSearchBar.add(jCBSelecFilter, gridBagConstraints);
@@ -328,6 +334,11 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         jFieldSearchProyect.setText("Ingrese un proyecto a buscar...");
         jFieldSearchProyect.setMaximumSize(new java.awt.Dimension(200, 2147483647));
         jFieldSearchProyect.setMinimumSize(new java.awt.Dimension(100, 22));
+        jFieldSearchProyect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFieldSearchProyectActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 300;
@@ -336,9 +347,21 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         jBtnSearch.setBackground(new java.awt.Color(236, 230, 240));
         jBtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search.png"))); // NOI18N
         jBtnSearch.setBorderPainted(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
-        jPSearchBar.add(jBtnSearch, gridBagConstraints);
+        jBtnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnSearchActionPerformed(evt);
+            }
+        });
+        jPSearchBar.add(jBtnSearch, new java.awt.GridBagConstraints());
+
+        jButtonQuitF.setText("Quitar filtro");
+        jButtonQuitF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonQuitFActionPerformed(evt);
+            }
+        });
+        jPSearchBar.add(jButtonQuitF, new java.awt.GridBagConstraints());
+        jButtonQuitF.setVisible(false);
 
         jPHead.setBackground(new java.awt.Color(236, 230, 240));
         jPHead.setForeground(new java.awt.Color(0, 0, 0));
@@ -394,7 +417,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPHead, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
-                .addComponent(jPSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPSearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -427,11 +450,82 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         user.setVisible(true);
     }//GEN-LAST:event_jBtnUsersActionPerformed
 
+
     private void jBtnCoordiSoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCoordiSoliActionPerformed
         RequestCoordinators requesCoordinators = new RequestCoordinators();
         requesCoordinators.setVisible(true);
     }//GEN-LAST:event_jBtnCoordiSoliActionPerformed
 
+    private void jCBSelecFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBSelecFilterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBSelecFilterActionPerformed
+
+    private void jFieldSearchProyectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFieldSearchProyectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFieldSearchProyectActionPerformed
+
+    private void jBtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSearchActionPerformed
+        String filterType = jCBSelecFilter.getSelectedItem().toString();
+        String keyword = jFieldSearchProyect.getText().trim();
+        
+        System.out.println("Filtro seleccionado: " + filterType);
+        System.out.println("Palabra clave ingresada: " + keyword);
+        
+        filterProjects(filterType, keyword);
+    }//GEN-LAST:event_jBtnSearchActionPerformed
+
+    private void jButtonQuitFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonQuitFActionPerformed
+        jFieldSearchProyect.setText(""); // Limpiar el campo de búsqueda
+        jCBSelecFilter.setSelectedIndex(0); // Resetear la selección del filtro
+
+        fillTableProject();
+        jButtonQuitF.setVisible(false);
+    }//GEN-LAST:event_jButtonQuitFActionPerformed
+    
+    public void filterProjects(String filterType, String keyword) {
+    DefaultTableModel modeloFiltrado = new DefaultTableModel(new String[]{"Titulo", "descripcion", "Compañia", "Estudiante encargado"}, 0);
+
+    keyword = keyword.toLowerCase();
+    boolean found = false; // Variable para verificar si se encontraron coincidencias
+    
+    System.out.println("Total de proyectos: " + repositoryCompany.listAll().size());
+    
+    for (Project project : repositoryCompany.listAll()) {
+        String title = project.getTitle();
+        String description = project.getDescription();
+        String company = project.getCompany().getName();
+        String student = (project.getStudent() != null) ? project.getStudent().getName() : "No tiene";
+
+        boolean matches = false;
+        switch (filterType) {
+            case "Por Nombre":
+                matches = title.toLowerCase().contains(keyword);
+                break;
+            case "Por Empresa":
+                matches = company.toLowerCase().contains(keyword);
+                break;
+            case "Por Estudiante":
+                matches = student.toLowerCase().contains(keyword);
+                break;
+            default:
+                matches = true;
+                break;
+        }
+
+        if (matches) {
+            modeloFiltrado.addRow(new Object[]{title, description, company, student});
+            found = true;
+        }
+    }
+    
+    if (!found) {
+        Messages.showMessageDialog("Búsqueda sin resultados", "Error");
+    }
+
+    jTableProjects.setModel(modeloFiltrado);
+    jButtonQuitF.setVisible(true);
+    }
+    
     private void cargarRol(String rol) {
         cardLayout = (CardLayout) jPOptions.getLayout();
         cardLayout.show(jPOptions, rol);
@@ -494,6 +588,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButtonQuitF;
     private javax.swing.JComboBox<String> jCBSelecFilter;
     private javax.swing.JTextField jFieldSearchProyect;
     private javax.swing.JLabel jLTitleProjects;

@@ -1,55 +1,55 @@
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\CompanyArrayRepository.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\CompanySqliteRepository.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\CoordinatorArrayRepository.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\CoordinatorSqliteRepository.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\Factory.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\ICompanyRepository.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\ICoordinatorRepository.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\IProjectRepository.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\IStudentRepository.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\ProjectArrayRepository.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\ProjectSqliteRepository.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\SqliteRepository.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\StudentArrayRepository.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\StudentSqliteRepository.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\entities\Admin.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\entities\Company.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\entities\Coordinator.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\entities\Project.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\entities\Sector.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\entities\Student.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\AdminService.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\CompanyService.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\CoordinatorService.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\IAdminService.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\ICompanyService.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\ICoordinatorService.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\IProjectService.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\IStudentService.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\ProjectService.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\StudentService.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\validateCompany.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\validateStudent.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\NormalizationStep.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\PipelineStep.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\ProjectPipeline.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\RegisterStep.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\ValidationStep.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\infra\Messages.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\main\Main.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\admin\RequestCoordinators.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\admin\Users.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUICompanyUpdateProject.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUICoordinatorProjectsRequests.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithLog.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithoutLog.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUILogIn.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUINewProject.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUIStudentProjectsRequests.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\observer\IObserver.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\observer\Subject.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\State\Coordinator\PendienteCoordi.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\State\Coordinator\RechazadoCoordi.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\State\Coordinator\VerificadoCoordi.java
-C:\Users\lopez\OneDrive\Escritorio\Cosas\Uni\2025 -1\Proyecto Software II\academic-projects-prototype\src\main\java\State\ICoordinatorState.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\CompanyArrayRepository.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\CompanySqliteRepository.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\CoordinatorArrayRepository.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\CoordinatorSqliteRepository.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\Factory.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\ICompanyRepository.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\ICoordinatorRepository.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\IProjectRepository.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\IStudentRepository.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\ProjectArrayRepository.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\ProjectSqliteRepository.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\SqliteRepository.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\StudentArrayRepository.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\access\StudentSqliteRepository.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\entities\Admin.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\entities\Company.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\entities\Coordinator.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\entities\Project.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\entities\Sector.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\entities\Student.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\AdminService.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\CompanyService.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\CoordinatorService.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\IAdminService.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\ICompanyService.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\ICoordinatorService.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\IProjectService.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\IStudentService.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\ProjectService.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\StudentService.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\validateCompany.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\validateStudent.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\NormalizationStep.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\PipelineStep.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\ProjectPipeline.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\RegisterStep.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\ValidationStep.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\infra\Messages.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\main\Main.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\admin\RequestCoordinators.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\admin\Users.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUICompanyUpdateProject.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUICoordinatorProjectsRequests.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithLog.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithoutLog.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUILogIn.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUINewProject.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\co\edu\unicauca\academicprojectsprototype\presentation\GUIStudentProjectsRequests.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\observer\IObserver.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\observer\Subject.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\State\Coordinator\PendienteCoordi.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\State\Coordinator\RechazadoCoordi.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\State\Coordinator\VerificadoCoordi.java
+C:\Users\andre\OneDrive\Documentos\Unicauca\Semestre 6\Ingeniería de Software II\Proyecto\academic-projects-prototype\src\main\java\State\ICoordinatorState.java

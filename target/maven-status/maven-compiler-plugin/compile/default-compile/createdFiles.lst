@@ -12,7 +12,9 @@ co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$9.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$12.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser.class
 co\edu\unicauca\academicprojectsprototype\domain\services\CoordinatorService.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithLog$9.class
 co\edu\unicauca\academicprojectsprototype\access\StudentArrayRepository.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithLog$6.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$3.class
 co\edu\unicauca\academicprojectsprototype\domain\services\IProjectService.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUINewProject$1.class
@@ -48,6 +50,7 @@ co\edu\unicauca\academicprojectsprototype\presentation\GUICoordinatorProjectsReq
 co\edu\unicauca\academicprojectsprototype\presentation\admin\RequestCoordinators$1.class
 co\edu\unicauca\academicprojectsprototype\domain\services\StudentService.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUILogIn$2.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithLog$7.class
 co\edu\unicauca\academicprojectsprototype\presentation\admin\RequestCoordinators.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$7.class
 co\edu\unicauca\academicprojectsprototype\access\CompanyArrayRepository.class
@@ -61,6 +64,7 @@ co\edu\unicauca\academicprojectsprototype\presentation\admin\RequestCoordinators
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$13.class
 co\edu\unicauca\academicprojectsprototype\presentation\admin\Users.class
 co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\PipelineStep.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithLog$8.class
 State\Coordinator\RechazadoCoordi.class
 co\edu\unicauca\academicprojectsprototype\access\IProjectRepository.class
 co\edu\unicauca\academicprojectsprototype\main\Main.class
