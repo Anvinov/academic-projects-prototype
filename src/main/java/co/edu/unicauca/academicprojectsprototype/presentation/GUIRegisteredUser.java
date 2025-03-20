@@ -18,6 +18,7 @@ import co.edu.unicauca.academicprojectsprototype.domain.services.validateCompany
 import co.edu.unicauca.academicprojectsprototype.domain.services.validateStudent;
 import co.edu.unicauca.academicprojectsprototype.infra.Messages;
 import java.awt.CardLayout;
+import javax.swing.JFrame;
 
 /**
  *
@@ -172,7 +173,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
 
         jPContent.setBackground(new java.awt.Color(236, 230, 240));
         jPContent.setForeground(new java.awt.Color(0, 0, 0));
-        jPContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPContent.setLayout(new java.awt.GridBagLayout());
 
         jPSelecRol.setBackground(new java.awt.Color(255, 255, 255));
         jPSelecRol.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -217,7 +218,14 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         });
         jPSelecRol.add(jRbtnCoordi, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
 
-        jPContent.add(jPSelecRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 360, 110));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 2;
+        gridBagConstraints.ipady = 26;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 0);
+        jPContent.add(jPSelecRol, gridBagConstraints);
 
         jPRolInformation.setBackground(new java.awt.Color(255, 255, 255));
         jPRolInformation.setForeground(new java.awt.Color(255, 255, 255));
@@ -363,7 +371,14 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
 
         jPRolInformation.add(jPStudentInformation, "Estudiante");
 
-        jPContent.add(jPRolInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 360, 190));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 18;
+        gridBagConstraints.ipady = 34;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(20, 20, 0, 0);
+        jPContent.add(jPRolInformation, gridBagConstraints);
 
         jPRegisterUser.setBackground(new java.awt.Color(255, 255, 255));
         jPRegisterUser.setLayout(new java.awt.CardLayout());
@@ -1046,7 +1061,15 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
 
         jPRegisterUser.add(jPCompanyRegister, "Empresa");
 
-        jPContent.add(jPRegisterUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 410, 380));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipadx = -79;
+        gridBagConstraints.ipady = -10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 7, 9);
+        jPContent.add(jPRegisterUser, gridBagConstraints);
 
         jPTittleNewUser.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1065,7 +1088,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
             .addComponent(jPTittleNewUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPHead, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE)
             .addComponent(jPButtom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPContent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPContent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1141,6 +1164,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
 
             if (companyService.saveCompany(new Company(nit, nombre, telefono, pagina, sector, email, pass))) {
                 GUIHomeWithLog HomeCompany = new GUIHomeWithLog("Empresa", nit);
+                HomeCompany.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 HomeCompany.setVisible(true);
                 this.dispose();
             }
@@ -1216,8 +1240,9 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
 
             if (studentService.save(new Student(code, name, telefono, email, pass))) {
                 GUIHomeWithLog homeStudent = new GUIHomeWithLog("Estudiante", code);
+                homeStudent.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 homeStudent.setVisible(true);
-                //this.dispose();
+                this.dispose();
             }
 
         }
@@ -1225,6 +1250,7 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
 
     private void jBtnBackSelectUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackSelectUserActionPerformed
         GUIHomeWithoutLog homeWithOutLog = new GUIHomeWithoutLog();
+        homeWithOutLog.setExtendedState(JFrame.MAXIMIZED_BOTH);
         homeWithOutLog.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnBackSelectUserActionPerformed
@@ -1237,11 +1263,12 @@ public class GUIRegisteredUser extends javax.swing.JFrame {
         String email = jFieldEmailCoordi.getText();
         String program = jCBProgramCoordi.getSelectedItem().toString();
         String pass = jFieldPassWordCoordi.getText();
-        String estado = "SinValidar";
 
         if (coordiService.save(new Coordinator(codigo, nombre, tel, email, program, pass))) {
             GUIHomeWithLog HomeCoordi = new GUIHomeWithLog("Coordinador", codigo);
+            HomeCoordi.setExtendedState(JFrame.MAXIMIZED_BOTH);
             HomeCoordi.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_jBtnSaveCoordiActionPerformed
 

@@ -5,11 +5,9 @@
 package co.edu.unicauca.academicprojectsprototype.presentation;
 
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Project;
-import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
-import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ProjectService;
-import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
-import java.awt.CardLayout;
+import co.edu.unicauca.academicprojectsprototype.infra.Messages;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,7 +17,6 @@ import javax.swing.table.DefaultTableModel;
 public class GUIHomeWithoutLog extends javax.swing.JFrame {
 
     private ProjectService projectService;
-    CardLayout cardLayout;
 
     /**
      * Creates new form GUIMenuWithoutLog
@@ -51,6 +48,7 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
         jCBSelecFilter = new javax.swing.JComboBox<>();
         jFieldSearchProyect = new javax.swing.JTextField();
         jBtnSearch = new javax.swing.JButton();
+        jButtonQuitF = new javax.swing.JButton();
         jSeparator = new javax.swing.JSeparator();
         jPContent = new javax.swing.JPanel();
         jLTittleProjects = new javax.swing.JLabel();
@@ -79,7 +77,7 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
         jBtnNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/NewUser.png"))); // NOI18N
         jBtnNewUser.setToolTipText("");
         jBtnNewUser.setBorder(null);
-        jBtnNewUser.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBtnNewUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBtnNewUser.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBtnNewUser.setOpaque(true);
         jBtnNewUser.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -93,7 +91,7 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
         jBtnLoginU.setBackground(new java.awt.Color(236, 230, 240));
         jBtnLoginU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LoginUser2.png"))); // NOI18N
         jBtnLoginU.setBorder(null);
-        jBtnLoginU.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jBtnLoginU.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBtnLoginU.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBtnLoginU.setIconTextGap(5);
         jBtnLoginU.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -112,6 +110,11 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
         lbNewUser.setText("¿ Nuevo usuario ?");
         lbNewUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbNewUser.setOpaque(true);
+        lbNewUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbNewUserMouseClicked(evt);
+            }
+        });
         jPOpcLogin.add(lbNewUser);
 
         lbLogin.setBackground(new java.awt.Color(101, 85, 153));
@@ -119,7 +122,13 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
         lbLogin.setForeground(new java.awt.Color(255, 255, 255));
         lbLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbLogin.setText("Iniciar Sesion");
+        lbLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbLogin.setOpaque(true);
+        lbLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbLoginMouseClicked(evt);
+            }
+        });
         jPOpcLogin.add(lbLogin);
 
         jPHead.add(jPOpcLogin);
@@ -129,7 +138,7 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
         jPSearchBar.setLayout(new java.awt.GridBagLayout());
 
         jCBSelecFilter.setBackground(new java.awt.Color(236, 230, 240));
-        jCBSelecFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtro 1", "Filtro 2", "Filtro3" }));
+        jCBSelecFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Por Nombre", "Por Compañia", "Por Estudiante" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
         jPSearchBar.add(jCBSelecFilter, gridBagConstraints);
@@ -146,9 +155,23 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
         jBtnSearch.setBackground(new java.awt.Color(236, 230, 240));
         jBtnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search.png"))); // NOI18N
         jBtnSearch.setBorderPainted(false);
+        jBtnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnSearchActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         jPSearchBar.add(jBtnSearch, gridBagConstraints);
+
+        jButtonQuitF.setText("Quitar filtro");
+        jButtonQuitF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonQuitFActionPerformed(evt);
+            }
+        });
+        jPSearchBar.add(jButtonQuitF, new java.awt.GridBagConstraints());
+        jButtonQuitF.setVisible(false);
 
         jSeparator.setBackground(new java.awt.Color(236, 230, 240));
         jSeparator.setForeground(new java.awt.Color(204, 204, 204));
@@ -211,6 +234,7 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
         // TODO add your handling code here:
         //GUISelectRegistUser selecU = new GUISelectRegistUser(companyService);
         GUIRegisteredUser selecU = new GUIRegisteredUser();
+        selecU.setExtendedState(JFrame.MAXIMIZED_BOTH);
         selecU.setVisible(true);
         this.dispose();
 
@@ -219,9 +243,42 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
 
     private void jBtnLoginUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLoginUActionPerformed
         GUILogIn login = new GUILogIn();
+        login.setExtendedState(JFrame.MAXIMIZED_BOTH);
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnLoginUActionPerformed
+
+    private void lbNewUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbNewUserMouseClicked
+        GUIRegisteredUser selecU = new GUIRegisteredUser();
+        selecU.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        selecU.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbNewUserMouseClicked
+
+    private void lbLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLoginMouseClicked
+        GUILogIn login = new GUILogIn();
+        login.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbLoginMouseClicked
+
+    private void jBtnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSearchActionPerformed
+        String filterType = jCBSelecFilter.getSelectedItem().toString();
+        String keyword = jFieldSearchProyect.getText().trim();
+
+        System.out.println("Filtro seleccionado: " + filterType);
+        System.out.println("Palabra clave ingresada: " + keyword);
+
+        filterProjects(filterType, keyword);
+    }//GEN-LAST:event_jBtnSearchActionPerformed
+
+    private void jButtonQuitFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonQuitFActionPerformed
+        jFieldSearchProyect.setText(""); // Limpiar el campo de búsqueda
+        jCBSelecFilter.setSelectedIndex(0); // Resetear la selección del filtro
+
+        fillTableProject();
+        jButtonQuitF.setVisible(false);
+    }//GEN-LAST:event_jButtonQuitFActionPerformed
 
     public void fillTableProject() {
         DefaultTableModel modeloProyectos = new DefaultTableModel(new String[]{"Titulo", "descripcion", "Comapañia", "Estudiante encargado"}, 0);
@@ -240,11 +297,55 @@ public class GUIHomeWithoutLog extends javax.swing.JFrame {
         jTableProjects.setModel(modeloProyectos);
     }
 
+    public void filterProjects(String filterType, String keyword) {
+        DefaultTableModel modeloFiltrado = new DefaultTableModel(new String[]{"Titulo", "descripcion", "Compañia", "Estudiante encargado"}, 0);
+
+        keyword = keyword.toLowerCase();
+        boolean found = false; // Variable para verificar si se encontraron coincidencias
+
+        System.out.println("Total de proyectos: " + projectService.getAllProjects().size());
+
+        for (Project project : projectService.getAllProjects()) {
+            String title = project.getTitle();
+            String description = project.getDescription();
+            String company = project.getTituloEmpresa();
+            String student = (project.getStudent() != null) ? project.getStudent().getName() : "No tiene";
+
+            boolean matches = false;
+            switch (filterType) {
+                case "Por Nombre":
+                    matches = title.toLowerCase().contains(keyword);
+                    break;
+                case "Por Empresa":
+                    matches = company.toLowerCase().contains(keyword);
+                    break;
+                case "Por Estudiante":
+                    matches = student.toLowerCase().contains(keyword);
+                    break;
+                default:
+                    matches = true;
+                    break;
+            }
+
+            if (matches) {
+                modeloFiltrado.addRow(new Object[]{title, description, company, student});
+                found = true;
+            }
+        }
+
+        if (!found) {
+            Messages.showMessageDialog("Búsqueda sin resultados", "Error");
+        }
+
+        jTableProjects.setModel(modeloFiltrado);
+        jButtonQuitF.setVisible(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnLoginU;
     private javax.swing.JButton jBtnNewUser;
     private javax.swing.JButton jBtnSearch;
+    private javax.swing.JButton jButtonQuitF;
     private javax.swing.JComboBox<String> jCBSelecFilter;
     private javax.swing.JTextField jFieldSearchProyect;
     private javax.swing.JLabel jLTittleProjects;

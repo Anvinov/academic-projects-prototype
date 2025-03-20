@@ -15,6 +15,7 @@ import co.edu.unicauca.academicprojectsprototype.domain.services.ICoordinatorSer
 import co.edu.unicauca.academicprojectsprototype.domain.services.IStudentService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.StudentService;
 import co.edu.unicauca.academicprojectsprototype.infra.Messages;
+import javax.swing.JFrame;
 
 /**
  *
@@ -244,6 +245,11 @@ public class GUILogIn extends javax.swing.JFrame {
         jBtnNewUser.setForeground(new java.awt.Color(0, 0, 0));
         jBtnNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LoginUser2.png"))); // NOI18N
         jBtnNewUser.setText("¿No tienes cuenta?");
+        jBtnNewUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnNewUserActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
@@ -337,6 +343,7 @@ public class GUILogIn extends javax.swing.JFrame {
             case "Estudiante":
                 if (authenticateStudent(id, pass)) {
                     GUIHomeWithLog Home = new GUIHomeWithLog(rol, id);
+                    Home.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     Home.setVisible(true);
                     this.dispose();
                 }
@@ -344,6 +351,7 @@ public class GUILogIn extends javax.swing.JFrame {
             case "Empresa":
                 if (authenticateCompany(id, pass)) {
                     GUIHomeWithLog Home = new GUIHomeWithLog(rol, id);
+                    Home.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     Home.setVisible(true);
                     this.dispose();
                 }
@@ -351,6 +359,7 @@ public class GUILogIn extends javax.swing.JFrame {
             case "Coordinador":
                 if (authenticateCoordinator(id, pass)) {
                     GUIHomeWithLog Home = new GUIHomeWithLog(rol, id);
+                    Home.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     Home.setVisible(true);
                     this.dispose();
                 }
@@ -358,6 +367,7 @@ public class GUILogIn extends javax.swing.JFrame {
             case "Admin":
                 if (authenticateAdmin(id, pass)) {
                     GUIHomeWithLog Home = new GUIHomeWithLog(rol, id);
+                    Home.setExtendedState(JFrame.MAXIMIZED_BOTH);
                     Home.setVisible(true);
                     this.dispose();
                 }
@@ -378,9 +388,17 @@ public class GUILogIn extends javax.swing.JFrame {
 
     private void jBtnBackHomeWithLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackHomeWithLoginActionPerformed
         GUIHomeWithoutLog HomeSinLogin = new GUIHomeWithoutLog();
+        HomeSinLogin.setExtendedState(JFrame.MAXIMIZED_BOTH);
         HomeSinLogin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnBackHomeWithLoginActionPerformed
+
+    private void jBtnNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNewUserActionPerformed
+        GUIRegisteredUser regisU = new GUIRegisteredUser();
+        regisU.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        regisU.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jBtnNewUserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -2,6 +2,7 @@ co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithLog$3.class
 co\edu\unicauca\academicprojectsprototype\access\ProjectSqliteRepository.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$15.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$6.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithoutLog$4.class
 co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\ProjectPipeline.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithLog.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUILogIn.class
@@ -28,6 +29,7 @@ observer\Subject.class
 co\edu\unicauca\academicprojectsprototype\domain\entities\Coordinator.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$1.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$10.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUILogIn$4.class
 co\edu\unicauca\academicprojectsprototype\presentation\admin\Users$1.class
 co\edu\unicauca\academicprojectsprototype\domain\services\ICoordinatorService.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithLog$4.class
@@ -40,6 +42,7 @@ co\edu\unicauca\academicprojectsprototype\domain\services\IAdminService.class
 co\edu\unicauca\academicprojectsprototype\domain\services\ICompanyService.class
 co\edu\unicauca\academicprojectsprototype\access\CoordinatorSqliteRepository.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUILogIn$3.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithoutLog$3.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUINewProject$3.class
 co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\ValidationStep.class
 co\edu\unicauca\academicprojectsprototype\domain\services\validateStudent.class
@@ -66,6 +69,7 @@ co\edu\unicauca\academicprojectsprototype\presentation\admin\Users.class
 co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\PipelineStep.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithLog$8.class
 State\Coordinator\RechazadoCoordi.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithoutLog$5.class
 co\edu\unicauca\academicprojectsprototype\access\IProjectRepository.class
 co\edu\unicauca\academicprojectsprototype\main\Main.class
 co\edu\unicauca\academicprojectsprototype\domain\services\validationPipelines\NormalizationStep.class
@@ -84,6 +88,7 @@ co\edu\unicauca\academicprojectsprototype\access\ProjectArrayRepository.class
 co\edu\unicauca\academicprojectsprototype\presentation\admin\RequestCoordinators$2.class
 co\edu\unicauca\academicprojectsprototype\domain\entities\Sector.class
 co\edu\unicauca\academicprojectsprototype\domain\services\CompanyService.class
+co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithoutLog$6.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIRegisteredUser$5.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIStudentProjectsRequests.class
 co\edu\unicauca\academicprojectsprototype\presentation\GUIHomeWithLog$1.class

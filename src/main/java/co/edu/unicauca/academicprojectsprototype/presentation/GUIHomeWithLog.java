@@ -20,6 +20,7 @@ import co.edu.unicauca.academicprojectsprototype.infra.Messages;
 import co.edu.unicauca.academicprojectsprototype.presentation.admin.RequestCoordinators;
 import co.edu.unicauca.academicprojectsprototype.presentation.admin.Users;
 import java.awt.CardLayout;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import observer.IObserver;
 
@@ -66,9 +67,6 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
 
         jPSideMenu = new javax.swing.JPanel();
         jLTittleMenu = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jBtnGetOut = new javax.swing.JButton();
         jPContent = new javax.swing.JPanel();
         jPOptions = new javax.swing.JPanel();
@@ -113,35 +111,6 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
         jPSideMenu.add(jLTittleMenu, gridBagConstraints);
-
-        jButton1.setBackground(new java.awt.Color(101, 85, 153));
-        jButton1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("jButton1");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        jPSideMenu.add(jButton1, gridBagConstraints);
-
-        jButton2.setBackground(new java.awt.Color(101, 85, 153));
-        jButton2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("jButton2");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        jPSideMenu.add(jButton2, gridBagConstraints);
-
-        jButton3.setBackground(new java.awt.Color(101, 85, 153));
-        jButton3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("jButton3");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        jPSideMenu.add(jButton3, gridBagConstraints);
 
         jBtnGetOut.setBackground(new java.awt.Color(101, 85, 153));
         jBtnGetOut.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -266,14 +235,13 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         jPOptions.add(jPOpcionAdmin, "Admin");
 
         jPPublis.setBackground(new java.awt.Color(236, 230, 240));
-        jPPublis.setLayout(null);
+        jPPublis.setLayout(new javax.swing.BoxLayout(jPPublis, javax.swing.BoxLayout.Y_AXIS));
 
         jLTitleProjects.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLTitleProjects.setForeground(new java.awt.Color(0, 0, 0));
         jLTitleProjects.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLTitleProjects.setText("Proyectos disponibles");
         jPPublis.add(jLTitleProjects);
-        jLTitleProjects.setBounds(0, 0, 854, 50);
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setForeground(new java.awt.Color(0, 0, 0));
@@ -294,7 +262,6 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         jScrollPane1.setViewportView(jTableProjects);
 
         jPPublis.add(jScrollPane1);
-        jScrollPane1.setBounds(0, 60, 854, 260);
 
         javax.swing.GroupLayout jPContentLayout = new javax.swing.GroupLayout(jPContent);
         jPContent.setLayout(jPContentLayout);
@@ -440,6 +407,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
 
     private void jBtnGetOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGetOutActionPerformed
         GUIHomeWithoutLog HomeWithOutLog = new GUIHomeWithoutLog();
+        HomeWithOutLog.setExtendedState(JFrame.MAXIMIZED_BOTH);
         HomeWithOutLog.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jBtnGetOutActionPerformed
@@ -492,7 +460,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         for (Project project : projectService.getAllProjects()) {
             String title = project.getTitle();
             String description = project.getDescription();
-            String company = project.getCompany().getName();
+            String company = project.getTituloEmpresa();
             String student = (project.getStudent() != null) ? project.getStudent().getName() : "No tiene";
 
             boolean matches = false;
@@ -585,9 +553,6 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     private javax.swing.JButton jBtnSearch;
     private javax.swing.JButton jBtnSolicitudes;
     private javax.swing.JButton jBtnUsers;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonQuitF;
     private javax.swing.JComboBox<String> jCBSelecFilter;
