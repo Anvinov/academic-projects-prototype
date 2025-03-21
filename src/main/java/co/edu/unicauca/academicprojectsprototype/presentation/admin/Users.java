@@ -116,7 +116,7 @@ public class Users extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPContent.setBackground(new java.awt.Color(236, 230, 240));
-        jPContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPContent.setLayout(new javax.swing.BoxLayout(jPContent, javax.swing.BoxLayout.LINE_AXIS));
 
         jPCoordi.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -162,7 +162,7 @@ public class Users extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPContent.add(jPCoordi, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 320, 450));
+        jPContent.add(jPCoordi);
 
         jPSudent.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -208,7 +208,7 @@ public class Users extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPContent.add(jPSudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 320, 450));
+        jPContent.add(jPSudent);
 
         jPCompany.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -254,7 +254,7 @@ public class Users extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPContent.add(jPCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 320, 450));
+        jPContent.add(jPCompany);
 
         jPButtom.setBackground(new java.awt.Color(236, 230, 240));
         jPButtom.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));

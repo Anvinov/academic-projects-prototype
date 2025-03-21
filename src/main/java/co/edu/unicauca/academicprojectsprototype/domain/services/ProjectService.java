@@ -84,6 +84,7 @@ public class ProjectService extends Subject implements IProjectService {
         proyecto.assignStudent(estudiante);
 
         repositorio.update(proyecto); // Guarda los cambios en la BD
+        
 
         // Actualiza el estado del proyecto
         actualizarEstadoProyecto(titulo, "Asignado");

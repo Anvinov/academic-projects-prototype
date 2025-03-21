@@ -10,8 +10,10 @@ import co.edu.unicauca.academicprojectsprototype.access.ICoordinatorRepository;
 import co.edu.unicauca.academicprojectsprototype.access.IProjectRepository;
 import co.edu.unicauca.academicprojectsprototype.access.IStudentRepository;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Admin;
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Company;
 import co.edu.unicauca.academicprojectsprototype.domain.entities.Coordinator;
-import co.edu.unicauca.academicprojectsprototype.domain.services.AdminService;
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Sector;
+import co.edu.unicauca.academicprojectsprototype.domain.entities.Student;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CompanyService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.CoordinatorService;
 import co.edu.unicauca.academicprojectsprototype.domain.services.ProjectService;
@@ -33,30 +35,28 @@ public class Main {
         ICoordinatorRepository repositoryCoordi = Factory.getInstance().getRepositoryCoordi("SQLITE");
         CompanyService.getInstance(repositoryCompany);
         StudentService.getInstance(repositoryStudent);
-        
+
         IProjectRepository repositoryProject = Factory.getInstance().getRepositoryProject("SQLITE");
         ProjectService.getInstance(repositoryProject);
 
-        
-        CoordinatorService coordiService = CoordinatorService.getInstance(repositoryCoordi);
-
         //------- quema de datos Coordi
-        coordiService.save(new Coordinator("1", "SinValidar", "tel", "email", "program", "pass"));
-        coordiService.save(new Coordinator("2", "SinValidar", "tel", "email", "program", "pass"));
+        CoordinatorService coordiService = CoordinatorService.getInstance(repositoryCoordi);
+        coordiService.save(new Coordinator("1", "Julio Ariel", "123", "julioAriel@gmail.com", "Sistemas", "pass"));
+        coordiService.save(new Coordinator("2", "Libardo", "tel", "email", "program", "pass"));
 
+        //---- queda de datos admin
         Admin admin = Admin.getInstance();
         admin.setAdminData("Julian", "123", "123");
 
-        AdminService adminService = AdminService.getInstance();
+        //---- quema de datos Estudiante
+        StudentService studentService = StudentService.getInstance(repositoryStudent);
+        studentService.save(new Student("1", "Julian", "31762", "julianrojas@unicauca.edu.co", "Pili.123"));
+        studentService.save(new Student("2", "Anderson", "31111", "avinasco@unicauca.edu.co", "Pili.123"));
 
-        Coordinator coordi = coordiService.Search("2");
-        System.out.println("Estado antes: " + coordi.getEstado());
-
-        adminService.aceptarCoordinador(coordi);  // Le pasamos el mismo objeto Coordinator
-        coordiService.actualizarEstadoCoordinador(coordi.getCode(), coordi.getEstado());
-        System.out.println("Estado después: " + coordi.getEstado());
-
-        System.out.println("Estado después: " + coordi.getEstado());
+        //--- quema de datos empresa
+        CompanyService companyService = CompanyService.getInstance(repositoryCompany);
+        companyService.saveCompany(new Company("1234567890", "Lacteos popayan", "123", "lacteos.com", Sector.HEALTH, "Lactes@correo.com", "123"));
+        companyService.saveCompany(new Company("1234567891", "Fresas con crema popayan", "1111", "tufresita.com", Sector.SERVICES, "tufresita@correo.com", "123"));
 
         GUIHomeWithoutLog instance = new GUIHomeWithoutLog();
         instance.setExtendedState(JFrame.MAXIMIZED_BOTH);
