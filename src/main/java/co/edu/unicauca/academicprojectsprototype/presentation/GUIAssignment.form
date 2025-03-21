@@ -29,7 +29,6 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPTittleNewUser" alignment="1" max="32767" attributes="0"/>
           <Component id="jPHead" alignment="1" max="32767" attributes="0"/>
-          <Component id="jPButtom" alignment="1" max="32767" attributes="0"/>
           <Component id="jPContent" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
@@ -41,9 +40,7 @@
               <Component id="jPTittleNewUser" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPContent" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPButtom" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,33 +66,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Sistema gestor de proyectos academicos"/>
           </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPanel" name="jPButtom">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="e6" red="ec" type="rgb"/>
-        </Property>
-      </Properties>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
-        <Property name="alignment" type="int" value="0"/>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JButton" name="jBtnBackSelectUser">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f0" green="e6" red="ec" type="rgb"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/back.png"/>
-            </Property>
-            <Property name="borderPainted" type="boolean" value="false"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnBackSelectUserActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

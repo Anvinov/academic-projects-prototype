@@ -558,12 +558,13 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         DefaultTableModel modeloProyectos = new DefaultTableModel(new String[]{"Titulo", "descripcion", "Comapañia", "Estudiante encargado"}, 0);
         modeloProyectos.setRowCount(0);
 
-        System.out.println(projectService.getAllProjects());
-
         for (Project project : projectService.getAllProjects()) {
 
-            if (project.getStudent() != null && project.getStudent().getName() != null) {
-                modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getTituloEmpresa(), project.getStudent().getName()});
+            String name2 = project.getNombreEstudiante();
+            System.out.println(name2);
+
+            if (!(project.getNombreEstudiante().equals(""))) {
+                modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getTituloEmpresa(), project.getNombreEstudiante()});
             } else {
                 modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getTituloEmpresa(), "no tiene"});
             }

@@ -44,8 +44,6 @@ public class GUIAssignment extends javax.swing.JFrame implements IObserver{
         RadiobuttonGroupSelecRol = new javax.swing.ButtonGroup();
         jPHead = new javax.swing.JPanel();
         lbTitleProyect = new java.awt.Label();
-        jPButtom = new javax.swing.JPanel();
-        jBtnBackSelectUser = new javax.swing.JButton();
         jPContent = new javax.swing.JPanel();
         jPStudent = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -71,19 +69,6 @@ public class GUIAssignment extends javax.swing.JFrame implements IObserver{
         lbTitleProyect.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         lbTitleProyect.setText("Sistema gestor de proyectos academicos");
         jPHead.add(lbTitleProyect);
-
-        jPButtom.setBackground(new java.awt.Color(236, 230, 240));
-        jPButtom.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-
-        jBtnBackSelectUser.setBackground(new java.awt.Color(236, 230, 240));
-        jBtnBackSelectUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/back.png"))); // NOI18N
-        jBtnBackSelectUser.setBorderPainted(false);
-        jBtnBackSelectUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnBackSelectUserActionPerformed(evt);
-            }
-        });
-        jPButtom.add(jBtnBackSelectUser);
 
         jPContent.setBackground(new java.awt.Color(236, 230, 240));
         jPContent.setForeground(new java.awt.Color(0, 0, 0));
@@ -270,7 +255,6 @@ public class GUIAssignment extends javax.swing.JFrame implements IObserver{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPTittleNewUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPHead, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPButtom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPContent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -281,20 +265,11 @@ public class GUIAssignment extends javax.swing.JFrame implements IObserver{
                 .addComponent(jPTittleNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jBtnBackSelectUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBackSelectUserActionPerformed
-        GUIHomeWithoutLog homeWithOutLog = new GUIHomeWithoutLog();
-        homeWithOutLog.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        homeWithOutLog.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jBtnBackSelectUserActionPerformed
 
     private void jBtnSaveProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSaveProjectActionPerformed
         projectService.assignProject(ProjectoSeleccionado.getTitle(), EstudianteSeleccionado);
@@ -345,9 +320,12 @@ public class GUIAssignment extends javax.swing.JFrame implements IObserver{
         modeloProyectos.setRowCount(0);
 
         for (Project project : projectService.getAllProjects()) {
+    
+            String name2 = project.getNombreEstudiante();
+            System.out.println(name2);
 
-            if (project.getStudent() != null && project.getStudent().getName() != null) {
-                modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getTituloEmpresa(), project.getStudent().getName()});
+            if (!(project.getNombreEstudiante().equals(""))) {
+                modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getTituloEmpresa(), project.getNombreEstudiante()});
             } else {
                 modeloProyectos.addRow(new Object[]{project.getTitle(), project.getDescription(), project.getTituloEmpresa(), "no tiene"});
             }
@@ -357,14 +335,12 @@ public class GUIAssignment extends javax.swing.JFrame implements IObserver{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup RadiobuttonGroupSelecRol;
-    private javax.swing.JButton jBtnBackSelectUser;
     private javax.swing.JButton jBtnSaveProject;
     private javax.swing.JLabel jLStudent;
     private javax.swing.JLabel jLTittleNewUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelNameProject;
-    private javax.swing.JPanel jPButtom;
     private javax.swing.JPanel jPContent;
     private javax.swing.JPanel jPHead;
     private javax.swing.JPanel jPProjects;

@@ -82,15 +82,20 @@ public class ProjectService extends Subject implements IProjectService {
         }
 
         proyecto.assignStudent(estudiante);
+
         repositorio.update(proyecto); // Guarda los cambios en la BD
 
         // Actualiza el estado del proyecto
         actualizarEstadoProyecto(titulo, "Asignado");
-
+        
         System.out.println("Proyecto asignado a: " + estudiante.getName());
         Messages.showMessageDialog("Proyecto asignado a: " + estudiante.getName(), "Éxito");
-
+        
+        estudiante.setName(estudiante.getName());
+        proyecto.setNombreEstudiante(proyecto.getStudent().getName());
+        System.out.println("Se seteo el nombre estudiante a: " + proyecto.getStudent().getName());
         notifyObservers();
+        proyecto.setStudent(estudiante);
     }
 
     public static ProjectService getInstance(IProjectRepository repositorio) {
@@ -109,7 +114,7 @@ public class ProjectService extends Subject implements IProjectService {
 
         if (proyecto != null) {
             proyecto.setState(nuevoEstado); // Cambia el estado en memoria
-            repositorio.update(proyecto);  // Guarda en la BD
+            //repositorio.update(proyecto);  // Guarda en la BD
             System.out.println("Estado del proyecto actualizado a: " + nuevoEstado);
             notifyObservers();
         } else {

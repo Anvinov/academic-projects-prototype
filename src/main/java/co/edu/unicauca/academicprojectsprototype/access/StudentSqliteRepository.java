@@ -113,7 +113,7 @@ public class StudentSqliteRepository extends SqliteRepository implements IStuden
 
     @Override
     public void initializeDatabase() {
-        String sql = "CREATE TABLE IF NOT EXISTS student ("
+        String sql = "CREATE TABLE IF NOT EXISTS STUDENT ("
                 + "code TEXT PRIMARY KEY, "
                 + "name TEXT NOT NULL, "
                 + "phone TEXT, "

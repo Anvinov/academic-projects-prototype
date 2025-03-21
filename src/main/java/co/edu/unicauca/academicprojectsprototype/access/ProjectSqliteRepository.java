@@ -73,7 +73,7 @@ public class ProjectSqliteRepository extends SqliteRepository implements IProjec
             if (newProject.getStudent() == null) {
                 pstmt.setString(4, "No tiene");
             } else {
-                pstmt.setString(4, newProject.getStudent().toString());
+                pstmt.setString(4, newProject.getStudent().getName());
             }
 
             pstmt.setString(5, newProject.getState());
@@ -106,7 +106,7 @@ public class ProjectSqliteRepository extends SqliteRepository implements IProjec
                 newProject.setTitulo(rs.getString("TITLE"));
                 newProject.setDescription(rs.getString("DESCRIPTION"));
                 newProject.setTituloEmpresa(rs.getString("COMPANY"));
-                newProject.setNombreEstudiante("STUDENT");
+                newProject.setNombreEstudiante(rs.getString("STUDENT"));
                 newProject.setState(rs.getString("STATE"));
                 projects.add(newProject);
             }
@@ -156,7 +156,7 @@ public class ProjectSqliteRepository extends SqliteRepository implements IProjec
             this.connect();
             String sql = "UPDATE PROJECT SET STUDENT = ?, STATE = ? WHERE TITLE = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, proyecto.getNombreEstudiante());
+            pstmt.setString(1, proyecto.getStudent().getName());
             pstmt.setString(2, proyecto.getState());
             pstmt.setString(3, proyecto.getTitle());
             pstmt.executeUpdate();
