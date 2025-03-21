@@ -23,8 +23,8 @@ public class SqliteRepository {
         // SQLite connection string
         //String url = "jdbc:sqlite:.\\\\miDatabase.db";
         //String url = "jdbc:sqlite:C:\\Users\\anvig\\OneDrive\\Documentos\\NetBeansProjects\\Principios SOLID\\miDatabase.db";
-        //String url = "jdbc:sqlite:C:\\Users\\lopez\\OneDrive\\Escritorio\\Cosas\\Uni\\2025 -1\\L. Software II\\Proyecto\\AcademicProjects\\DataBase\\MyDataBase.db";
-        String url = "jdbc:sqlite:C:/Users/andre/OneDrive/Documentos/Unicauca/Semestre 6/Ingeniería de Software II/Proyecto/academic-projects-prototype/database.db";
+        String url = "jdbc:sqlite:C:\\Users\\lopez\\OneDrive\\Escritorio\\Cosas\\Uni\\2025 -1\\L. Software II\\Proyecto\\AcademicProjects\\DataBase\\MyDataBase.db";
+        //String url = "jdbc:sqlite:C:/Users/andre/OneDrive/Documentos/Unicauca/Semestre 6/Ingeniería de Software II/Proyecto/academic-projects-prototype/database.db";
         //String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "\\database\\database.db";
         
         

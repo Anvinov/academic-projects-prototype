@@ -32,4 +32,6 @@ public interface IProjectRepository {
      * @return El objeto Project si se encuentra, de lo contrario, null.
      */
     Project Search(String title);
+    
+    boolean update(Project proyect);
 }

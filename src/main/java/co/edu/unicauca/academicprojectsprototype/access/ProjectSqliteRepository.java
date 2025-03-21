@@ -121,7 +121,51 @@ public class ProjectSqliteRepository extends SqliteRepository implements IProjec
 
     @Override
     public Project Search(String title) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("Buscando proyecto con nombre: " + title);
+        try {
+            this.connect();
+            String sql = "SELECT TITLE, DESCRIPTION, COMPANY, STUDENT, STATE FROM PROJECT WHERE TITLE = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, title);
+            ResultSet rs = stmt.executeQuery();
+
+            if (!rs.next()) {
+                System.out.println("No se encontró proyecto con el nombre: " + title);
+                return null;
+            }
+
+            Project SearchProject = new Project();
+            SearchProject.setTitulo(rs.getString("TITLE"));
+            SearchProject.setDescription(rs.getString("DESCRIPTION"));
+            SearchProject.setTituloEmpresa(rs.getString("COMPANY"));
+            SearchProject.setNombreEstudiante("STUDENT");
+            SearchProject.setState(rs.getString("STATE"));
+
+            this.disconnect();
+            return SearchProject;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CompanyService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    @Override
+    public boolean update(Project proyecto) {
+        try {
+            this.connect();
+            String sql = "UPDATE PROJECT SET STUDENT = ?, STATE = ? WHERE TITLE = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, proyecto.getNombreEstudiante());
+            pstmt.setString(2, proyecto.getState());
+            pstmt.setString(3, proyecto.getTitle());
+            pstmt.executeUpdate();
+            this.disconnect();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("Error actualizando el proyecto: " + ex.getMessage());
+        }
+        return false;
     }
 
 }

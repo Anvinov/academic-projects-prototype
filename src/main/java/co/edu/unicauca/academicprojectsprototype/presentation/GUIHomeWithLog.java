@@ -468,7 +468,8 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     }//GEN-LAST:event_jButtonQuitFActionPerformed
 
     private void jBtnSolicitudesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSolicitudesActionPerformed
-        // TODO add your handling code here:
+        GUIAssignment asignar = new GUIAssignment();
+        asignar.setVisible(true);
     }//GEN-LAST:event_jBtnSolicitudesActionPerformed
 
     private void jBtnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAsignarActionPerformed

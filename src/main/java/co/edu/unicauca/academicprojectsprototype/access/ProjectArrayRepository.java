@@ -50,6 +50,11 @@ public class ProjectArrayRepository implements IProjectRepository {
         return null;
     }
 
+    @Override
+    public boolean update(Project proyect) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     
 
 }

@@ -12,6 +12,7 @@ import co.edu.unicauca.academicprojectsprototype.domain.services.validationPipel
 import co.edu.unicauca.academicprojectsprototype.domain.services.validationPipelines.ProjectPipeline;
 import co.edu.unicauca.academicprojectsprototype.domain.services.validationPipelines.RegisterStep;
 import co.edu.unicauca.academicprojectsprototype.domain.services.validationPipelines.ValidationStep;
+import co.edu.unicauca.academicprojectsprototype.infra.Messages;
 import java.util.List;
 import observer.Subject;
 
@@ -62,10 +63,10 @@ public class ProjectService extends Subject implements IProjectService {
         repositorio.listAll().forEach(System.out::println);
     }
 
-     public List<Project> getAllProjects() {
+    public List<Project> getAllProjects() {
         return repositorio.listAll();
     }
-    
+
     /**
      * Asigna un estudiante a un proyecto específico.
      *
@@ -79,8 +80,17 @@ public class ProjectService extends Subject implements IProjectService {
             System.out.println("Proyecto no encontrado.");
             return;
         }
+
         proyecto.assignStudent(estudiante);
+        repositorio.update(proyecto); // Guarda los cambios en la BD
+
+        // Actualiza el estado del proyecto
+        actualizarEstadoProyecto(titulo, "Asignado");
+
         System.out.println("Proyecto asignado a: " + estudiante.getName());
+        Messages.showMessageDialog("Proyecto asignado a: " + estudiante.getName(), "Éxito");
+
+        notifyObservers();
     }
 
     public static ProjectService getInstance(IProjectRepository repositorio) {
@@ -88,6 +98,23 @@ public class ProjectService extends Subject implements IProjectService {
             instance = new ProjectService(repositorio);
         }
         return instance;
+    }
+
+    public Project searchTitle(String title) {
+        return repositorio.Search(title);
+    }
+
+    public void actualizarEstadoProyecto(String titulo, String nuevoEstado) {
+        Project proyecto = repositorio.Search(titulo);
+
+        if (proyecto != null) {
+            proyecto.setState(nuevoEstado); // Cambia el estado en memoria
+            repositorio.update(proyecto);  // Guarda en la BD
+            System.out.println("Estado del proyecto actualizado a: " + nuevoEstado);
+            notifyObservers();
+        } else {
+            System.out.println("Proyecto no encontrado.");
+        }
     }
 
 }
