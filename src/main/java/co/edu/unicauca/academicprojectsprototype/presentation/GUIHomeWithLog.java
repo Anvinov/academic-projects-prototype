@@ -75,6 +75,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         jBtnMyPubli = new javax.swing.JButton();
         jPOpcionCoordi = new javax.swing.JPanel();
         jBtnSolicitudes = new javax.swing.JButton();
+        jBtnAsignar = new javax.swing.JButton();
         jPOpcionStudent = new javax.swing.JPanel();
         jPOpcionAdmin = new javax.swing.JPanel();
         jBtnUsers = new javax.swing.JButton();
@@ -170,26 +171,43 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         jBtnSolicitudes.setText("Solicitudes");
         jBtnSolicitudes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBtnSolicitudes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnSolicitudes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnSolicitudesActionPerformed(evt);
+            }
+        });
+
+        jBtnAsignar.setBackground(new java.awt.Color(101, 85, 153));
+        jBtnAsignar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jBtnAsignar.setForeground(new java.awt.Color(255, 255, 255));
+        jBtnAsignar.setText("Asignar Proyecto");
+        jBtnAsignar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBtnAsignar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBtnAsignar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAsignarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPOpcionCoordiLayout = new javax.swing.GroupLayout(jPOpcionCoordi);
         jPOpcionCoordi.setLayout(jPOpcionCoordiLayout);
         jPOpcionCoordiLayout.setHorizontalGroup(
             jPOpcionCoordiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 854, Short.MAX_VALUE)
-            .addGroup(jPOpcionCoordiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPOpcionCoordiLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jBtnSolicitudes)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jPOpcionCoordiLayout.createSequentialGroup()
+                .addGap(271, 271, 271)
+                .addComponent(jBtnSolicitudes)
+                .addGap(54, 54, 54)
+                .addComponent(jBtnAsignar)
+                .addContainerGap(272, Short.MAX_VALUE))
         );
         jPOpcionCoordiLayout.setVerticalGroup(
             jPOpcionCoordiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 90, Short.MAX_VALUE)
-            .addGroup(jPOpcionCoordiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPOpcionCoordiLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jBtnSolicitudes)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jPOpcionCoordiLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPOpcionCoordiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jBtnSolicitudes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBtnAsignar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jPOptions.add(jPOpcionCoordi, "Coordinador");
@@ -449,6 +467,14 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
         jButtonQuitF.setVisible(false);
     }//GEN-LAST:event_jButtonQuitFActionPerformed
 
+    private void jBtnSolicitudesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSolicitudesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnSolicitudesActionPerformed
+
+    private void jBtnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAsignarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnAsignarActionPerformed
+
     public void filterProjects(String filterType, String keyword) {
         DefaultTableModel modeloFiltrado = new DefaultTableModel(new String[]{"Titulo", "descripcion", "Compañia", "Estudiante encargado"}, 0);
 
@@ -545,6 +571,7 @@ public class GUIHomeWithLog extends javax.swing.JFrame implements IObserver {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnAsignar;
     private javax.swing.JButton jBtnCoordiSoli;
     private javax.swing.JButton jBtnGetOut;
     private javax.swing.JButton jBtnLoginU;
